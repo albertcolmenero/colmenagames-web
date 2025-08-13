@@ -29,7 +29,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="py-20 lg:py-32 bg-gradient-to-b from-white via-secondary/30 to-white overflow-hidden">
+    <section id="about" className="py-20 lg:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -48,7 +48,7 @@ const About = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Expertos en diseñar{' '}
-            <span className="bg-gradient-to-r from-primary via-accent to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               momentos inolvidables
             </span>{' '}
             que conectan personas
@@ -107,58 +107,19 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Visual Element - Animated Hexagon Grid */}
+          {/* Visual Element - ColmenaGames Logo */}
           <motion.div
-            className="relative"
+            className="flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <div className="relative w-full max-w-md mx-auto">
-              {/* Central Logo/Icon */}
-              <motion.div
-                className="absolute inset-0 flex items-center justify-center z-10"
-                animate={{
-                  rotate: [0, 360],
-                }}
-                transition={{
-                  duration: 20,
-                  repeat: Infinity,
-                  ease: "linear"
-                }}
-              >
-                <div className="w-32 h-32 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center shadow-2xl">
-                  <Users className="w-16 h-16 text-white" />
-                </div>
-              </motion.div>
-
-              {/* Orbiting Elements */}
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  className="absolute w-20 h-20 bg-white rounded-full shadow-lg flex items-center justify-center border-2 border-primary/20"
-                  style={{
-                    top: '50%',
-                    left: '50%',
-                    transformOrigin: '0 0',
-                  }}
-                  animate={{
-                    rotate: [0, 360],
-                    x: [0, Math.cos(index * Math.PI / 2) * 120],
-                    y: [0, Math.sin(index * Math.PI / 2) * 120],
-                  }}
-                  transition={{
-                    duration: 15,
-                    repeat: Infinity,
-                    ease: "linear",
-                    delay: index * 0.5
-                  }}
-                >
-                  {React.createElement(feature.icon, { className: "w-8 h-8 text-primary" })}
-                </motion.div>
-              ))}
-            </div>
+            <img 
+              src="/colmena-experienceBIG.png" 
+              alt="Colmena Experience" 
+              className="w-auto h-auto max-w-full max-h-96 object-contain"
+            />
           </motion.div>
         </div>
 

@@ -79,7 +79,7 @@ const Services = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             ¿Qué{' '}
-            <span className="bg-gradient-to-r from-primary via-accent to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Ofrecemos?
             </span>
           </motion.h2>
@@ -202,7 +202,7 @@ const Services = () => {
             </div>
 
             {/* Interactive Visual */}
-            <div className="relative bg-gradient-to-br from-primary/5 via-accent/5 to-orange-500/5 p-8 rounded-3xl overflow-hidden">
+            <div className="relative bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 p-8 rounded-3xl overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-foreground mb-4">
                   Para cada momento especial

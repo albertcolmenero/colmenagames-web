@@ -121,7 +121,7 @@ const Testimonials = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Lo que dicen{' '}
-            <span className="bg-gradient-to-r from-primary via-accent to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               nuestros clientes
             </span>
           </motion.h2>

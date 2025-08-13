@@ -99,7 +99,7 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <Mail className="w-5 h-5 text-primary" />
-                <span>hola@colmenaexperience.com</span>
+                <span>maria@bluelife-ventures.com</span>
               </motion.div>
               
               <motion.div
@@ -107,7 +107,7 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <Phone className="w-5 h-5 text-primary" />
-                <span>+34 XXX XXX XXX</span>
+                <span>+34 623 286 976</span>
               </motion.div>
               
               <motion.div
@@ -115,7 +115,7 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <MapPin className="w-5 h-5 text-primary" />
-                <span>Madrid, España</span>
+                <span>Barcelona, España</span>
               </motion.div>
             </div>
           </motion.div>
@@ -194,7 +194,7 @@ const Footer = () => {
               ))}
             </div>
 
-            {/* Newsletter Signup */}
+            {/*
             <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
               <h5 className="font-semibold text-white mb-3">¿Quieres estar al día?</h5>
               <p className="text-gray-300 text-sm mb-4">
@@ -214,7 +214,7 @@ const Footer = () => {
                   Suscribirse
                 </motion.button>
               </div>
-            </div>
+            </div> Newsletter Signup */}
           </motion.div>
         </div>
       </div>
@@ -232,7 +232,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <span>© 2024 Colmena Experience. Todos los derechos reservados.</span>
+              <span>© 2025 Colmena Experience. Todos los derechos reservados.</span>
               <Heart className="w-4 h-4 text-primary" />
             </motion.div>
 

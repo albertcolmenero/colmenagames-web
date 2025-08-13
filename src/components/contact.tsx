@@ -29,6 +29,7 @@ const Contact = () => {
   
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState('')
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -37,27 +38,82 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    e.stopPropagation()
     setIsSubmitting(true)
+    setError('')
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        groupType: '',
-        participants: '',
-        date: '',
-        message: ''
+    try {
+      // Format message with all form data
+      const formattedMessage = `
+Nueva solicitud de propuesta - ColmenaGames
+
+DATOS DE CONTACTO:
+• Nombre: ${formData.name}
+• Email: ${formData.email}
+• Teléfono: ${formData.phone || 'No proporcionado'}
+
+INFORMACIÓN DEL GRUPO:
+• Tipo de grupo: ${formData.groupType || 'No especificado'}
+• Número de participantes: ${formData.participants || 'No especificado'}
+• Fecha aproximada: ${formData.date || 'No especificada'}
+
+MENSAJE ADICIONAL:
+${formData.message || 'Sin mensaje adicional'}
+      `.trim()
+
+      // Send to Formcarry
+      const response = await fetch("https://formcarry.com/s/emyGEYl2TiY", {
+        method: 'POST',
+        headers: { 
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ 
+          name: formData.name,
+          email: formData.email,
+          message: formattedMessage,
+          phone: formData.phone,
+          groupType: formData.groupType,
+          participants: formData.participants,
+          date: formData.date
+        })
       })
-    }, 3000)
+
+      const result = await response.json()
+      
+      if (result.code === 200) {
+        setIsSubmitting(false)
+        setIsSubmitted(true)
+        
+        // Reset form after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false)
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            groupType: '',
+            participants: '',
+            date: '',
+            message: ''
+          })
+        }, 5000)
+      } else if (result.code === 422) {
+        // Field validation failed
+        setError(result.message)
+        setIsSubmitting(false)
+      } else {
+        // Other error from formcarry
+        setError(result.message)
+        setIsSubmitting(false)
+      }
+      
+    } catch (error) {
+      // Request related error
+      console.error('Error sending form:', error)
+      setError(error instanceof Error ? error.message : 'Error al enviar el mensaje')
+      setIsSubmitting(false)
+    }
   }
 
   const groupTypes = [
@@ -73,19 +129,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      value: "hola@colmenaexperience.com",
+      value: "maria@bluelife-ventures.com",
       description: "Te respondemos en menos de 24h"
     },
     {
       icon: Phone,
       title: "Teléfono",
-      value: "+34 XXX XXX XXX",
+      value: "+34 623 286 976",
       description: "Disponible de 9:00 a 19:00"
     },
     {
       icon: MapPin,
       title: "Ubicación",
-      value: "Madrid, España",
+      value: "Barcelona, España",
       description: "Experiencias en toda España"
     }
   ]
@@ -110,7 +166,7 @@ const Contact = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             ¿Te imaginas tu grupo{' '}
-            <span className="bg-gradient-to-r from-primary via-accent to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               viviendo una experiencia así?
             </span>
           </motion.h2>
@@ -312,6 +368,11 @@ const Contact = () => {
                       </Button>
                     </motion.div>
 
+                    {error && (
+                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mt-4">
+                        <p className="text-sm">{error}</p>
+                      </div>
+                    )}
                     <p className="text-sm text-muted-foreground text-center mt-4">
                       * Te responderemos en menos de 24 horas con una propuesta personalizada
                     </p>
@@ -379,7 +440,7 @@ const Contact = () => {
 
             {/* Process Info */}
             <motion.div
-              className="bg-gradient-to-br from-primary/5 via-accent/5 to-orange-500/10 p-8 rounded-3xl border border-primary/20"
+              className="bg-gradient-to-br from-primary/5 via-accent/5 to-primary/10 p-8 rounded-3xl border border-primary/20"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

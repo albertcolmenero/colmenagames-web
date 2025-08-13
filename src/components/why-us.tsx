@@ -74,7 +74,7 @@ const WhyUs = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Más que juegos.{' '}
-            <span className="bg-gradient-to-r from-primary via-accent to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Momentos que dejan huella
             </span>
           </motion.h2>
@@ -175,7 +175,7 @@ const WhyUs = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <div className="bg-gradient-to-r from-primary via-accent to-orange-500 p-12 rounded-3xl text-white relative overflow-hidden">
+          <div className="bg-gradient-to-r from-primary via-accent to-primary p-12 rounded-3xl text-white relative overflow-hidden">
             
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">

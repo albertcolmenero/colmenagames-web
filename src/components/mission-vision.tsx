@@ -25,7 +25,7 @@ const MissionVision = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Nuestra{' '}
-            <span className="bg-gradient-to-r from-primary via-accent to-orange-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               Misión y Visión
             </span>
           </motion.h2>
@@ -99,7 +99,7 @@ const MissionVision = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-orange-500/10 p-8 lg:p-12 rounded-3xl border-2 border-primary/20 relative overflow-hidden">
+            <div className="bg-gradient-to-br from-primary/5 via-accent/5 to-primary/10 p-8 lg:p-12 rounded-3xl border-2 border-primary/20 relative overflow-hidden">
               
               {/* Background Pattern */}
               <div className="absolute bottom-0 left-0 w-40 h-40 bg-gradient-to-tr from-accent/10 to-transparent rounded-tr-full" />
@@ -107,7 +107,7 @@ const MissionVision = () => {
               <div className="relative z-10">
                 {/* Icon */}
                 <motion.div
-                  className="w-20 h-20 bg-gradient-to-br from-accent to-orange-500 rounded-3xl flex items-center justify-center mb-8 shadow-xl"
+                  className="w-20 h-20 bg-gradient-to-br from-accent to-primary rounded-3xl flex items-center justify-center mb-8 shadow-xl"
                   whileHover={{ scale: 1.1, rotate: -5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 17 }}
                 >

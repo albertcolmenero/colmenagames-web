@@ -22,7 +22,7 @@ const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-orange-600">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary">
         <div className="absolute inset-0 bg-black/20" />
         
         {/* Animated Geometric Shapes */}
@@ -156,7 +156,7 @@ const Hero = () => {
             <Button
               onClick={() => scrollToSection('#about')}
               variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 font-semibold px-6 py-4 rounded-full backdrop-blur-sm transition-all duration-300"
+              className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group"
               size="lg"
             >
               Conoce más sobre nosotros
@@ -215,7 +215,7 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Scroll Indicator */}
+      {/* 
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{
@@ -240,7 +240,7 @@ const Hero = () => {
             }}
           />
         </div>
-      </motion.div>
+      </motion.div>Scroll Indicator */}
     </section>
   )
 }
