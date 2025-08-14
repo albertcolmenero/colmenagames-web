@@ -91,8 +91,8 @@ const About = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
                 Diseñamos experiencias que van más allá del entretenimiento: creamos momentos que transforman equipos, 
-                fortalecen vínculos y generan recuerdos duraderos. Desde <strong className="text-foreground">claustros educativos y equipos corporativos</strong> 
-                hasta celebraciones familiares y eventos sociales.
+                fortalecen vínculos y generan recuerdos duraderos. Desde <strong className="text-foreground">claustros educativos y equipos corporativos </strong> 
+                 hasta celebraciones familiares y eventos sociales.
               </motion.p>
               
               <motion.p

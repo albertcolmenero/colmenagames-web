@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { 
@@ -9,13 +9,13 @@ import {
   MapPin, 
   Heart, 
   Instagram,
-  Linkedin,
-  Facebook,
-  Twitter,
   ArrowUp
 } from 'lucide-react'
+import { LegalContent } from '@/components/legal-content'
 
 const Footer = () => {
+  const [activeDocument, setActiveDocument] = useState<string | null>(null)
+  
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -53,9 +53,9 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Instagram, name: 'Instagram', href: '#', color: 'hover:text-pink-500' },
-    { icon: Linkedin, name: 'LinkedIn', href: '#', color: 'hover:text-blue-600' },
+    /*{ icon: Linkedin, name: 'LinkedIn', href: '#', color: 'hover:text-blue-600' },
     { icon: Facebook, name: 'Facebook', href: '#', color: 'hover:text-blue-500' },
-    { icon: Twitter, name: 'Twitter', href: '#', color: 'hover:text-sky-500' }
+    { icon: Twitter, name: 'Twitter', href: '#', color: 'hover:text-sky-500' }*/
   ]
 
   return (
@@ -244,14 +244,25 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              {footerLinks.legal.map((link, index) => (
-                <button
-                  key={index}
-                  className="text-gray-400 hover:text-primary transition-colors"
-                >
-                  {link}
-                </button>
-              ))}
+              {footerLinks.legal.map((link, index) => {
+                const documentType = link === 'Aviso Legal' 
+                  ? 'aviso-legal'
+                  : link === 'Política de Privacidad' 
+                  ? 'politica-privacidad'
+                  : link === 'Términos y Condiciones' 
+                  ? 'terminos-condiciones'
+                  : 'politica-cookies'
+                
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setActiveDocument(documentType)}
+                    className="text-gray-400 hover:text-primary transition-colors"
+                  >
+                    {link}
+                  </button>
+                )
+              })}
             </motion.div>
 
             {/* Back to Top */}
@@ -297,6 +308,12 @@ const Footer = () => {
           />
         ))}
       </div>
+      
+      {/* Legal Content Modal */}
+      <LegalContent 
+        documentType={activeDocument}
+        onClose={() => setActiveDocument(null)}
+      />
     </footer>
   )
 }
