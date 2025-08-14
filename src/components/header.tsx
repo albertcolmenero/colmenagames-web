@@ -38,7 +38,7 @@ const Header = () => {
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/95 backdrop-blur-md shadow-lg'
+          ? 'bg-white backdrop-blur-md shadow-lg'
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -50,7 +50,7 @@ const Header = () => {
           {/* Logo */}
           <motion.div
             className={`flex-shrink-0 rounded-lg transition-all duration-300 ${
-              !isScrolled ? 'bg-white/90 backdrop-blur-sm shadow-lg px-3 py-2' : ''
+              !isScrolled ? 'bg-white backdrop-blur-sm shadow-lg px-3 py-2' : ''
             }`}
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
