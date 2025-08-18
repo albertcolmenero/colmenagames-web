@@ -4,63 +4,65 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import { Quote, Star, ChevronLeft, ChevronRight, Building2, Users, Heart } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const t = useTranslations('testimonials')
 
   const testimonials = [
     {
       id: 1,
-      name: "María González",
-      role: "Directora de RRHH",
-      company: "TechCorp Solutions",
+      name: t('clients.maria.name'),
+      role: t('clients.maria.role'),
+      company: t('clients.maria.company'),
       type: "empresa",
       icon: Building2,
-      testimonial: "La experiencia con Colmena fue transformadora para nuestro equipo. El Detective Cases que diseñaron específicamente para nosotros logró que departamentos que apenas se hablaban ahora colaboren de manera natural. Increíble cómo el juego puede romper tantas barreras.",
+      testimonial: t('clients.maria.testimonial'),
       rating: 5,
       image: "👩‍💼"
     },
     {
       id: 2,
-      name: "Carlos Ruiz",
-      role: "Organizador de Eventos",
-      company: "Celebraciones Únicas",
+      name: t('clients.carlos.name'),
+      role: t('clients.carlos.role'),
+      company: t('clients.carlos.company'),
       type: "particular",
       icon: Heart,
-      testimonial: "Contratamos a Colmena Experience para la boda de mi hermana y fue el momento más divertido de toda la celebración. La gimcana personalizada que crearon con la historia de los novios hizo reír y emocionar a todos los invitados. ¡100% recomendable!",
+      testimonial: t('clients.carlos.testimonial'),
       rating: 5,
       image: "🎩"
     },
     {
       id: 3,
-      name: "Ana Martínez",
-      role: "Coordinadora Académica",
-      company: "Instituto Educativo San Marcos",
+      name: t('clients.ana.name'),
+      role: t('clients.ana.role'),
+      company: t('clients.ana.company'),
       type: "educativo",
       icon: Users,
-      testimonial: "Nuestro claustro de profesores estaba pasando por un momento complicado. La experiencia gamificada que diseñaron no solo mejoró la comunicación entre nosotros, sino que nos recordó por qué elegimos ser educadores. Metodología impecable con resultados reales.",
+      testimonial: t('clients.ana.testimonial'),
       rating: 5,
       image: "👩‍🏫"
     },
     {
       id: 4,
-      name: "Roberto Silva",
-      role: "CEO",
-      company: "StartUp Innovation Lab",
+      name: t('clients.roberto.name'),
+      role: t('clients.roberto.role'),
+      company: t('clients.roberto.company'),
       type: "empresa",
       icon: Building2,
-      testimonial: "Como startup, necesitábamos que nuestro equipo remoto se sintiera realmente conectado. La experiencia online que crearon superó todas nuestras expectativas. Ahora tenemos un equipo más unido y motivado. La inversión valió completamente la pena.",
+      testimonial: t('clients.roberto.testimonial'),
       rating: 5,
       image: "👨‍💻"
     },
     {
       id: 5,
-      name: "Elena Fernández",
-      role: "Organizadora",
-      company: "Reunión Familiar Anual",
+      name: t('clients.elena.name'),
+      role: t('clients.elena.role'),
+      company: t('clients.elena.company'),
       type: "particular",
       icon: Heart,
-      testimonial: "Cada año organizamos una gran reunión familiar y este año quisimos algo especial. El Cluedo en vivo que prepararon con personajes basados en nuestra propia familia fue genial. Tres generaciones riéndose juntas - eso no tiene precio.",
+      testimonial: t('clients.elena.testimonial'),
       rating: 5,
       image: "👵"
     }
@@ -120,10 +122,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Lo que dicen{' '}
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              nuestros clientes
-            </span>
+{t('title')}
           </motion.h2>
           
           <motion.p
@@ -133,7 +132,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Testimonios reales de quienes han vivido una Colmena Experience
+{t('subtitle')}
           </motion.p>
         </motion.div>
 
@@ -235,7 +234,7 @@ const Testimonials = () => {
           <div className="flex items-center justify-center mt-8 space-x-4">
             <motion.button
               onClick={prevTestimonial}
-              className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 group"
+              className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 group cursor-pointer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -248,7 +247,7 @@ const Testimonials = () => {
                 <motion.button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
                     index === currentIndex
                       ? 'bg-primary scale-125'
                       : 'bg-primary/30 hover:bg-primary/60'
@@ -260,7 +259,7 @@ const Testimonials = () => {
 
             <motion.button
               onClick={nextTestimonial}
-              className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 group"
+              className="p-3 bg-white rounded-full shadow-lg hover:shadow-xl border border-primary/20 hover:border-primary/40 transition-all duration-300 group cursor-pointer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -280,15 +279,15 @@ const Testimonials = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="p-6">
               <div className="text-4xl font-bold text-primary mb-2">95%</div>
-              <div className="text-muted-foreground font-medium">Clientes que repiten</div>
+              <div className="text-muted-foreground font-medium">Clients repeteixen</div>
             </div>
             <div className="p-6">
               <div className="text-4xl font-bold text-primary mb-2">100%</div>
-              <div className="text-muted-foreground font-medium">Satisfacción garantizada</div>
+              <div className="text-muted-foreground font-medium">Satisfacció garantida</div>
             </div>
             <div className="p-6">
               <div className="text-4xl font-bold text-primary mb-2">350+</div>
-              <div className="text-muted-foreground font-medium">Experiencias creadas</div>
+              <div className="text-muted-foreground font-medium">Experiències creades</div>
             </div>
           </div>
         </motion.div>

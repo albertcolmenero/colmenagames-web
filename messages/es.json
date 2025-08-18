@@ -1,0 +1,327 @@
+{
+  "header": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Quiénes Somos",
+      "services": "Servicios",
+      "whyUs": "Por Qué Nosotros",
+      "contact": "Contacto"
+    },
+    "cta": "Reserva tu Experiencia"
+  },
+  "hero": {
+    "title": {
+      "play": "Juega.",
+      "connect": "Conecta.",
+      "transform": "Transforma tu equipo."
+    },
+    "subtitle": "Creamos experiencias gamificadas a medida para cualquier grupo humano: desde claustros y empresas hasta fiestas y celebraciones.",
+    "highlight": "Conecta como nunca. Disfruta como siempre.",
+    "cta": {
+      "primary": "Quiero vivir una Colmena Experience",
+      "secondary": "Conoce más sobre nosotros"
+    },
+    "stats": {
+      "people": "Personas por grupo",
+      "customizable": "Personalizable",
+      "possibilities": "Posibilidades"
+    }
+  },
+  "about": {
+    "title": "Expertos en diseñar",
+    "titleHighlight": "momentos inolvidables",
+    "titleEnd": "que conectan personas",
+    "description1": "En Colmena Experience creemos que las mejores conexiones humanas nacen a través del juego. Somos especialistas en gamificación, narrativa y dinámicas grupales, y nuestro enfoque único combina metodología profesional con alma lúdica.",
+    "description2": "Diseñamos experiencias que van más allá del entretenimiento: creamos momentos que transforman equipos, fortalecen vínculos y generan recuerdos duraderos. Desde claustros educativos y equipos corporativos hasta celebraciones familiares y eventos sociales.",
+    "description3": "Nuestra pasión es demostrar que el juego no es solo diversión: es una herramienta poderosa para el crecimiento personal y colectivo.",
+    "brand": "Colmena Experience",
+    "services": "gamificación, narrativa y dinámicas grupales",
+    "contexts": "claustros educativos y equipos corporativos",
+    "growth": "crecimiento personal y colectivo",
+    "features": {
+      "humanExperience": {
+        "title": "Experiencia Humana",
+        "description": "Nos especializamos en crear conexiones auténticas entre personas a través del juego."
+      },
+      "methodology": {
+        "title": "Metodología Profesional",
+        "description": "Combinamos rigor metodológico con creatividad para garantizar experiencias transformadoras."
+      },
+      "playfulSoul": {
+        "title": "Alma Lúdica",
+        "description": "Creemos que el juego es la herramienta más poderosa para generar bienestar y conexión."
+      },
+      "innovation": {
+        "title": "Innovación Continua",
+        "description": "Diseñamos experiencias únicas adaptadas a cada contexto, grupo y objetivo específico."
+      }
+    }
+  },
+  "services": {
+    "title": "¿Qué",
+    "titleHighlight": "Ofrecemos?",
+    "subtitle": "Experiencias gamificadas que se adaptan perfectamente a tu grupo, contexto y objetivos",
+    "corporate": {
+      "title": "Team-building para Empresas",
+      "subtitle": "Fortalece tu equipo",
+      "description": "Experiencias diseñadas para mejorar la comunicación, colaboración y cohesión en equipos corporativos.",
+      "examples": {
+        "0": "Detective Cases interactivos",
+        "1": "Narrativas ramificadas colaborativas",
+        "2": "Escape Rooms temáticos",
+        "3": "Dinámicas de resolución creativa"
+      }
+    },
+    "private": {
+      "title": "Actividades para Particulares",
+      "subtitle": "Momentos únicos",
+      "description": "Celebraciones personalizadas que convierten cualquier evento en una experiencia memorable.",
+      "examples": {
+        "0": "Gimcanas personalizadas",
+        "1": "Cluedo en vivo teatralizado",
+        "2": "Bingo musical interactivo",
+        "3": "Juegos de mesa gigantes"
+      }
+    },
+    "examples": "Ejemplos de actividades:",
+    "features": {
+      "title": "Lo que nos diferencia",
+      "list": {
+        "0": "Actividades listas para usar o totalmente personalizadas",
+        "1": "Experiencias presenciales y online",
+        "2": "Adaptación total al espacio y contexto",
+        "3": "Grupos de 5 a 150 personas",
+        "4": "Facilitación profesional incluida"
+      }
+    },
+    "specialMoments": {
+      "title": "Para cada momento especial",
+      "description": "Diseñamos la experiencia perfecta para tu grupo, sin importar el tamaño o el contexto.",
+      "cta": "Diseñemos tu experiencia"
+    }
+  },
+  "whyUs": {
+    "title": "Por qué elegir",
+    "titleHighlight": "Colmena Experience",
+    "features": {
+      "experience": {
+        "title": "Experiencia Probada",
+        "description": "Años de experiencia creando momentos únicos para todo tipo de grupos y contextos."
+      },
+      "customization": {
+        "title": "Personalización Total",
+        "description": "Cada experiencia está diseñada específicamente para tus objetivos y participantes."
+      },
+      "methodology": {
+        "title": "Metodología Sólida",
+        "description": "Enfoque profesional basado en la psicología del juego y la dinámica de grupos."
+      },
+      "results": {
+        "title": "Resultados Medibles",
+        "description": "Experiencias que generan un impacto real en la cohesión y motivación de los equipos."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Qué dicen de nosotros",
+    "subtitle": "Experiencias reales de clientes satisfechos"
+  },
+  "contact": {
+    "title": "¿Te imaginas tu grupo viviendo una experiencia así?",
+    "subtitle": "Escríbenos y diseñamos algo único para vosotros",
+    "form": {
+      "title": "Pide tu propuesta sin compromiso",
+      "name": "Nombre completo",
+      "namePlaceholder": "Tu nombre completo",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@email.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "Tu teléfono",
+      "groupType": "Tipo de grupo",
+      "groupTypePlaceholder": "Selecciona el tipo de grupo",
+      "participants": "Nº de personas",
+      "participantsPlaceholder": "ej. 25 personas",
+      "date": "Fecha aproximada",
+      "datePlaceholder": "¿Cuándo quieres hacer la actividad?",
+      "message": "Cuéntanos tu idea",
+      "messagePlaceholder": "Describe qué tipo de experiencia tienes en mente, el contexto, objetivos especiales, o cualquier detalle que nos pueda ayudar a diseñar algo perfecto para tu grupo...",
+      "submit": "Enviar propuesta",
+      "submitting": "Enviando...",
+      "success": "¡Mensaje enviado!",
+      "successMessage": "Gracias por contactarnos. Te responderemos pronto con una propuesta personalizada.",
+      "responseMessage": "Te responderemos en menos de 24 horas con una propuesta personalizada",
+      "error": "Error enviando el mensaje. Inténtalo de nuevo.",
+      "groupTypes": {
+        "corporate": "Equipo corporativo",
+        "educational": "Centro educativo",
+        "family": "Familia/Amigos",
+        "association": "Asociación/ONG",
+        "other": "Otro"
+      }
+    },
+          "info": {
+        "title": "Información de contacto",
+        "description": "¿Tienes preguntas? ¿Quieres más información? Estamos aquí para ayudarte a crear la experiencia perfecta para tu grupo.",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "hours": "Horario de atención",
+        "hoursValue": "Lunes a Viernes: 9:00 - 18:00",
+        "response": "Tiempo de respuesta",
+        "responseValue": "Menos de 24 horas",
+        "location": "Barcelona, España",
+        "coverage": "Experiencias en toda España"
+      },
+      "process": {
+        "title": "¿Cómo trabajamos?",
+        "steps": {
+          "0": "📞 Conversación inicial para entender tu grupo y objetivos",
+          "1": "🎯 Diseño de propuesta personalizada sin compromiso",
+          "2": "✅ Refinamiento de la experiencia según tu feedback",
+          "3": "🎉 Dinamización profesional de la experiencia",
+          "4": "📈 Seguimiento post-experiencia y recogida de feedback"
+        }
+      },
+      "pricing": {
+        "title": "Información de precios",
+        "description": "Nuestras experiencias se adaptan a diferentes presupuestos:",
+        "basic": "Experiencias básicas: Desde 25€ por persona",
+        "premium": "Experiencias premium: Desde 45€ por persona",
+        "custom": "Experiencias totalmente personalizadas: Consultar",
+        "disclaimer": "* Precios orientativos. La propuesta final dependerá del tipo de experiencia, duración, número de participantes y nivel de personalización."
+      },
+      "email": {
+        "subject": "Nueva solicitud de propuesta - ColmenaGames",
+        "contactData": "DATOS DE CONTACTO:",
+        "name": "Nombre:",
+        "email": "Email:",
+        "phone": "Teléfono:",
+        "notProvided": "No proporcionado",
+        "groupInfo": "INFORMACIÓN DEL GRUPO:",
+        "groupType": "Tipo de grupo:",
+        "participants": "Número de participantes:",
+        "date": "Fecha aproximada:",
+        "notSpecified": "No especificado",
+        "additionalMessage": "MENSAJE ADICIONAL:",
+        "noAdditionalMessage": "Sin mensaje adicional",
+        "errorSending": "Error al enviar el mensaje"
+      }
+  },
+  "footer": {
+    "description": "Creando conexiones auténticas a través del juego",
+    "quickLinks": "Enlaces rápidos",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados.",
+    "legal": {
+      "legal": "Aviso Legal",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos y Condiciones",
+      "cookies": "Política de Cookies"
+    }
+  },
+  "whyUs": {
+    "title": "Más que juegos.",
+    "titleHighlight": "Momentos que dejan huella",
+    "ctaTitle": "¿Listo para transformar tu próximo evento?",
+    "subtitle": "Cada experiencia que creamos es única. Hablemos de cómo podemos hacer que tu grupo viva algo extraordinario.",
+    "cta": "Conversemos sobre tu proyecto",
+    "benefits": {
+      "readyToUse": {
+        "title": "Actividades listas para usar o totalmente personalizadas",
+        "description": "Tenemos un catálogo de experiencias probadas, pero también creamos desde cero según tus necesidades específicas."
+      },
+      "onlineOffline": {
+        "title": "Experiencias presenciales y online",
+        "description": "Nos adaptamos a cualquier formato: eventos en persona, virtuales o híbridos con la misma calidad y engagement."
+      },
+      "methodology": {
+        "title": "Metodología profesional con alma lúdica",
+        "description": "Combinamos rigor metodológico y psicología aplicada con la diversión y creatividad del juego."
+      },
+      "guaranteed": {
+        "title": "Rigor, creatividad y dinamización garantizada",
+        "description": "Cada experiencia está cuidadosamente diseñada para ser memorable, efectiva y transformadora."
+      },
+      "groupSize": {
+        "title": "Juegos para grupos de 5 a 150 personas",
+        "description": "Desde equipos pequeños hasta grandes convenciones, escalamos nuestras dinámicas sin perder intensidad."
+      },
+      "adaptation": {
+        "title": "Adaptación total al espacio, contexto y objetivo",
+        "description": "Analizamos tu entorno, cultura y metas para crear una experiencia que encaje perfectamente."
+      }
+    },
+    "stats": {
+      "title": "Qué dicen nuestros números",
+      "projects": "Proyectos realizados",
+      "satisfaction": "Satisfacción de clientes",
+      "participants": "Participantes impactados",
+      "repeatClients": "Clientes repiten"
+    }
+  },
+  "mission": {
+    "title": "Nuestra",
+    "titleHighlight": "Misión y Visión",
+    "mission": {
+      "title": "Misión",
+      "description": "Transformar la forma en que las personas se conectan y colaboran a través de experiencias de juego significativas y memorables."
+    },
+    "vision": {
+      "title": "Visión",
+      "description": "Ser la referencia en experiencias gamificadas que construyen puentes entre personas y generan cambios positivos duraderos."
+    },
+    "values": {
+      "title": "Nuestros Valores Fundamentales",
+      "connection": {
+        "title": "Conexión Auténtica",
+        "description": "Facilitamos encuentros genuinos entre personas a través de experiencias compartidas.",
+        "emoji": "🤝"
+      },
+      "creativity": {
+        "title": "Creatividad sin Límites",
+        "description": "Innovamos constantemente para crear experiencias únicas y memorables.",
+        "emoji": "🎨"
+      },
+      "impact": {
+        "title": "Impacto Transformador",
+        "description": "Cada experiencia está diseñada para generar un cambio positivo duradero.",
+        "emoji": "⚡"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Qué dicen de nosotros",
+    "subtitle": "Experiencias reales de clientes satisfechos",
+    "clients": {
+      "maria": {
+        "name": "María González",
+        "role": "Directora de RRHH",
+        "company": "TechCorp Solutions",
+        "testimonial": "La experiencia con Colmena fue transformadora para nuestro equipo. El Detective Cases que diseñaron específicamente para nosotros logró que departamentos que apenas se hablaban ahora colaboren de manera natural. Increíble cómo el juego puede romper tantas barreras."
+      },
+      "carlos": {
+        "name": "Carlos Ruiz",
+        "role": "Organizador de Eventos",
+        "company": "Celebraciones Únicas",
+        "testimonial": "Contratamos a Colmena Experience para la boda de mi hermana y fue el momento más divertido de toda la celebración. La gimcana personalizada que crearon con la historia de los novios hizo reír y emocionar a todos los invitados. ¡100% recomendable!"
+      },
+      "ana": {
+        "name": "Ana Martínez",
+        "role": "Coordinadora Académica",
+        "company": "Instituto Educativo San Marcos",
+        "testimonial": "Nuestro claustro de profesores estaba pasando por un momento complicado. La experiencia gamificada que diseñaron no solo mejoró la comunicación entre nosotros, sino que nos recordó por qué elegimos ser educadores. Metodología impecable con resultados reales."
+      },
+      "roberto": {
+        "name": "Roberto Silva",
+        "role": "CEO",
+        "company": "StartUp Innovation Lab",
+        "testimonial": "Como startup, necesitábamos que nuestro equipo remoto se sintiera realmente conectado. La experiencia online que crearon superó todas nuestras expectativas. Ahora tenemos un equipo más unido y motivado. La inversión valió completamente la pena."
+      },
+      "elena": {
+        "name": "Elena Fernández",
+        "role": "Organizadora",
+        "company": "Reunión Familiar Anual",
+        "testimonial": "Cada año organizamos una gran reunión familiar y este año quisimos algo especial. El Cluedo en vivo que prepararon con personajes basados en nuestra propia familia fue genial. Tres generaciones riéndose juntas - eso no tiene precio."
+      }
+    }
+  }
+}

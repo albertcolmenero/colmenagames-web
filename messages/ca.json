@@ -1,0 +1,327 @@
+{
+  "header": {
+    "nav": {
+      "home": "Inici",
+      "about": "Qui Som",
+      "services": "Serveis",
+      "whyUs": "Per Què Nosaltres",
+      "contact": "Contacte"
+    },
+    "cta": "Reserva la teva Experiència"
+  },
+  "hero": {
+    "title": {
+      "play": "Juga.",
+      "connect": "Connecta.",
+      "transform": "Transforma el teu equip."
+    },
+    "subtitle": "Creem experiències gamificades a mida per a qualsevol grup humà: des de claustre i empreses fins a festes i celebracions.",
+    "highlight": "Connecta com mai. Gaudeix com sempre.",
+    "cta": {
+      "primary": "Vull viure una Colmena Experience",
+      "secondary": "Coneix més sobre nosaltres"
+    },
+    "stats": {
+      "people": "Persones per grup",
+      "customizable": "Personalitzable",
+      "possibilities": "Possibilitats"
+    }
+  },
+  "about": {
+    "title": "Experts en dissenyar",
+    "titleHighlight": "moments inoblidables",
+    "titleEnd": "que connecten persones",
+    "description1": "A Colmena Experience creiem que les millors connexions humanes neixen a través del joc. Som especialistes en gamificació, narrativa i dinàmiques grupals, i el nostre enfocament únic combina metodologia professional amb ànima lúdica.",
+    "description2": "Dissenyem experiències que van més enllà de l'entreteniment: creem moments que transformen equips, enforteixen vincles i generen records duradors. Des de claustre educatius i equips corporatius fins a celebracions familiars i esdeveniments socials.",
+    "description3": "La nostra passió és demostrar que el joc no és només diversió: és una eina poderosa per al creixement personal i col·lectiu.",
+    "brand": "Colmena Experience",
+    "services": "gamificació, narrativa i dinàmiques grupals",
+    "contexts": "claustre educatius i equips corporatius",
+    "growth": "creixement personal i col·lectiu",
+    "features": {
+      "humanExperience": {
+        "title": "Experiència Humana",
+        "description": "Ens especialitzem en crear connexions autèntiques entre persones a través del joc."
+      },
+      "methodology": {
+        "title": "Metodologia Professional",
+        "description": "Combinem rigor metodològic amb creativitat per garantir experiències transformadores."
+      },
+      "playfulSoul": {
+        "title": "Ànima Lúdica",
+        "description": "Creiem que el joc és l'eina més poderosa per generar benestar i connexió."
+      },
+      "innovation": {
+        "title": "Innovació Contínua",
+        "description": "Dissenyem experiències úniques adaptades a cada context, grup i objectiu específic."
+      }
+    }
+  },
+  "services": {
+    "title": "Què",
+    "titleHighlight": "Oferim?",
+    "subtitle": "Experiències gamificades que s'adapten perfectament al teu grup, context i objectius",
+    "corporate": {
+      "title": "Team-building per a Empreses",
+      "subtitle": "Enforteix el teu equip",
+      "description": "Experiències dissenyades per millorar la comunicació, col·laboració i cohesió en equips corporatius.",
+      "examples": {
+        "0": "Detective Cases interactius",
+        "1": "Narratives ramificades col·laboratives",
+        "2": "Escape Rooms temàtics",
+        "3": "Dinàmiques de resolució creativa"
+      }
+    },
+    "private": {
+      "title": "Activitats per a Particulars",
+      "subtitle": "Moments únics",
+      "description": "Celebracions personalitzades que converteixen qualsevol esdeveniment en una experiència memorable.",
+      "examples": {
+        "0": "Gimcanes personalitzades",
+        "1": "Cluedo en viu teatralitzat",
+        "2": "Bingo musical interactiu",
+        "3": "Jocs de taula gegants"
+      }
+    },
+    "examples": "Exemples d'activitats:",
+    "features": {
+      "title": "El que ens diferencia",
+      "list": {
+        "0": "Activitats llestes per usar o totalment personalitzades",
+        "1": "Experiències presencials i online",
+        "2": "Adaptació total a l'espai i context",
+        "3": "Grups de 5 a 150 persones",
+        "4": "Facilitació professional inclosa"
+      }
+    },
+    "specialMoments": {
+      "title": "Per a cada moment especial",
+      "description": "Dissenyem l'experiència perfecta per al teu grup, sense importar la mida o el context.",
+      "cta": "Dissenyem la teva experiència"
+    }
+  },
+  "whyUs": {
+    "title": "Per què triar",
+    "titleHighlight": "Colmena Experience",
+    "features": {
+      "experience": {
+        "title": "Experiència Provada",
+        "description": "Anys d'experiència creant moments únics per a tot tipus de grups i contextos."
+      },
+      "customization": {
+        "title": "Personalització Total",
+        "description": "Cada experiència està dissenyada específicament per als teus objectius i participants."
+      },
+      "methodology": {
+        "title": "Metodologia Sòlida",
+        "description": "Enfocament professional basat en la psicologia del joc i la dinàmica de grups."
+      },
+      "results": {
+        "title": "Resultats Mesurables",
+        "description": "Experiències que generen un impacte real en la cohesió i motivació dels equips."
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Què diuen de nosaltres",
+    "subtitle": "Experiències reals de clients satisfets"
+  },
+  "contact": {
+    "title": "T'imagines el teu grup vivint una experiència així?",
+    "subtitle": "Escriu-nos i dissenyem alguna cosa única per a vosaltres",
+    "form": {
+      "title": "Demana la teva proposta sense compromís",
+      "name": "Nom complet",
+      "namePlaceholder": "El teu nom complet",
+      "email": "Correu electrònic",
+      "emailPlaceholder": "el_teu@email.com",
+      "phone": "Telèfon",
+      "phonePlaceholder": "El teu telèfon",
+      "groupType": "Tipus de grup",
+      "groupTypePlaceholder": "Selecciona el tipus de grup",
+      "participants": "Nº de persones",
+      "participantsPlaceholder": "ex. 25 persones",
+      "date": "Data aproximada",
+      "datePlaceholder": "Quan vols fer l'activitat?",
+      "message": "Explica'ns la teva idea",
+      "messagePlaceholder": "Descriu quin tipus d'experiència tens en ment, el context, objectius especials, o qualsevol detall que ens pugui ajudar a dissenyar alguna cosa perfecta per al teu grup...",
+      "submit": "Enviar proposta",
+      "submitting": "Enviant...",
+      "success": "Missatge enviat!",
+      "successMessage": "Gràcies per contactar-nos. Et respondrem aviat amb una proposta personalitzada.",
+      "responseMessage": "Et respondrem en menys de 24 hores amb una proposta personalitzada",
+      "error": "Error enviant el missatge. Torna-ho a provar.",
+      "groupTypes": {
+        "corporate": "Equip corporatiu",
+        "educational": "Centre educatiu",
+        "family": "Família/Amics",
+        "association": "Associació/ONG",
+        "other": "Altre"
+      }
+    },
+          "info": {
+        "title": "Informació de contacte",
+        "description": "Tens preguntes? Vols més informació? Estem aquí per ajudar-te a crear l'experiència perfecta per al teu grup.",
+        "email": "Correu electrònic",
+        "phone": "Telèfon",
+        "hours": "Horari d'atenció",
+        "hoursValue": "Dilluns a Divendres: 9:00 - 18:00",
+        "response": "Temps de resposta",
+        "responseValue": "Menys de 24 hores",
+        "location": "Barcelona, Espanya",
+        "coverage": "Experiències a tota Espanya"
+      },
+      "process": {
+        "title": "Com treballem?",
+        "steps": {
+          "0": "📞 Conversa inicial per entendre el teu grup i objectius",
+          "1": "🎯 Disseny de proposta personalitzada sense compromís",
+          "2": "✅ Refinament de l'experiència segons el teu feedback",
+          "3": "🎉 Dinamització professional de l'experiència",
+          "4": "📈 Seguiment post-experiència i recollida de feedback"
+        }
+      },
+      "pricing": {
+        "title": "Informació de preus",
+        "description": "Les nostres experiències s'adapten a diferents pressupostos:",
+        "basic": "Experiències bàsiques: Des de 25€ per persona",
+        "premium": "Experiències premium: Des de 45€ per persona",
+        "custom": "Experiències totalment personalitzades: Consultar",
+        "disclaimer": "* Preus orientatius. La proposta final dependrà del tipus d'experiència, durada, nombre de participants i nivell de personalització."
+      },
+      "email": {
+        "subject": "Nova sol·licitud de proposta - ColmenaGames",
+        "contactData": "DADES DE CONTACTE:",
+        "name": "Nom:",
+        "email": "Email:",
+        "phone": "Telèfon:",
+        "notProvided": "No proporcionat",
+        "groupInfo": "INFORMACIÓ DEL GRUP:",
+        "groupType": "Tipus de grup:",
+        "participants": "Nombre de participants:",
+        "date": "Data aproximada:",
+        "notSpecified": "No especificat",
+        "additionalMessage": "MISSATGE ADICIONAL:",
+        "noAdditionalMessage": "Sense missatge adicional",
+        "errorSending": "Error en enviar el missatge"
+      }
+  },
+  "footer": {
+    "description": "Creant connexions autèntiques a través del joc",
+    "quickLinks": "Enllaços ràpids",
+    "contact": "Contacte",
+    "rights": "Tots els drets reservats.",
+    "legal": {
+      "legal": "Avís Legal",
+      "privacy": "Política de Privacitat",
+      "terms": "Termes i Condicions",
+      "cookies": "Política de Cookies"
+    }
+  },
+  "whyUs": {
+    "title": "Més que jocs.",
+    "titleHighlight": "Moments que deixen empremta",
+    "ctaTitle": "Llest per transformar el teu proper esdeveniment?",
+    "subtitle": "Cada experiència que creem és única. Parlem de com podem fer que el teu grup visqui alguna cosa extraordinària.",
+    "cta": "Conversem sobre el teu projecte",
+    "benefits": {
+      "readyToUse": {
+        "title": "Activitats llestes per usar o totalment personalitzades",
+        "description": "Tenim un catàleg d'experiències provades, però també creem des de zero segons les teves necessitats específiques."
+      },
+      "onlineOffline": {
+        "title": "Experiències presencials i online",
+        "description": "Ens adaptem a qualsevol format: esdeveniments en persona, virtuals o híbrids amb la mateixa qualitat i engagement."
+      },
+      "methodology": {
+        "title": "Metodologia professional amb ànima lúdica",
+        "description": "Combinem rigor metodològic i psicologia aplicada amb la diversió i creativitat del joc."
+      },
+      "guaranteed": {
+        "title": "Rigor, creativitat i dinamització garantida",
+        "description": "Cada experiència està curosament dissenyada per ser memorable, efectiva i transformadora."
+      },
+      "groupSize": {
+        "title": "Jocs per a grups de 5 a 150 persones",
+        "description": "Des d'equips petits fins a grans convencions, escalem les nostres dinàmiques sense perdre intensitat."
+      },
+      "adaptation": {
+        "title": "Adaptació total a l'espai, context i objectiu",
+        "description": "Analitzem el teu entorn, cultura i metes per crear una experiència que encaixi perfectament."
+      }
+    },
+    "stats": {
+      "title": "Què diuen els nostres números",
+      "projects": "Projectes realitzats",
+      "satisfaction": "Satisfacció dels clients",
+      "participants": "Participants impactats",
+      "repeatClients": "Clients repeteixen"
+    }
+  },
+  "mission": {
+    "title": "La nostra",
+    "titleHighlight": "Missió i Visió",
+    "mission": {
+      "title": "Missió",
+      "description": "Transformar la manera com les persones es connecten i col·laboren a través d'experiències de joc significatives i memorables."
+    },
+    "vision": {
+      "title": "Visió",
+      "description": "Ser la referència en experiències gamificades que construeixen ponts entre persones i generen canvis positius duradors."
+    },
+    "values": {
+      "title": "Els nostres Valors Fonamentals",
+      "connection": {
+        "title": "Connexió Autèntica",
+        "description": "Facilitem trobades genuïnes entre persones a través d'experiències compartides.",
+        "emoji": "🤝"
+      },
+      "creativity": {
+        "title": "Creativitat sense Límits",
+        "description": "Innovem constantment per crear experiències úniques i memorables.",
+        "emoji": "🎨"
+      },
+      "impact": {
+        "title": "Impacte Transformador",
+        "description": "Cada experiència està dissenyada per generar un canvi positiu durador.",
+        "emoji": "⚡"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Què diuen de nosaltres",
+    "subtitle": "Experiències reals de clients satisfets",
+    "clients": {
+      "maria": {
+        "name": "Maria González",
+        "role": "Directora de RRHH",
+        "company": "TechCorp Solutions",
+        "testimonial": "L'experiència amb Colmena va ser transformadora per al nostre equip. El Detective Cases que van dissenyar específicament per a nosaltres va aconseguir que departaments que gairebé no es parlaven ara col·laborin de manera natural. Increïble com el joc pot trencar tantes barreres."
+      },
+      "carlos": {
+        "name": "Carles Ruiz",
+        "role": "Organitzador d'Esdeveniments",
+        "company": "Celebracions Úniques",
+        "testimonial": "Vam contractar Colmena Experience per al casament de la meva germana i va ser el moment més divertit de tota la celebració. La gimcana personalitzada que van crear amb la història dels nuvis va fer riure i emocionar tots els convidats. 100% recomanable!"
+      },
+      "ana": {
+        "name": "Anna Martínez",
+        "role": "Coordinadora Acadèmica",
+        "company": "Institut Educatiu San Marcos",
+        "testimonial": "El nostre claustre de professors estava passant per un moment complicat. L'experiència gamificada que van dissenyar no només va millorar la comunicació entre nosaltres, sinó que ens va recordar per què vam triar ser educadors. Metodologia impecable amb resultats reals."
+      },
+      "roberto": {
+        "name": "Robert Silva",
+        "role": "CEO",
+        "company": "StartUp Innovation Lab",
+        "testimonial": "Com a startup, necessitàvem que el nostre equip remot se sentís realment connectat. L'experiència online que van crear va superar totes les nostres expectatives. Ara tenim un equip més unit i motivat. La inversió va valdre completament la pena."
+      },
+      "elena": {
+        "name": "Elena Fernández",
+        "role": "Organitzadora",
+        "company": "Reunió Familiar Anual",
+        "testimonial": "Cada any organitzem una gran reunió familiar i aquest any vam voler alguna cosa especial. El Cluedo en viu que van preparar amb personatges basats en la nostra pròpia família va ser genial. Tres generacions rient juntes - això no té preu."
+      }
+    }
+  }
+}

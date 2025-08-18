@@ -1,30 +1,34 @@
 "use client"
 
 import React from 'react'
+import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Users, Target, Heart, Lightbulb } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const About = () => {
+  const t = useTranslations('about')
+  
   const features = [
     {
       icon: Users,
-      title: "Experiencia Humana",
-      description: "Nos especializamos en crear conexiones auténticas entre personas a través del juego."
+      title: t('features.humanExperience.title'),
+      description: t('features.humanExperience.description')
     },
     {
       icon: Target,
-      title: "Metodología Profesional",
-      description: "Combinamos rigor metodológico con creatividad para garantizar experiencias transformadoras."
+      title: t('features.methodology.title'),
+      description: t('features.methodology.description')
     },
     {
       icon: Heart,
-      title: "Alma Lúdica",
-      description: "Creemos que el juego es la herramienta más poderosa para generar bienestar y conexión."
+      title: t('features.playfulSoul.title'),
+      description: t('features.playfulSoul.description')
     },
     {
       icon: Lightbulb,
-      title: "Innovación Continua",
-      description: "Diseñamos experiencias únicas adaptadas a cada contexto, grupo y objetivo específico."
+      title: t('features.innovation.title'),
+      description: t('features.innovation.description')
     }
   ]
 
@@ -47,11 +51,11 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Expertos en diseñar{' '}
+{t('title')}{' '}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              momentos inolvidables
+              {t('titleHighlight')}
             </span>{' '}
-            que conectan personas
+            {t('titleEnd')}
           </motion.h2>
           
           <motion.div
@@ -79,9 +83,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
-                En <strong className="text-primary font-semibold">Colmena Experience</strong> creemos que las mejores conexiones humanas nacen a través del juego. 
-                Somos especialistas en <strong className="text-foreground">gamificación, narrativa y dinámicas grupales</strong>, 
-                y nuestro enfoque único combina metodología profesional con alma lúdica.
+{t('description1')}
               </motion.p>
               
               <motion.p
@@ -90,9 +92,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                Diseñamos experiencias que van más allá del entretenimiento: creamos momentos que transforman equipos, 
-                fortalecen vínculos y generan recuerdos duraderos. Desde <strong className="text-foreground">claustros educativos y equipos corporativos </strong> 
-                 hasta celebraciones familiares y eventos sociales.
+{t('description2')}
               </motion.p>
               
               <motion.p
@@ -101,8 +101,7 @@ const About = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                Nuestra pasión es demostrar que el juego no es solo diversión: es una herramienta poderosa para el 
-                <strong className="text-primary"> crecimiento personal y colectivo</strong>.
+{t('description3')}
               </motion.p>
             </div>
           </motion.div>
@@ -115,9 +114,11 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <img 
+            <Image 
               src="/colmena-experienceBIG.png" 
               alt="Colmena Experience" 
+              width={400}
+              height={400}
               className="w-auto h-auto max-w-full max-h-96 object-contain"
             />
           </motion.div>

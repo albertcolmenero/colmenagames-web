@@ -12,8 +12,12 @@ import {
   ArrowUp
 } from 'lucide-react'
 import { LegalContent } from '@/components/legal-content'
+import { useTranslations } from 'next-intl'
 
 const Footer = () => {
+  const t = useTranslations('footer')
+  const tHeader = useTranslations('header')
+  
   const [activeDocument, setActiveDocument] = useState<string | null>(null)
   
   const scrollToTop = () => {
@@ -29,30 +33,30 @@ const Footer = () => {
 
   const footerLinks = {
     navegacion: [
-      { name: 'Inicio', href: '#hero' },
-      { name: 'Quiénes Somos', href: '#about' },
-      { name: 'Servicios', href: '#services' },
-      { name: 'Por Qué Nosotros', href: '#why-us' },
-      { name: 'Contacto', href: '#contact' }
+      { name: tHeader('nav.home'), href: '#hero' },
+      { name: tHeader('nav.about'), href: '#about' },
+      { name: tHeader('nav.services'), href: '#services' },
+      { name: tHeader('nav.whyUs'), href: '#why-us' },
+      { name: tHeader('nav.contact'), href: '#contact' }
     ],
     servicios: [
       'Team-building Empresarial',
-      'Eventos Particulares',
-      'Experiencias Educativas',
-      'Celebraciones Familiares',
-      'Dinámicas Online',
-      'Actividades Personalizadas'
+      'Esdeveniments Particulars',
+      'Experiències Educatives',
+      'Celebracions Familiars',
+      'Dinàmiques Online',
+      'Activitats Personalitzades'
     ],
     legal: [
-      'Aviso Legal',
-      'Política de Privacidad',
-      'Términos y Condiciones',
-      'Política de Cookies'
+      t('legal.legal'),
+      t('legal.privacy'),
+      t('legal.terms'),
+      t('legal.cookies')
     ]
   }
 
   const socialLinks = [
-    { icon: Instagram, name: 'Instagram', href: '#', color: 'hover:text-pink-500' },
+    { icon: Instagram, name: 'Instagram', href: 'https://www.instagram.com/colmena_experience/', color: 'hover:text-pink-500' },
     /*{ icon: Linkedin, name: 'LinkedIn', href: '#', color: 'hover:text-blue-600' },
     { icon: Facebook, name: 'Facebook', href: '#', color: 'hover:text-blue-500' },
     { icon: Twitter, name: 'Twitter', href: '#', color: 'hover:text-sky-500' }*/
@@ -88,8 +92,7 @@ const Footer = () => {
             </motion.div>
             
             <p className="text-gray-300 mb-6 leading-relaxed">
-              Creamos experiencias gamificadas que conectan personas y transforman equipos. 
-              Especialistas en generar momentos inolvidables a través del juego.
+              {t('description')}
             </p>
             
             {/* Contact Info */}
@@ -127,13 +130,13 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            <h4 className="text-xl font-bold text-white mb-6">Navegación</h4>
+            <h4 className="text-xl font-bold text-white mb-6">{t('quickLinks')}</h4>
             <div className="space-y-3">
               {footerLinks.navegacion.map((link, index) => (
                 <motion.button
                   key={index}
                   onClick={() => scrollToSection(link.href)}
-                  className="block text-gray-300 hover:text-primary transition-colors text-left"
+                  className="block text-gray-300 hover:text-primary transition-colors text-left cursor-pointer"
                   whileHover={{ x: 5 }}
                 >
                   {link.name}
@@ -149,7 +152,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-xl font-bold text-white mb-6">Nuestros Servicios</h4>
+            <h4 className="text-xl font-bold text-white mb-6">Els nostres Serveis</h4>
             <div className="space-y-3">
               {footerLinks.servicios.map((service, index) => (
                 <motion.div
@@ -174,7 +177,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <h4 className="text-xl font-bold text-white mb-6">Síguenos</h4>
+            <h4 className="text-xl font-bold text-white mb-6">{t('contact')}</h4>
             
             {/* Social Links */}
             <div className="flex space-x-4 mb-8">
@@ -182,7 +185,9 @@ const Footer = () => {
                 <motion.a
                   key={index}
                   href={social.href}
-                  className={`w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-gray-300 ${social.color} transition-all duration-300 hover:bg-white/20`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-gray-300 ${social.color} transition-all duration-300 hover:bg-white/20 cursor-pointer`}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, scale: 0 }}
@@ -207,7 +212,7 @@ const Footer = () => {
                   className="flex-1 px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary text-sm"
                 />
                 <motion.button
-                  className="px-4 py-2 bg-primary hover:bg-primary/90 rounded-lg text-white text-sm font-medium transition-colors"
+                  className="px-4 py-2 bg-primary hover:bg-primary/90 rounded-lg text-white text-sm font-medium transition-colors cursor-pointer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
@@ -232,7 +237,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <span>© 2025 Colmena Experience. Todos los derechos reservados.</span>
+              <span>© 2025 Colmena Experience. {t('rights')}</span>
               <Heart className="w-4 h-4 text-primary" />
             </motion.div>
 
@@ -257,7 +262,7 @@ const Footer = () => {
                   <button
                     key={index}
                     onClick={() => setActiveDocument(documentType)}
-                    className="text-gray-400 hover:text-primary transition-colors"
+                    className="text-gray-400 hover:text-primary transition-colors cursor-pointer"
                   >
                     {link}
                   </button>
@@ -268,7 +273,7 @@ const Footer = () => {
             {/* Back to Top */}
             <motion.button
               onClick={scrollToTop}
-              className="flex items-center space-x-2 text-gray-400 hover:text-primary transition-colors group"
+              className="flex items-center space-x-2 text-gray-400 hover:text-primary transition-colors group cursor-pointer"
               whileHover={{ y: -2 }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -287,22 +292,33 @@ const Footer = () => {
       
       {/* Floating Background Pattern */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {Array.from({ length: 10 }).map((_, i) => (
+        {[
+          { left: 21.6, top: 73.4, duration: 5.2, delay: 0.4 },
+          { left: 41.3, top: 96.6, duration: 4.8, delay: 1.3 },
+          { left: 17.1, top: 87.2, duration: 5.7, delay: 0.8 },
+          { left: 74.7, top: 59.2, duration: 4.3, delay: 1.7 },
+          { left: 11.6, top: 63.0, duration: 5.9, delay: 0.2 },
+          { left: 18.1, top: 92.6, duration: 4.6, delay: 1.1 },
+          { left: 50.7, top: 96.5, duration: 5.4, delay: 0.6 },
+          { left: 75.9, top: 45.3, duration: 4.9, delay: 1.5 },
+          { left: 48.5, top: 17.5, duration: 5.1, delay: 0.9 },
+          { left: 79.1, top: 10.9, duration: 4.7, delay: 1.9 }
+        ].map((item, i) => (
           <motion.div
             key={i}
             className="absolute w-2 h-2 bg-primary/20 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: `${item.left}%`,
+              top: `${item.top}%`,
             }}
             animate={{
               y: [-10, 10, -10],
               opacity: [0.1, 0.3, 0.1],
             }}
             transition={{
-              duration: 4 + Math.random() * 2,
+              duration: item.duration,
               repeat: Infinity,
-              delay: Math.random() * 2,
+              delay: item.delay,
               ease: "easeInOut"
             }}
           />

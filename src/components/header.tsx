@@ -5,10 +5,13 @@ import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslations } from 'next-intl'
+import LanguageSelector from './language-selector'
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const t = useTranslations('header')
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +22,11 @@ const Header = () => {
   }, [])
 
   const menuItems = [
-    { name: 'Inicio', href: '#hero' },
-    { name: 'Quiénes Somos', href: '#about' },
-    { name: 'Servicios', href: '#services' },
-    { name: 'Por Qué Nosotros', href: '#why-us' },
-    { name: 'Contacto', href: '#contact' },
+    { name: t('nav.home'), href: '#hero' },
+    { name: t('nav.about'), href: '#about' },
+    { name: t('nav.services'), href: '#services' },
+    { name: t('nav.whyUs'), href: '#why-us' },
+    { name: t('nav.contact'), href: '#contact' },
   ]
 
   const scrollToSection = (href: string) => {
@@ -66,12 +69,12 @@ const Header = () => {
           </motion.div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-6">
             {menuItems.map((item, index) => (
               <motion.button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className={`text-sm lg:text-base font-medium transition-colors hover:text-primary ${
+                className={`text-sm lg:text-base font-medium transition-colors hover:text-primary cursor-pointer ${
                   isScrolled ? 'text-foreground' : 'text-white'
                 }`}
                 whileHover={{ y: -2 }}
@@ -82,6 +85,13 @@ const Header = () => {
                 {item.name}
               </motion.button>
             ))}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+            >
+              <LanguageSelector isScrolled={isScrolled} />
+            </motion.div>
           </nav>
 
           {/* CTA Button (Desktop) */}
@@ -93,15 +103,15 @@ const Header = () => {
           >
             <Button
               onClick={() => scrollToSection('#contact')}
-              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
-              Reserva tu Experiencia
+              {t('cta')}
             </Button>
           </motion.div>
 
           {/* Mobile menu button */}
           <motion.button
-            className="md:hidden p-2"
+            className="md:hidden p-2 cursor-pointer"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             whileTap={{ scale: 0.95 }}
           >
@@ -129,7 +139,7 @@ const Header = () => {
                 <motion.button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left text-foreground font-medium py-2 px-4 rounded-lg hover:bg-secondary transition-colors"
+                  className="block w-full text-left text-foreground font-medium py-2 px-4 rounded-lg hover:bg-secondary transition-colors cursor-pointer"
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
@@ -145,10 +155,13 @@ const Header = () => {
               >
                 <Button
                   onClick={() => scrollToSection('#contact')}
-                  className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold py-3 rounded-full shadow-lg"
+                  className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold py-3 rounded-full shadow-lg cursor-pointer"
                 >
-                  Reserva tu Experiencia
+                  {t('cta')}
                 </Button>
+                <div className="pt-2 flex justify-center">
+                  <LanguageSelector isScrolled={true} />
+                </div>
               </motion.div>
             </div>
           </motion.div>

@@ -14,22 +14,24 @@ import {
   ArrowRight,
   CheckCircle
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0)
+  const t = useTranslations('services')
 
   const services = [
     {
       id: 0,
       icon: Building2,
-      title: "Team-building para Empresas",
-      subtitle: "Fortalece tu equipo",
-      description: "Experiencias diseñadas para mejorar la comunicación, colaboración y cohesión en equipos corporativos.",
+      title: t('corporate.title'),
+      subtitle: t('corporate.subtitle'),
+      description: t('corporate.description'),
       examples: [
-        "Detective Cases interactivos",
-        "Narrativas ramificadas colaborativas", 
-        "Escape Rooms temáticos",
-        "Dinámicas de resolución creativa"
+        t('corporate.examples.0'),
+        t('corporate.examples.1'),
+        t('corporate.examples.2'),
+        t('corporate.examples.3')
       ],
       color: "from-blue-500 to-blue-600",
       bgColor: "bg-blue-50"
@@ -37,14 +39,14 @@ const Services = () => {
     {
       id: 1,
       icon: Users,
-      title: "Actividades para Particulares",
-      subtitle: "Momentos únicos",
-      description: "Celebraciones personalizadas que convierten cualquier evento en una experiencia memorable.",
+      title: t('private.title'),
+      subtitle: t('private.subtitle'),
+      description: t('private.description'),
       examples: [
-        "Gimcanas personalizadas",
-        "Cluedo en vivo teatralizado",
-        "Bingo musical interactivo",
-        "Juegos de mesa gigantes"
+        t('private.examples.0'),
+        t('private.examples.1'),
+        t('private.examples.2'),
+        t('private.examples.3')
       ],
       color: "from-primary to-accent",
       bgColor: "bg-orange-50"
@@ -52,11 +54,11 @@ const Services = () => {
   ]
 
   const features = [
-    "Actividades listas para usar o totalmente personalizadas",
-    "Experiencias presenciales y online",
-    "Adaptación total al espacio y contexto", 
-    "Grupos de 5 a 150 personas",
-    "Facilitación profesional incluida"
+    t('features.list.0'),
+    t('features.list.1'),
+    t('features.list.2'),
+    t('features.list.3'),
+    t('features.list.4')
   ]
 
   return (
@@ -78,9 +80,9 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            ¿Qué{' '}
+{t('title')}{' '}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              Ofrecemos?
+              {t('titleHighlight')}
             </span>
           </motion.h2>
           
@@ -91,7 +93,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Experiencias gamificadas que se adaptan perfectamente a tu grupo, contexto y objetivos
+{t('subtitle')}
           </motion.p>
         </motion.div>
 
@@ -147,7 +149,7 @@ const Services = () => {
                           transition={{ duration: 0.3 }}
                           className="space-y-3 border-t pt-4 mt-4"
                         >
-                          <h4 className="font-semibold text-foreground mb-3">Ejemplos de actividades:</h4>
+                          <h4 className="font-semibold text-foreground mb-3">{t('examples')}</h4>
                           {service.examples.map((example, i) => (
                             <motion.div
                               key={i}
@@ -181,7 +183,7 @@ const Services = () => {
             {/* Features List */}
             <div className="bg-white p-8 rounded-3xl shadow-lg border border-primary/10">
               <h3 className="text-2xl font-bold text-foreground mb-6">
-                Lo que nos diferencia
+                {t('features.title')}
               </h3>
               
               <div className="space-y-4">
@@ -205,17 +207,17 @@ const Services = () => {
             <div className="relative bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 p-8 rounded-3xl overflow-hidden">
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold text-foreground mb-4">
-                  Para cada momento especial
+                  {t('specialMoments.title')}
                 </h3>
                 <p className="text-muted-foreground mb-6">
-                  Diseñamos la experiencia perfecta para tu grupo, sin importar el tamaño o el contexto.
+                  {t('specialMoments.description')}
                 </p>
                 
                 <Button 
-                  className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold rounded-full group"
+                  className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold rounded-full group cursor-pointer"
                   onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Diseñemos tu experiencia
+{t('specialMoments.cta')}
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>

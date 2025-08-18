@@ -15,8 +15,11 @@ import {
   CheckCircle,
   Clock
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const Contact = () => {
+  const t = useTranslations('contact')
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -45,20 +48,20 @@ const Contact = () => {
     try {
       // Format message with all form data
       const formattedMessage = `
-Nueva solicitud de propuesta - ColmenaGames
+${t('email.subject')}
 
-DATOS DE CONTACTO:
-• Nombre: ${formData.name}
-• Email: ${formData.email}
-• Teléfono: ${formData.phone || 'No proporcionado'}
+${t('email.contactData')}
+• ${t('email.name')} ${formData.name}
+• ${t('email.email')} ${formData.email}
+• ${t('email.phone')} ${formData.phone || t('email.notProvided')}
 
-INFORMACIÓN DEL GRUPO:
-• Tipo de grupo: ${formData.groupType || 'No especificado'}
-• Número de participantes: ${formData.participants || 'No especificado'}
-• Fecha aproximada: ${formData.date || 'No especificada'}
+${t('email.groupInfo')}
+• ${t('email.groupType')} ${formData.groupType || t('email.notSpecified')}
+• ${t('email.participants')} ${formData.participants || t('email.notSpecified')}
+• ${t('email.date')} ${formData.date || t('email.notSpecified')}
 
-MENSAJE ADICIONAL:
-${formData.message || 'Sin mensaje adicional'}
+${t('email.additionalMessage')}
+${formData.message || t('email.noAdditionalMessage')}
       `.trim()
 
       // Send to Formcarry
@@ -111,38 +114,37 @@ ${formData.message || 'Sin mensaje adicional'}
     } catch (error) {
       // Request related error
       console.error('Error sending form:', error)
-      setError(error instanceof Error ? error.message : 'Error al enviar el mensaje')
+      setError(error instanceof Error ? error.message : t('email.errorSending'))
       setIsSubmitting(false)
     }
   }
 
   const groupTypes = [
-    "Empresa/Corporativo",
-    "Claustro/Educativo", 
-    "Familia/Amigos",
-    "Celebración/Evento",
-    "Asociación/Club",
-    "Otro"
+    { value: "corporate", label: t('form.groupTypes.corporate') },
+    { value: "educational", label: t('form.groupTypes.educational') },
+    { value: "family", label: t('form.groupTypes.family') },
+    { value: "association", label: t('form.groupTypes.association') },
+    { value: "other", label: t('form.groupTypes.other') }
   ]
 
   const contactInfo = [
     {
       icon: Mail,
-      title: "Email",
+      title: t('info.email'),
       value: "maria@bluelife-ventures.com",
-      description: "Te respondemos en menos de 24h"
+      description: t('info.responseValue')
     },
     {
       icon: Phone,
-      title: "Teléfono",
+      title: t('info.phone'),
       value: "+34 623 286 976",
-      description: "Disponible de 9:00 a 19:00"
+      description: t('info.hoursValue')
     },
     {
       icon: MapPin,
-      title: "Ubicación",
-      value: "Barcelona, España",
-      description: "Experiencias en toda España"
+      title: t('info.location'),
+      value: t('info.location'),
+      description: t('info.coverage')
     }
   ]
 
@@ -165,10 +167,7 @@ ${formData.message || 'Sin mensaje adicional'}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            ¿Te imaginas tu grupo{' '}
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              viviendo una experiencia así?
-            </span>
+{t('title')}
           </motion.h2>
           
           <motion.p
@@ -178,7 +177,7 @@ ${formData.message || 'Sin mensaje adicional'}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Escríbenos y diseñamos algo único para vosotros
+{t('subtitle')}
           </motion.p>
         </motion.div>
 
@@ -195,7 +194,7 @@ ${formData.message || 'Sin mensaje adicional'}
               <CardHeader className="bg-gradient-to-r from-primary to-accent p-8">
                 <CardTitle className="text-3xl font-bold text-white flex items-center">
                   <span className="mr-3">👉</span>
-                  Pide tu propuesta sin compromiso
+{t('form.title')}
                 </CardTitle>
               </CardHeader>
               
@@ -210,13 +209,13 @@ ${formData.message || 'Sin mensaje adicional'}
                         transition={{ delay: 0.5 }}
                       >
                         <label className="block text-sm font-semibold text-foreground mb-2">
-                          Nombre *
+                          {t('form.name')} *
                         </label>
                         <Input
                           name="name"
                           value={formData.name}
                           onChange={handleInputChange}
-                          placeholder="Tu nombre completo"
+                          placeholder={t('form.namePlaceholder')}
                           required
                           className="border-2 border-primary/20 focus:border-primary"
                         />
@@ -228,14 +227,14 @@ ${formData.message || 'Sin mensaje adicional'}
                         transition={{ delay: 0.6 }}
                       >
                         <label className="block text-sm font-semibold text-foreground mb-2">
-                          Email *
+                          {t('form.email')} *
                         </label>
                         <Input
                           type="email"
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
-                          placeholder="tu@email.com"
+                          placeholder={t('form.emailPlaceholder')}
                           required
                           className="border-2 border-primary/20 focus:border-primary"
                         />
@@ -250,13 +249,13 @@ ${formData.message || 'Sin mensaje adicional'}
                         transition={{ delay: 0.7 }}
                       >
                         <label className="block text-sm font-semibold text-foreground mb-2">
-                          Teléfono
+                          {t('form.phone')}
                         </label>
                         <Input
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          placeholder="Tu teléfono"
+                          placeholder={t('form.phonePlaceholder')}
                           className="border-2 border-primary/20 focus:border-primary"
                         />
                       </motion.div>
@@ -267,7 +266,7 @@ ${formData.message || 'Sin mensaje adicional'}
                         transition={{ delay: 0.8 }}
                       >
                         <label className="block text-sm font-semibold text-foreground mb-2">
-                          Tipo de grupo
+                          {t('form.groupType')}
                         </label>
                         <select
                           name="groupType"
@@ -275,9 +274,9 @@ ${formData.message || 'Sin mensaje adicional'}
                           onChange={handleInputChange}
                           className="w-full h-10 px-3 py-2 border-2 border-primary/20 rounded-md focus:border-primary focus:outline-none bg-background"
                         >
-                          <option value="">Selecciona tu grupo</option>
+                          <option value="">{t('form.groupTypePlaceholder')}</option>
                           {groupTypes.map((type, index) => (
-                            <option key={index} value={type}>{type}</option>
+                            <option key={index} value={type.value}>{type.label}</option>
                           ))}
                         </select>
                       </motion.div>
@@ -291,13 +290,13 @@ ${formData.message || 'Sin mensaje adicional'}
                         transition={{ delay: 0.9 }}
                       >
                         <label className="block text-sm font-semibold text-foreground mb-2">
-                          Nº de personas
+                          {t('form.participants')}
                         </label>
                         <Input
                           name="participants"
                           value={formData.participants}
                           onChange={handleInputChange}
-                          placeholder="ej. 25 personas"
+                          placeholder={t('form.participantsPlaceholder')}
                           className="border-2 border-primary/20 focus:border-primary"
                         />
                       </motion.div>
@@ -308,7 +307,7 @@ ${formData.message || 'Sin mensaje adicional'}
                         transition={{ delay: 1.0 }}
                       >
                         <label className="block text-sm font-semibold text-foreground mb-2">
-                          Fecha aproximada
+                          {t('form.date')}
                         </label>
                         <Input
                           type="date"
@@ -327,13 +326,13 @@ ${formData.message || 'Sin mensaje adicional'}
                       transition={{ delay: 1.1 }}
                     >
                       <label className="block text-sm font-semibold text-foreground mb-2">
-                        Cuéntanos tu idea
+                        {t('form.message')}
                       </label>
                       <Textarea
                         name="message"
                         value={formData.message}
                         onChange={handleInputChange}
-                        placeholder="Describe qué tipo de experiencia tienes en mente, el contexto, objetivos especiales, o cualquier detalle que nos pueda ayudar a diseñar algo perfecto para tu grupo..."
+                        placeholder={t('form.messagePlaceholder')}
                         rows={4}
                         className="border-2 border-primary/20 focus:border-primary resize-none"
                       />
@@ -357,12 +356,12 @@ ${formData.message || 'Sin mensaje adicional'}
                               animate={{ rotate: 360 }}
                               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                             />
-                            Enviando...
+{t('form.submitting')}
                           </div>
                         ) : (
                           <div className="flex items-center justify-center">
                             <Send className="mr-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            Enviar propuesta
+{t('form.submit')}
                           </div>
                         )}
                       </Button>
@@ -374,7 +373,7 @@ ${formData.message || 'Sin mensaje adicional'}
                       </div>
                     )}
                     <p className="text-sm text-muted-foreground text-center mt-4">
-                      * Te responderemos en menos de 24 horas con una propuesta personalizada
+                      * {t('form.responseMessage')}
                     </p>
                   </form>
                 ) : (
@@ -394,10 +393,10 @@ ${formData.message || 'Sin mensaje adicional'}
                     </motion.div>
                     
                     <h3 className="text-2xl font-bold text-foreground mb-4">
-                      ¡Mensaje enviado!
+                      {t('form.success')}
                     </h3>
                     <p className="text-muted-foreground">
-                      Gracias por contactarnos. Te responderemos pronto con una propuesta personalizada.
+                      {t('form.successMessage')}
                     </p>
                   </motion.div>
                 )}
@@ -448,16 +447,16 @@ ${formData.message || 'Sin mensaje adicional'}
             >
               <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
                 <Clock className="mr-3 w-8 h-8 text-primary" />
-                ¿Cómo trabajamos?
+                {t('process.title')}
               </h3>
               
               <div className="space-y-4">
                 {[
-                  "📞 Conversación inicial para entender tu grupo y objetivos",
-                  "🎯 Diseño de propuesta personalizada sin compromiso", 
-                  "✅ Refinamiento de la experiencia según tu feedback",
-                  "🎉 Dinamización profesional de la experiencia",
-                  "📈 Seguimiento post-experiencia y recogida de feedback"
+                  t('process.steps.0'),
+                  t('process.steps.1'),
+                  t('process.steps.2'),
+                  t('process.steps.3'),
+                  t('process.steps.4')
                 ].map((step, index) => (
                   <motion.div
                     key={index}
@@ -484,18 +483,18 @@ ${formData.message || 'Sin mensaje adicional'}
             >
               <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center">
                 <Sparkles className="mr-3 w-8 h-8 text-accent" />
-                Información de precios
+                {t('pricing.title')}
               </h3>
               <p className="text-muted-foreground mb-4">
-                Nuestras experiencias se adaptan a diferentes presupuestos:
+                {t('pricing.description')}
               </p>
               <div className="space-y-2 text-sm text-muted-foreground">
-                <div>• <strong>Experiencias básicas:</strong> Desde 25€ por persona</div>
-                <div>• <strong>Experiencias premium:</strong> Desde 45€ por persona</div>
-                <div>• <strong>Experiencias totalmente personalizadas:</strong> Consultar</div>
+                <div>• <strong>{t('pricing.basic')}</strong></div>
+                <div>• <strong>{t('pricing.premium')}</strong></div>
+                <div>• <strong>{t('pricing.custom')}</strong></div>
               </div>
               <p className="text-xs text-muted-foreground mt-4 italic">
-                * Precios orientativos. La propuesta final dependerá del tipo de experiencia, duración, número de participantes y nivel de personalización.
+                {t('pricing.disclaimer')}
               </p>
             </motion.div>
           </motion.div>

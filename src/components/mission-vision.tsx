@@ -3,8 +3,10 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { Lightbulb, Sprout, Heart, Globe } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const MissionVision = () => {
+  const t = useTranslations('mission')
   return (
     <section className="py-20 lg:py-32 bg-gradient-to-b from-white via-secondary/30 to-white overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,9 +26,9 @@ const MissionVision = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Nuestra{' '}
+{t('title')}{' '}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              Misión y Visión
+              {t('titleHighlight')}
             </span>
           </motion.h2>
         </motion.div>
@@ -57,7 +59,7 @@ const MissionVision = () => {
                 </motion.div>
 
                 <h3 className="text-3xl font-bold text-foreground mb-6 flex items-center">
-                  Nuestra Misión
+                  {t('mission.title')}
                   <span className="ml-3 text-2xl">💡</span>
                 </h3>
 
@@ -68,19 +70,7 @@ const MissionVision = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.6 }}
                 >
-                  <span className="font-semibold text-primary">Diseñar y dinamizar experiencias lúdicas</span> que generen 
-                  conexión, motivación y transformación en cualquier grupo humano.
-                </motion.p>
-
-                <motion.p
-                  className="text-lg text-muted-foreground leading-relaxed mt-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
-                >
-                  Creemos que el juego es la herramienta más natural y poderosa para romper barreras, 
-                  fomentar la colaboración y crear vínculos auténticos que perduren más allá de la experiencia.
+                  {t('mission.description')}
                 </motion.p>
 
                 {/* Decorative Elements */}
@@ -115,7 +105,7 @@ const MissionVision = () => {
                 </motion.div>
 
                 <h3 className="text-3xl font-bold text-foreground mb-6 flex items-center">
-                  Nuestra Visión
+                  {t('vision.title')}
                   <span className="ml-3 text-2xl">🌱</span>
                 </h3>
 
@@ -126,9 +116,7 @@ const MissionVision = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.8 }}
                 >
-                  <span className="font-semibold text-accent">Convertirnos en el referente de habla hispana</span> en experiencias 
-                  gamificadas para equipos y celebraciones, promoviendo el juego como herramienta de 
-                  conexión real y bienestar colectivo.
+                  {t('vision.description')}
                 </motion.p>
 
                 <motion.p
@@ -160,25 +148,25 @@ const MissionVision = () => {
           transition={{ duration: 0.8, delay: 0.7 }}
         >
           <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-12">
-            Nuestros Valores Fundamentales
+            {t('values.title')}
           </h3>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             {[
               {
-                title: "Conexión Auténtica",
-                description: "Facilitamos encuentros genuinos entre personas a través de experiencias compartidas.",
-                emoji: "🤝"
+                title: t('values.connection.title'),
+                description: t('values.connection.description'),
+                emoji: t('values.connection.emoji')
               },
               {
-                title: "Creatividad sin Límites",
-                description: "Innovamos constantemente para crear experiencias únicas y memorables.",
-                emoji: "🎨"
+                title: t('values.creativity.title'),
+                description: t('values.creativity.description'),
+                emoji: t('values.creativity.emoji')
               },
               {
-                title: "Impacto Transformador",
-                description: "Cada experiencia está diseñada para generar un cambio positivo duradero.",
-                emoji: "⚡"
+                title: t('values.impact.title'),
+                description: t('values.impact.description'),
+                emoji: t('values.impact.emoji')
               }
             ].map((value, index) => (
               <motion.div

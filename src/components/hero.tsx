@@ -4,8 +4,11 @@ import React from 'react'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
 import { Play, Users, Sparkles, ArrowRight } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const Hero = () => {
+  const t = useTranslations('hero')
+  
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
     if (element) {
@@ -53,13 +56,34 @@ const Hero = () => {
         
         {/* Floating Dice Pattern */}
         <div className="absolute inset-0">
-          {Array.from({ length: 20 }).map((_, i) => (
+          {[
+            { left: 5.2, top: 14.4, duration: 6, delay: 0.2 },
+            { left: 87.2, top: 28.3, duration: 7, delay: 1.5 },
+            { left: 9.6, top: 89.2, duration: 5.5, delay: 0.8 },
+            { left: 43.3, top: 89.8, duration: 8, delay: 1.2 },
+            { left: 77.3, top: 3.7, duration: 6.5, delay: 0.5 },
+            { left: 58.7, top: 67.1, duration: 7.5, delay: 1.8 },
+            { left: 5.0, top: 67.1, duration: 5, delay: 0.3 },
+            { left: 79.9, top: 14.2, duration: 6.8, delay: 1.0 },
+            { left: 66.1, top: 41.5, duration: 7.2, delay: 1.6 },
+            { left: 37.5, top: 44.6, duration: 5.8, delay: 0.7 },
+            { left: 93.6, top: 9.1, duration: 6.2, delay: 1.3 },
+            { left: 76.2, top: 53.0, duration: 7.8, delay: 0.9 },
+            { left: 71.2, top: 66.0, duration: 5.3, delay: 1.7 },
+            { left: 48.3, top: 28.8, duration: 6.7, delay: 0.4 },
+            { left: 35.6, top: 60.8, duration: 7.1, delay: 1.4 },
+            { left: 48.3, top: 9.5, duration: 5.9, delay: 0.6 },
+            { left: 85.2, top: 95.8, duration: 6.4, delay: 1.1 },
+            { left: 31.3, top: 37.7, duration: 7.6, delay: 1.9 },
+            { left: 49.5, top: 82.2, duration: 5.7, delay: 0.1 },
+            { left: 52.0, top: 46.9, duration: 6.9, delay: 1.5 }
+          ].map((item, i) => (
             <motion.div
               key={i}
               className="absolute w-4 h-4 bg-white/10 rounded-sm"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${item.left}%`,
+                top: `${item.top}%`,
               }}
               animate={{
                 y: [-20, 20, -20],
@@ -67,9 +91,9 @@ const Hero = () => {
                 opacity: [0.2, 0.6, 0.2],
               }}
               transition={{
-                duration: 4 + Math.random() * 4,
+                duration: item.duration,
                 repeat: Infinity,
-                delay: Math.random() * 2,
+                delay: item.delay,
                 ease: "easeInOut"
               }}
             />
@@ -105,7 +129,7 @@ const Hero = () => {
                 backgroundClip: 'text',
               }}
             >
-              Juega.
+{t('title.play')}
             </motion.span>
             <motion.span
               className="block"
@@ -113,7 +137,7 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5 }}
             >
-              Conecta.
+{t('title.connect')}
             </motion.span>
             <motion.span
               className="block bg-gradient-to-r from-yellow-300 via-orange-300 to-white bg-clip-text text-transparent"
@@ -121,7 +145,7 @@ const Hero = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              Transforma tu equipo.
+{t('title.transform')}
             </motion.span>
           </motion.h1>
 
@@ -132,8 +156,8 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1 }}
           >
-            Creamos experiencias gamificadas a medida para cualquier grupo humano: desde claustros y empresas hasta fiestas y celebraciones. 
-            <span className="font-semibold text-yellow-300"> Conecta como nunca. Disfruta como siempre.</span>
+{t('subtitle')}{' '}
+            <span className="font-semibold text-yellow-300">{t('highlight')}</span>
           </motion.p>
 
           {/* CTA Buttons */}
@@ -145,21 +169,21 @@ const Hero = () => {
           >
             <Button
               onClick={() => scrollToSection('#contact')}
-              className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group"
+              className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group cursor-pointer"
               size="lg"
             >
               <span className="mr-2">👉</span>
-              Quiero vivir una Colmena Experience
+{t('cta.primary')}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             
             <Button
               onClick={() => scrollToSection('#about')}
               variant="outline"
-              className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group"
+              className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group cursor-pointer"
               size="lg"
             >
-              Conoce más sobre nosotros
+{t('cta.secondary')}
             </Button>
           </motion.div>
 
@@ -172,15 +196,15 @@ const Hero = () => {
           >
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold text-white mb-2">5-150</div>
-              <div className="text-white/80 font-medium">Personas por grupo</div>
+              <div className="text-white/80 font-medium">{t('stats.people')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold text-white mb-2">100%</div>
-              <div className="text-white/80 font-medium">Personalizable</div>
+              <div className="text-white/80 font-medium">{t('stats.customizable')}</div>
             </div>
             <div className="text-center">
               <div className="text-3xl lg:text-4xl font-bold text-white mb-2">∞</div>
-              <div className="text-white/80 font-medium">Posibilidades</div>
+              <div className="text-white/80 font-medium">{t('stats.possibilities')}</div>
             </div>
           </motion.div>
         </div>

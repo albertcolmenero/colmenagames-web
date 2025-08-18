@@ -12,46 +12,49 @@ import {
   Heart,
   Award
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 
 const WhyUs = () => {
+  const t = useTranslations('whyUs')
+  
   const benefits = [
     {
       icon: CheckCircle2,
-      title: "Actividades listas para usar o totalmente personalizadas",
-      description: "Tenemos un catálogo de experiencias probadas, pero también creamos desde cero según tus necesidades específicas."
+      title: t('benefits.readyToUse.title'),
+      description: t('benefits.readyToUse.description')
     },
     {
       icon: Globe,
-      title: "Experiencias presenciales y online",
-      description: "Nos adaptamos a cualquier formato: eventos en persona, virtuales o híbridos con la misma calidad y engagement."
+      title: t('benefits.onlineOffline.title'),
+      description: t('benefits.onlineOffline.description')
     },
     {
       icon: Sparkles,
-      title: "Metodología profesional con alma lúdica",
-      description: "Combinamos rigor metodológico y psicología aplicada con la diversión y creatividad del juego."
+      title: t('benefits.methodology.title'),
+      description: t('benefits.methodology.description')
     },
     {
       icon: Zap,
-      title: "Rigor, creatividad y dinamización garantizada",
-      description: "Cada experiencia está cuidadosamente diseñada para ser memorable, efectiva y transformadora."
+      title: t('benefits.guaranteed.title'),
+      description: t('benefits.guaranteed.description')
     },
     {
       icon: Users,
-      title: "Juegos para grupos de 5 a 150 personas",
-      description: "Desde equipos pequeños hasta grandes convenciones, escalamos nuestras dinámicas sin perder intensidad."
+      title: t('benefits.groupSize.title'),
+      description: t('benefits.groupSize.description')
     },
     {
       icon: Target,
-      title: "Adaptación total al espacio, contexto y objetivo",
-      description: "Analizamos tu entorno, cultura y metas para crear una experiencia que encaje perfectamente."
+      title: t('benefits.adaptation.title'),
+      description: t('benefits.adaptation.description')
     }
   ]
 
   const stats = [
-    { number: "100%", label: "Satisfacción Garantizada", icon: Heart },
-    { number: "350+", label: "Experiencias Creadas", icon: Sparkles },
-    { number: "5000+", label: "Personas Conectadas", icon: Users },
-    { number: "95%", label: "Clientes Repiten", icon: Award }
+    { number: "100%", label: t('stats.satisfaction'), icon: Heart },
+    { number: "350+", label: t('stats.projects'), icon: Sparkles },
+    { number: "5000+", label: t('stats.participants'), icon: Users },
+    { number: "95%", label: t('stats.repeatClients'), icon: Award }
   ]
 
   return (
@@ -73,9 +76,9 @@ const WhyUs = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Más que juegos.{' '}
+{t('title')}{' '}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
-              Momentos que dejan huella
+              {t('titleHighlight')}
             </span>
           </motion.h2>
           
@@ -179,13 +182,29 @@ const WhyUs = () => {
             
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
-              {Array.from({ length: 15 }).map((_, i) => (
+              {[
+                { left: 30.3, top: 70.6, duration: 4.2, delay: 0.3 },
+                { left: 50.6, top: 26.1, duration: 5.1, delay: 1.2 },
+                { left: 62.4, top: 65.1, duration: 3.8, delay: 0.7 },
+                { left: 35.2, top: 60.1, duration: 4.7, delay: 1.6 },
+                { left: 6.3, top: 67.4, duration: 3.5, delay: 0.1 },
+                { left: 86.5, top: 46.3, duration: 4.9, delay: 1.4 },
+                { left: 87.8, top: 26.9, duration: 3.2, delay: 0.9 },
+                { left: 57.7, top: 12.7, duration: 5.3, delay: 1.8 },
+                { left: 45.2, top: 43.6, duration: 4.1, delay: 0.5 },
+                { left: 18.4, top: 85.9, duration: 4.6, delay: 1.0 },
+                { left: 56.8, top: 40.1, duration: 3.9, delay: 1.5 },
+                { left: 69.9, top: 17.2, duration: 4.4, delay: 0.2 },
+                { left: 29.3, top: 71.5, duration: 5.0, delay: 1.3 },
+                { left: 10.3, top: 12.5, duration: 3.7, delay: 0.8 },
+                { left: 46.6, top: 48.7, duration: 4.8, delay: 1.7 }
+              ].map((item, i) => (
                 <motion.div
                   key={i}
                   className="absolute w-4 h-4 bg-white rounded-sm"
                   style={{
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
+                    left: `${item.left}%`,
+                    top: `${item.top}%`,
                   }}
                   animate={{
                     y: [-10, 10, -10],
@@ -193,9 +212,9 @@ const WhyUs = () => {
                     opacity: [0.1, 0.3, 0.1],
                   }}
                   transition={{
-                    duration: 3 + Math.random() * 2,
+                    duration: item.duration,
                     repeat: Infinity,
-                    delay: Math.random() * 2,
+                    delay: item.delay,
                     ease: "easeInOut"
                   }}
                 />
@@ -204,19 +223,19 @@ const WhyUs = () => {
 
             <div className="relative z-10">
               <h3 className="text-3xl lg:text-4xl font-bold mb-4">
-                ¿Listo para transformar tu próximo evento?
+                {t('ctaTitle')}
               </h3>
               <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Cada experiencia que creamos es única. Hablemos de cómo podemos hacer que tu grupo viva algo extraordinario.
+                {t('subtitle')}
               </p>
               
               <motion.button
-                className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 inline-flex items-center space-x-2"
+                className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 inline-flex items-center space-x-2 cursor-pointer"
                 onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span>Conversemos sobre tu proyecto</span>
+                <span>{t('cta')}</span>
                 <motion.span
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
