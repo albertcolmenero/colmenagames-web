@@ -11,20 +11,29 @@
   },
   "hero": {
     "title": {
-      "play": "Juega.",
-      "connect": "Conecta.",
-      "transform": "Transforma tu equipo."
+      "play": "Creamos actividades",
+      "connect": "para equipos",
+      "transform": "que no fallan."
     },
-    "subtitle": "Creamos experiencias gamificadas a medida para cualquier grupo humano: desde claustros y empresas hasta fiestas y celebraciones.",
-    "highlight": "Conecta como nunca. Disfruta como siempre.",
+    "subtitle": "Diseñamos teambuildings a medida para integrar equipos, conectar personas y generar aprendizajes reales.",
+    "highlight": "",
     "cta": {
-      "primary": "Quiero vivir una Colmena Experience",
+      "primary": "Hablemos de tu equipo",
       "secondary": "Conoce más sobre nosotros"
     },
     "stats": {
       "people": "Personas por grupo",
       "customizable": "Personalizable",
       "possibilities": "Posibilidades"
+    }
+  },
+  "forTeams": {
+    "title": "Colmena es para equipos que...",
+    "items": {
+      "0": "Quieren vivir una experiencia bien pensada, no improvisada",
+      "1": "Buscan algo adaptado a su realidad, no una actividad genérica",
+      "2": "Valoran que alguien les acompañe y se encargue de todo",
+      "3": "Tienen poco tiempo y mucha responsabilidad"
     }
   },
   "about": {
@@ -100,32 +109,6 @@
       "cta": "Diseñemos tu experiencia"
     }
   },
-  "whyUs": {
-    "title": "Por qué elegir",
-    "titleHighlight": "Colmena Experience",
-    "features": {
-      "experience": {
-        "title": "Experiencia Probada",
-        "description": "Años de experiencia creando momentos únicos para todo tipo de grupos y contextos."
-      },
-      "customization": {
-        "title": "Personalización Total",
-        "description": "Cada experiencia está diseñada específicamente para tus objetivos y participantes."
-      },
-      "methodology": {
-        "title": "Metodología Sólida",
-        "description": "Enfoque profesional basado en la psicología del juego y la dinámica de grupos."
-      },
-      "results": {
-        "title": "Resultados Medibles",
-        "description": "Experiencias que generan un impacto real en la cohesión y motivación de los equipos."
-      }
-    }
-  },
-  "testimonials": {
-    "title": "Qué dicen de nosotros",
-    "subtitle": "Experiencias reales de clientes satisfechos"
-  },
   "contact": {
     "title": "¿Te imaginas tu grupo viviendo una experiencia así?",
     "subtitle": "Escríbenos y diseñamos algo único para vosotros",
@@ -159,52 +142,52 @@
         "other": "Otro"
       }
     },
-          "info": {
-        "title": "Información de contacto",
-        "description": "¿Tienes preguntas? ¿Quieres más información? Estamos aquí para ayudarte a crear la experiencia perfecta para tu grupo.",
-        "email": "Correo electrónico",
-        "phone": "Teléfono",
-        "hours": "Horario de atención",
-        "hoursValue": "Lunes a Viernes: 9:00 - 18:00",
-        "response": "Tiempo de respuesta",
-        "responseValue": "Menos de 24 horas",
-        "location": "Barcelona, España",
-        "coverage": "Experiencias en toda España"
-      },
-      "process": {
-        "title": "¿Cómo trabajamos?",
-        "steps": {
-          "0": "📞 Conversación inicial para entender tu grupo y objetivos",
-          "1": "🎯 Diseño de propuesta personalizada sin compromiso",
-          "2": "✅ Refinamiento de la experiencia según tu feedback",
-          "3": "🎉 Dinamización profesional de la experiencia",
-          "4": "📈 Seguimiento post-experiencia y recogida de feedback"
-        }
-      },
-      "pricing": {
-        "title": "Información de precios",
-        "description": "Nuestras experiencias se adaptan a diferentes presupuestos:",
-        "basic": "Experiencias básicas: Desde 25€ por persona",
-        "premium": "Experiencias premium: Desde 45€ por persona",
-        "custom": "Experiencias totalmente personalizadas: Consultar",
-        "disclaimer": "* Precios orientativos. La propuesta final dependerá del tipo de experiencia, duración, número de participantes y nivel de personalización."
-      },
-      "email": {
-        "subject": "Nueva solicitud de propuesta - ColmenaGames",
-        "contactData": "DATOS DE CONTACTO:",
-        "name": "Nombre:",
-        "email": "Email:",
-        "phone": "Teléfono:",
-        "notProvided": "No proporcionado",
-        "groupInfo": "INFORMACIÓN DEL GRUPO:",
-        "groupType": "Tipo de grupo:",
-        "participants": "Número de participantes:",
-        "date": "Fecha aproximada:",
-        "notSpecified": "No especificado",
-        "additionalMessage": "MENSAJE ADICIONAL:",
-        "noAdditionalMessage": "Sin mensaje adicional",
-        "errorSending": "Error al enviar el mensaje"
+    "info": {
+      "title": "Información de contacto",
+      "description": "¿Tienes preguntas? ¿Quieres más información? Estamos aquí para ayudarte a crear la experiencia perfecta para tu grupo.",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "hours": "Horario de atención",
+      "hoursValue": "Lunes a Viernes: 9:00 - 18:00",
+      "response": "Tiempo de respuesta",
+      "responseValue": "Menos de 24 horas",
+      "location": "Barcelona, España",
+      "coverage": "Experiencias en toda España"
+    },
+    "process": {
+      "title": "¿Cómo trabajamos?",
+      "steps": {
+        "0": "📞 Conversación inicial para entender tu grupo y objetivos",
+        "1": "🎯 Diseño de propuesta personalizada sin compromiso",
+        "2": "✅ Refinamiento de la experiencia según tu feedback",
+        "3": "🎉 Dinamización profesional de la experiencia",
+        "4": "📈 Seguimiento post-experiencia y recogida de feedback"
       }
+    },
+    "pricing": {
+      "title": "Información de precios",
+      "description": "Nuestras experiencias se adaptan a diferentes presupuestos:",
+      "basic": "Experiencias básicas: Desde 25€ por persona",
+      "premium": "Experiencias premium: Desde 45€ por persona",
+      "custom": "Experiencias totalmente personalizadas: Consultar",
+      "disclaimer": "* Precios orientativos. La propuesta final dependerá del tipo de experiencia, duración, número de participantes y nivel de personalización."
+    },
+    "email": {
+      "subject": "Nueva solicitud de propuesta - ColmenaGames",
+      "contactData": "DATOS DE CONTACTO:",
+      "name": "Nombre:",
+      "email": "Email:",
+      "phone": "Teléfono:",
+      "notProvided": "No proporcionado",
+      "groupInfo": "INFORMACIÓN DEL GRUPO:",
+      "groupType": "Tipo de grupo:",
+      "participants": "Número de participantes:",
+      "date": "Fecha aproximada:",
+      "notSpecified": "No especificado",
+      "additionalMessage": "MENSAJE ADICIONAL:",
+      "noAdditionalMessage": "Sin mensaje adicional",
+      "errorSending": "Error al enviar el mensaje"
+    }
   },
   "footer": {
     "description": "Creando conexiones auténticas a través del juego",

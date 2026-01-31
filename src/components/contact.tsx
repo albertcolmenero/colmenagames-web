@@ -6,11 +6,11 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { 
-  Send, 
-  Mail, 
-  Phone, 
-  MapPin, 
+import {
+  Send,
+  Mail,
+  Phone,
+  MapPin,
   Sparkles,
   CheckCircle,
   Clock
@@ -19,7 +19,7 @@ import { useTranslations } from 'next-intl'
 
 const Contact = () => {
   const t = useTranslations('contact')
-  
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,7 +29,7 @@ const Contact = () => {
     date: '',
     message: ''
   })
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
@@ -44,7 +44,7 @@ const Contact = () => {
     e.stopPropagation()
     setIsSubmitting(true)
     setError('')
-    
+
     try {
       // Format message with all form data
       const formattedMessage = `
@@ -67,11 +67,11 @@ ${formData.message || t('email.noAdditionalMessage')}
       // Send to Formcarry
       const response = await fetch("https://formcarry.com/s/emyGEYl2TiY", {
         method: 'POST',
-        headers: { 
+        headers: {
           "Accept": "application/json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ 
+        body: JSON.stringify({
           name: formData.name,
           email: formData.email,
           message: formattedMessage,
@@ -83,11 +83,11 @@ ${formData.message || t('email.noAdditionalMessage')}
       })
 
       const result = await response.json()
-      
+
       if (result.code === 200) {
         setIsSubmitting(false)
         setIsSubmitted(true)
-        
+
         // Reset form after 5 seconds
         setTimeout(() => {
           setIsSubmitted(false)
@@ -110,7 +110,7 @@ ${formData.message || t('email.noAdditionalMessage')}
         setError(result.message)
         setIsSubmitting(false)
       }
-      
+
     } catch (error) {
       // Request related error
       console.error('Error sending form:', error)
@@ -131,7 +131,7 @@ ${formData.message || t('email.noAdditionalMessage')}
     {
       icon: Mail,
       title: t('info.email'),
-      value: "maria@bluelife-ventures.com",
+      value: "hola@colmena-experience.com",
       description: t('info.responseValue')
     },
     {
@@ -151,7 +151,7 @@ ${formData.message || t('email.noAdditionalMessage')}
   return (
     <section id="contact" className="py-20 lg:py-32 bg-gradient-to-br from-white via-secondary/20 to-primary/10 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -167,9 +167,9 @@ ${formData.message || t('email.noAdditionalMessage')}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-{t('title')}
+            {t('title')}
           </motion.h2>
-          
+
           <motion.p
             className="text-xl text-muted-foreground max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -177,12 +177,12 @@ ${formData.message || t('email.noAdditionalMessage')}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-{t('subtitle')}
+            {t('subtitle')}
           </motion.p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-16 items-start">
-          
+
           {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -194,10 +194,10 @@ ${formData.message || t('email.noAdditionalMessage')}
               <CardHeader className="bg-gradient-to-r from-primary to-accent p-8">
                 <CardTitle className="text-3xl font-bold text-white flex items-center">
                   <span className="mr-3">👉</span>
-{t('form.title')}
+                  {t('form.title')}
                 </CardTitle>
               </CardHeader>
-              
+
               <CardContent className="p-8">
                 {!isSubmitted ? (
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -220,7 +220,7 @@ ${formData.message || t('email.noAdditionalMessage')}
                           className="border-2 border-primary/20 focus:border-primary"
                         />
                       </motion.div>
-                      
+
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -259,7 +259,7 @@ ${formData.message || t('email.noAdditionalMessage')}
                           className="border-2 border-primary/20 focus:border-primary"
                         />
                       </motion.div>
-                      
+
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -300,7 +300,7 @@ ${formData.message || t('email.noAdditionalMessage')}
                           className="border-2 border-primary/20 focus:border-primary"
                         />
                       </motion.div>
-                      
+
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -356,12 +356,12 @@ ${formData.message || t('email.noAdditionalMessage')}
                               animate={{ rotate: 360 }}
                               transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                             />
-{t('form.submitting')}
+                            {t('form.submitting')}
                           </div>
                         ) : (
                           <div className="flex items-center justify-center">
                             <Send className="mr-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-{t('form.submit')}
+                            {t('form.submit')}
                           </div>
                         )}
                       </Button>
@@ -391,7 +391,7 @@ ${formData.message || t('email.noAdditionalMessage')}
                     >
                       <CheckCircle className="w-10 h-10 text-white" />
                     </motion.div>
-                    
+
                     <h3 className="text-2xl font-bold text-foreground mb-4">
                       {t('form.success')}
                     </h3>
@@ -412,7 +412,7 @@ ${formData.message || t('email.noAdditionalMessage')}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            
+
             {/* Contact Information */}
             <div className="space-y-6">
               {contactInfo.map((info, index) => (
@@ -449,7 +449,7 @@ ${formData.message || t('email.noAdditionalMessage')}
                 <Clock className="mr-3 w-8 h-8 text-primary" />
                 {t('process.title')}
               </h3>
-              
+
               <div className="space-y-4">
                 {[
                   t('process.steps.0'),

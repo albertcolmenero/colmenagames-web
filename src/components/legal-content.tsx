@@ -83,7 +83,7 @@ Los datos personales del Usuario serán conservados durante el tiempo necesario 
 
 ## 6. Derechos del Usuario
 
-El Usuario puede ejercer sus derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad de los datos dirigiéndose por escrito a Colmena Experience en la dirección postal indicada anteriormente o en la dirección de correo electrónico **maria@bluelife-ventures.com**, adjuntando copia de su DNI o documento identificativo equivalente.
+El Usuario puede ejercer sus derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad de los datos dirigiéndose por escrito a Colmena Experience en la dirección postal indicada anteriormente o en la dirección de correo electrónico **hola@colmena-experience.com**, adjuntando copia de su DNI o documento identificativo equivalente.
 
 Asimismo, el Usuario tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos.
 
@@ -207,7 +207,7 @@ export function LegalContent({ documentType, onClose }: LegalContentProps) {
     if (!documentType) return
 
     setIsLoading(true)
-    
+
     // Simulate loading time for better UX
     setTimeout(() => {
       setContent(documentContents[documentType] || '')
@@ -232,22 +232,22 @@ export function LegalContent({ documentType, onClose }: LegalContentProps) {
         if (line.startsWith('### ')) {
           return `<h3 key="${index}" class="text-xl font-semibold text-gray-700 mb-3 mt-4">${line.slice(4)}</h3>`
         }
-        
+
         // Bold text
         if (line.includes('**')) {
           line = line.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-primary">$1</strong>')
         }
-        
+
         // Lists
         if (line.trim().startsWith('- ')) {
           return `<li key="${index}" class="text-gray-600 mb-2 ml-4">${line.slice(2)}</li>`
         }
-        
+
         // Empty lines
         if (line.trim() === '') {
           return `<br key="${index}" />`
         }
-        
+
         // Regular paragraphs
         return `<p key="${index}" class="text-gray-600 mb-4 leading-relaxed">${line}</p>`
       })
@@ -266,7 +266,7 @@ export function LegalContent({ documentType, onClose }: LegalContentProps) {
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
           </div>
         ) : (
-          <div 
+          <div
             className="legal-content"
             dangerouslySetInnerHTML={{ __html: formatContent(content) }}
           />

@@ -27,6 +27,15 @@
       "possibilities": "Possibilitats"
     }
   },
+  "forTeams": {
+    "title": "Colmena és per a equips que...",
+    "items": {
+      "0": "Volen viure una experiència ben pensada, no improvisada",
+      "1": "Busquen alguna cosa adaptada a la seva realitat, no una activitat genèrica",
+      "2": "Valoren que algú els acompanyi i s'encarregui de tot",
+      "3": "Tenen poc temps i molta responsabilitat"
+    }
+  },
   "about": {
     "title": "Experts en dissenyar",
     "titleHighlight": "moments inoblidables",
@@ -67,7 +76,7 @@
       "description": "Experiències dissenyades per millorar la comunicació, col·laboració i cohesió en equips corporatius.",
       "examples": {
         "0": "Detective Cases interactius",
-        "1": "Narratives ramificades col·laboratives",
+        "1": "Narrativas ramificadas col·laboratives",
         "2": "Escape Rooms temàtics",
         "3": "Dinàmiques de resolució creativa"
       }
@@ -99,32 +108,6 @@
       "description": "Dissenyem l'experiència perfecta per al teu grup, sense importar la mida o el context.",
       "cta": "Dissenyem la teva experiència"
     }
-  },
-  "whyUs": {
-    "title": "Per què triar",
-    "titleHighlight": "Colmena Experience",
-    "features": {
-      "experience": {
-        "title": "Experiència Provada",
-        "description": "Anys d'experiència creant moments únics per a tot tipus de grups i contextos."
-      },
-      "customization": {
-        "title": "Personalització Total",
-        "description": "Cada experiència està dissenyada específicament per als teus objectius i participants."
-      },
-      "methodology": {
-        "title": "Metodologia Sòlida",
-        "description": "Enfocament professional basat en la psicologia del joc i la dinàmica de grups."
-      },
-      "results": {
-        "title": "Resultats Mesurables",
-        "description": "Experiències que generen un impacte real en la cohesió i motivació dels equips."
-      }
-    }
-  },
-  "testimonials": {
-    "title": "Què diuen de nosaltres",
-    "subtitle": "Experiències reals de clients satisfets"
   },
   "contact": {
     "title": "T'imagines el teu grup vivint una experiència així?",
@@ -159,52 +142,52 @@
         "other": "Altre"
       }
     },
-          "info": {
-        "title": "Informació de contacte",
-        "description": "Tens preguntes? Vols més informació? Estem aquí per ajudar-te a crear l'experiència perfecta per al teu grup.",
-        "email": "Correu electrònic",
-        "phone": "Telèfon",
-        "hours": "Horari d'atenció",
-        "hoursValue": "Dilluns a Divendres: 9:00 - 18:00",
-        "response": "Temps de resposta",
-        "responseValue": "Menys de 24 hores",
-        "location": "Barcelona, Espanya",
-        "coverage": "Experiències a tota Espanya"
-      },
-      "process": {
-        "title": "Com treballem?",
-        "steps": {
-          "0": "📞 Conversa inicial per entendre el teu grup i objectius",
-          "1": "🎯 Disseny de proposta personalitzada sense compromís",
-          "2": "✅ Refinament de l'experiència segons el teu feedback",
-          "3": "🎉 Dinamització professional de l'experiència",
-          "4": "📈 Seguiment post-experiència i recollida de feedback"
-        }
-      },
-      "pricing": {
-        "title": "Informació de preus",
-        "description": "Les nostres experiències s'adapten a diferents pressupostos:",
-        "basic": "Experiències bàsiques: Des de 25€ per persona",
-        "premium": "Experiències premium: Des de 45€ per persona",
-        "custom": "Experiències totalment personalitzades: Consultar",
-        "disclaimer": "* Preus orientatius. La proposta final dependrà del tipus d'experiència, durada, nombre de participants i nivell de personalització."
-      },
-      "email": {
-        "subject": "Nova sol·licitud de proposta - ColmenaGames",
-        "contactData": "DADES DE CONTACTE:",
-        "name": "Nom:",
-        "email": "Email:",
-        "phone": "Telèfon:",
-        "notProvided": "No proporcionat",
-        "groupInfo": "INFORMACIÓ DEL GRUP:",
-        "groupType": "Tipus de grup:",
-        "participants": "Nombre de participants:",
-        "date": "Data aproximada:",
-        "notSpecified": "No especificat",
-        "additionalMessage": "MISSATGE ADICIONAL:",
-        "noAdditionalMessage": "Sense missatge adicional",
-        "errorSending": "Error en enviar el missatge"
+    "info": {
+      "title": "Informació de contacte",
+      "description": "Tens preguntes? Vols més informació? Estem aquí per ajudar-te a crear l'experiència perfecta per al teu grup.",
+      "email": "Correu electrònic",
+      "phone": "Telèfon",
+      "hours": "Horari d'atenció",
+      "hoursValue": "Dilluns a Divendres: 9:00 - 18:00",
+      "response": "Temps de resposta",
+      "responseValue": "Menys de 24 hores",
+      "location": "Barcelona, Espanya",
+      "coverage": "Experiències a tota Espanya"
+    },
+    "process": {
+      "title": "Com treballem?",
+      "steps": {
+        "0": "📞 Conversa inicial per entendre el teu grup i objectius",
+        "1": "🎯 Disseny de proposta personalitzada sense compromís",
+        "2": "✅ Refinament de l'experiència segons el teu feedback",
+        "3": "🎉 Dinamització professional de l'experiència",
+        "4": "📈 Seguiment post-experiència i recollida de feedback"
       }
+    },
+    "pricing": {
+      "title": "Informació de preus",
+      "description": "Les nostres experiències s'adapten a diferents pressupostos:",
+      "basic": "Experiències bàsiques: Des de 25€ per persona",
+      "premium": "Experiències premium: Des de 45€ per persona",
+      "custom": "Experiències totalment personalitzades: Consultar",
+      "disclaimer": "* Preus orientatius. La proposta final dependrà del tipus d'experiència, durada, nombre de participants i nivell de personalització."
+    },
+    "email": {
+      "subject": "Nova sol·licitud de proposta - ColmenaGames",
+      "contactData": "DADES DE CONTACTE:",
+      "name": "Nom:",
+      "email": "Email:",
+      "phone": "Telèfon:",
+      "notProvided": "No proporcionat",
+      "groupInfo": "INFORMACIÓ DEL GRUPO:",
+      "groupType": "Tipus de grup:",
+      "participants": "Nombre de participants:",
+      "date": "Data aproximada:",
+      "notSpecified": "No especificat",
+      "additionalMessage": "MISSATGE ADICIONAL:",
+      "noAdditionalMessage": "Sense missatge adicional",
+      "errorSending": "Error en enviar el missatge"
+    }
   },
   "footer": {
     "description": "Creant connexions autèntiques a través del joc",

@@ -437,7 +437,7 @@ Los datos personales del Usuario serán conservados durante el tiempo necesario 
 
 ## 6. Derechos del Usuario
 
-El Usuario puede ejercer sus derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad de los datos dirigiéndose por escrito a Colmena Experience en la dirección postal indicada anteriormente o en la dirección de correo electrónico **maria@bluelife-ventures.com**, adjuntando copia de su DNI o documento identificativo equivalente.
+El Usuario puede ejercer sus derechos de acceso, rectificación, supresión, limitación, oposición y portabilidad de los datos dirigiéndose por escrito a Colmena Experience en la dirección postal indicada anteriormente o en la dirección de correo electrónico **hola@colmena**, adjuntando copia de su DNI o documento identificativo equivalente.
 
 Asimismo, el Usuario tiene derecho a presentar una reclamación ante la Agencia Española de Protección de Datos.
 

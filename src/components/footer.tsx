@@ -3,11 +3,11 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Heart, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Heart,
   Instagram,
   ArrowUp
 } from 'lucide-react'
@@ -17,9 +17,9 @@ import { useTranslations } from 'next-intl'
 const Footer = () => {
   const t = useTranslations('footer')
   const tHeader = useTranslations('header')
-  
+
   const [activeDocument, setActiveDocument] = useState<string | null>(null)
-  
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -64,11 +64,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-br from-foreground via-gray-900 to-gray-800 text-white overflow-hidden">
-      
+
       {/* Main Footer Content */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid lg:grid-cols-4 gap-12">
-          
+
           {/* Company Info */}
           <motion.div
             className="lg:col-span-1"
@@ -90,11 +90,11 @@ const Footer = () => {
                 className="h-14 w-auto brightness-0 invert"
               />
             </motion.div>
-            
+
             <p className="text-gray-300 mb-6 leading-relaxed">
               {t('description')}
             </p>
-            
+
             {/* Contact Info */}
             <div className="space-y-3">
               <motion.div
@@ -102,9 +102,9 @@ const Footer = () => {
                 whileHover={{ x: 5 }}
               >
                 <Mail className="w-5 h-5 text-primary" />
-                <span>maria@bluelife-ventures.com</span>
+                <span>hola@colmena-experience.com</span>
               </motion.div>
-              
+
               <motion.div
                 className="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors"
                 whileHover={{ x: 5 }}
@@ -112,7 +112,7 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-primary" />
                 <span>+34 623 286 976</span>
               </motion.div>
-              
+
               <motion.div
                 className="flex items-center space-x-3 text-gray-300 hover:text-primary transition-colors"
                 whileHover={{ x: 5 }}
@@ -178,7 +178,7 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h4 className="text-xl font-bold text-white mb-6">{t('contact')}</h4>
-            
+
             {/* Social Links */}
             <div className="flex space-x-4 mb-8">
               {socialLinks.map((social, index) => (
@@ -228,7 +228,7 @@ const Footer = () => {
       <div className="border-t border-white/10 bg-black/20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            
+
             {/* Copyright */}
             <motion.div
               className="flex items-center space-x-2 text-gray-400 text-sm"
@@ -237,7 +237,7 @@ const Footer = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              <span>© 2025 Colmena Experience. {t('rights')}</span>
+              <span>© 2026 Colmena Experience. {t('rights')}</span>
               <Heart className="w-4 h-4 text-primary" />
             </motion.div>
 
@@ -250,14 +250,14 @@ const Footer = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               {footerLinks.legal.map((link, index) => {
-                const documentType = link === 'Aviso Legal' 
+                const documentType = link === 'Aviso Legal'
                   ? 'aviso-legal'
-                  : link === 'Política de Privacidad' 
-                  ? 'politica-privacidad'
-                  : link === 'Términos y Condiciones' 
-                  ? 'terminos-condiciones'
-                  : 'politica-cookies'
-                
+                  : link === 'Política de Privacidad'
+                    ? 'politica-privacidad'
+                    : link === 'Términos y Condiciones'
+                      ? 'terminos-condiciones'
+                      : 'politica-cookies'
+
                 return (
                   <button
                     key={index}
@@ -289,7 +289,7 @@ const Footer = () => {
 
       {/* Decorative Elements */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-      
+
       {/* Floating Background Pattern */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[
@@ -324,9 +324,9 @@ const Footer = () => {
           />
         ))}
       </div>
-      
+
       {/* Legal Content Modal */}
-      <LegalContent 
+      <LegalContent
         documentType={activeDocument}
         onClose={() => setActiveDocument(null)}
       />

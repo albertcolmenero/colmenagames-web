@@ -1,5 +1,6 @@
 import Header from '@/components/header'
 import Hero from '@/components/hero'
+import ForTeams from '@/components/for-teams'
 import About from '@/components/about'
 import Services from '@/components/services'
 import WhyUs from '@/components/why-us'
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <ForTeams />
         <About />
         <Services />
         <WhyUs />
