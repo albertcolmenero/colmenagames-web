@@ -16,10 +16,10 @@ export default function Home() {
       <main>
         <Hero />
         <ForTeams />
-        <About />
+        {/*<About />*/}
         <Services />
         <WhyUs />
-        <MissionVision />
+        {/*<MissionVision />*/}
         <Testimonials />
         <Contact />
       </main>

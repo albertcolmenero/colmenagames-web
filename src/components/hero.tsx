@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl'
 
 const Hero = () => {
   const t = useTranslations('hero')
-  
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
     if (element) {
@@ -27,7 +27,7 @@ const Hero = () => {
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary">
         <div className="absolute inset-0 bg-black/20" />
-        
+
         {/* Animated Geometric Shapes */}
         <motion.div
           className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"
@@ -53,7 +53,7 @@ const Hero = () => {
             ease: "easeInOut"
           }}
         />
-        
+
         {/* Floating Dice Pattern */}
         <div className="absolute inset-0">
           {[
@@ -122,31 +122,17 @@ const Hero = () => {
                 ease: "linear"
               }}
               style={{
-                background: 'linear-gradient(90deg, #ffffff, #fbbf24, #ffffff)',
-                backgroundSize: '200% 100%',
+                background: 'linear-gradient(90deg, #3b2813, #f6a602)', backgroundSize: '200% 100%',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
               }}
             >
-{t('title.play')}
+              {t('title.play')}<br></br>
+              {t('title.connect')}<br></br>
+              {t('title.transform')}
             </motion.span>
-            <motion.span
-              className="block"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-            >
-{t('title.connect')}
-            </motion.span>
-            <motion.span
-              className="block bg-gradient-to-r from-yellow-300 via-orange-300 to-white bg-clip-text text-transparent"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-{t('title.transform')}
-            </motion.span>
+
           </motion.h1>
 
           {/* Subtitle */}
@@ -156,7 +142,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1 }}
           >
-{t('subtitle')}{' '}
+            {t('subtitle')}{' '}
             <span className="font-semibold text-yellow-300">{t('highlight')}</span>
           </motion.p>
 
@@ -169,22 +155,15 @@ const Hero = () => {
           >
             <Button
               onClick={() => scrollToSection('#contact')}
-              className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group cursor-pointer"
+              className="bg-black text-white hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group cursor-pointer"
               size="lg"
             >
               <span className="mr-2">👉</span>
-{t('cta.primary')}
+              {t('cta.primary')}
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            
-            <Button
-              onClick={() => scrollToSection('#about')}
-              variant="outline"
-              className="bg-white text-primary hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group cursor-pointer"
-              size="lg"
-            >
-{t('cta.secondary')}
-            </Button>
+
+
           </motion.div>
 
           {/* Stats */}
@@ -195,7 +174,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 1.7 }}
           >
             <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">5-150</div>
+              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">10-250</div>
               <div className="text-white/80 font-medium">{t('stats.people')}</div>
             </div>
             <div className="text-center">
@@ -222,7 +201,7 @@ const Hero = () => {
               transform: `translateY(${element.y}px)`,
             }}
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ 
+            animate={{
               opacity: [0, 0.6, 0],
               scale: [0, 1, 0],
               rotate: [0, 180, 360],

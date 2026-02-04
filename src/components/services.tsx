@@ -4,17 +4,18 @@ import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { 
-  Building2, 
-  Users, 
-  Search, 
-  BookOpen, 
-  Music, 
+import {
+  Building2,
+  Users,
+  Search,
+  BookOpen,
+  Music,
   PartyPopper,
   ArrowRight,
   CheckCircle
 } from 'lucide-react'
 import { useTranslations } from 'next-intl'
+import Methodology from './methodology'
 
 const Services = () => {
   const [activeService, setActiveService] = useState(0)
@@ -36,7 +37,7 @@ const Services = () => {
       color: "from-blue-500 to-blue-600",
       bgColor: "bg-blue-50"
     },
-    {
+    /*{
       id: 1,
       icon: Users,
       title: t('private.title'),
@@ -50,7 +51,7 @@ const Services = () => {
       ],
       color: "from-primary to-accent",
       bgColor: "bg-orange-50"
-    }
+    }*/
   ]
 
   const features = [
@@ -58,13 +59,14 @@ const Services = () => {
     t('features.list.1'),
     t('features.list.2'),
     t('features.list.3'),
-    t('features.list.4')
+    t('features.list.4'),
+    t('features.list.5')
   ]
 
   return (
     <section id="services" className="py-20 lg:py-32 bg-gradient-to-b from-white to-secondary/20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -80,12 +82,12 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-{t('title')}{' '}
+            {t('title')}{' '}
             <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
               {t('titleHighlight')}
             </span>
           </motion.h2>
-          
+
           <motion.p
             className="text-xl text-muted-foreground max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -93,12 +95,12 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-{t('subtitle')}
+            {t('subtitle')}
           </motion.p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          
+
           {/* Service Cards */}
           <div className="space-y-6">
             {services.map((service, index) => (
@@ -109,12 +111,11 @@ const Services = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
               >
-                <Card 
-                  className={`cursor-pointer transition-all duration-300 hover:shadow-2xl border-2 ${
-                    activeService === service.id 
-                      ? 'border-primary shadow-xl scale-105' 
-                      : 'border-transparent hover:border-primary/30'
-                  }`}
+                <Card
+                  className={`cursor-pointer transition-all duration-300 hover:shadow-2xl border-2 ${activeService === service.id
+                    ? 'border-primary shadow-xl scale-105'
+                    : 'border-transparent hover:border-primary/30'
+                    }`}
                   onClick={() => setActiveService(service.id)}
                 >
                   <CardHeader className="pb-4">
@@ -134,12 +135,12 @@ const Services = () => {
                       </div>
                     </div>
                   </CardHeader>
-                  
+
                   <CardContent>
                     <p className="text-muted-foreground mb-4 leading-relaxed">
                       {service.description}
                     </p>
-                    
+
                     <AnimatePresence>
                       {activeService === service.id && (
                         <motion.div
@@ -179,13 +180,13 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            
+
             {/* Features List */}
             <div className="bg-white p-8 rounded-3xl shadow-lg border border-primary/10">
               <h3 className="text-2xl font-bold text-foreground mb-6">
                 {t('features.title')}
               </h3>
-              
+
               <div className="space-y-4">
                 {features.map((feature, index) => (
                   <motion.div
@@ -203,54 +204,12 @@ const Services = () => {
               </div>
             </div>
 
-            {/* Interactive Visual */}
-            <div className="relative bg-gradient-to-br from-primary/5 via-accent/5 to-primary/5 p-8 rounded-3xl overflow-hidden">
-              <div className="relative z-10">
-                <h3 className="text-2xl font-bold text-foreground mb-4">
-                  {t('specialMoments.title')}
-                </h3>
-                <p className="text-muted-foreground mb-6">
-                  {t('specialMoments.description')}
-                </p>
-                
-                <Button 
-                  className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold rounded-full group cursor-pointer"
-                  onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-                >
-{t('specialMoments.cta')}
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
 
-              {/* Background Icons */}
-              <div className="absolute inset-0 overflow-hidden">
-                {[Search, BookOpen, Music, PartyPopper].map((Icon, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute"
-                    style={{
-                      left: `${20 + i * 25}%`,
-                      top: `${30 + (i % 2) * 40}%`,
-                    }}
-                    animate={{
-                      y: [-10, 10, -10],
-                      rotate: [-5, 5, -5],
-                      opacity: [0.1, 0.3, 0.1],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      delay: i * 0.5,
-                      ease: "easeInOut"
-                    }}
-                  >
-                    <Icon className="w-12 h-12 text-primary/20" />
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+            {/* Interactive Visual */}
+
           </motion.div>
         </div>
+        <Methodology />
       </div>
     </section>
   )

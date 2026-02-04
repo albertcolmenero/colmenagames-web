@@ -171,7 +171,7 @@ ${formData.message || t('email.noAdditionalMessage')}
           </motion.h2>
 
           <motion.p
-            className="text-xl text-muted-foreground max-w-3xl mx-auto"
+            className="text-xl text-muted-foreground max-w-6xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -437,66 +437,6 @@ ${formData.message || t('email.noAdditionalMessage')}
               ))}
             </div>
 
-            {/* Process Info */}
-            <motion.div
-              className="bg-gradient-to-br from-primary/5 via-accent/5 to-primary/10 p-8 rounded-3xl border border-primary/20"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center">
-                <Clock className="mr-3 w-8 h-8 text-primary" />
-                {t('process.title')}
-              </h3>
-
-              <div className="space-y-4">
-                {[
-                  t('process.steps.0'),
-                  t('process.steps.1'),
-                  t('process.steps.2'),
-                  t('process.steps.3'),
-                  t('process.steps.4')
-                ].map((step, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex items-start space-x-3"
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 * index }}
-                  >
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0" />
-                    <span className="text-muted-foreground">{step}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Pricing Info */}
-            <motion.div
-              className="bg-white p-8 rounded-3xl shadow-lg border border-primary/10"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-            >
-              <h3 className="text-2xl font-bold text-foreground mb-4 flex items-center">
-                <Sparkles className="mr-3 w-8 h-8 text-accent" />
-                {t('pricing.title')}
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                {t('pricing.description')}
-              </p>
-              <div className="space-y-2 text-sm text-muted-foreground">
-                <div>• <strong>{t('pricing.basic')}</strong></div>
-                <div>• <strong>{t('pricing.premium')}</strong></div>
-                <div>• <strong>{t('pricing.custom')}</strong></div>
-              </div>
-              <p className="text-xs text-muted-foreground mt-4 italic">
-                {t('pricing.disclaimer')}
-              </p>
-            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -68,10 +68,10 @@
   },
   "services": {
     "title": "¿Qué",
-    "titleHighlight": "Ofrecemos?",
+    "titleHighlight": "Hacemos?",
     "subtitle": "Experiencias gamificadas que se adaptan perfectamente a tu grupo, contexto y objetivos",
     "corporate": {
-      "title": "Team-building para Empresas",
+      "title": "Teambuildings colaborativos para Empresas",
       "subtitle": "Fortalece tu equipo",
       "description": "Experiencias diseñadas para mejorar la comunicación, colaboración y cohesión en equipos corporativos.",
       "examples": {
@@ -96,22 +96,48 @@
     "features": {
       "title": "Lo que nos diferencia",
       "list": {
-        "0": "Actividades listas para usar o totalmente personalizadas",
-        "1": "Experiencias presenciales y online",
+        "0": "Diseño 100% a medida (no packs)",
+        "1": "Experiencias presenciales",
         "2": "Adaptación total al espacio y contexto",
-        "3": "Grupos de 5 a 150 personas",
-        "4": "Facilitación profesional incluida"
+        "3": "Grupos de 10 a 250 personas",
+        "4": "Facilitación profesional incluida",
+        "5": "En castellano, catalán o en inglés"
       }
     },
     "specialMoments": {
       "title": "Para cada momento especial",
       "description": "Diseñamos la experiencia perfecta para tu grupo, sin importar el tamaño o el contexto.",
       "cta": "Diseñemos tu experiencia"
+    },
+    "methodology": {
+      "title": "Nuestra Metodología",
+      "steps": {
+        "0": {
+          "title": "Escuchamos",
+          "description": "Entendemos el equipo, el momento y lo que realmente se necesita."
+        },
+        "1": {
+          "title": "Diseñamos",
+          "description": "Creamos una experiencia a medida, alineada con los objetivos y el contexto."
+        },
+        "2": {
+          "title": "Producción y Preparación",
+          "description": "Materiales, ritmo y detalles cuidados."
+        },
+        "3": {
+          "title": "Día del Evento",
+          "description": "Llevamos a cabo la actividad con facilitación profesional y máxima energía."
+        },
+        "4": {
+          "title": "Feedback y observaciones",
+          "description": "Evaluamos juntos el impacto y los aprendizajes para seguir creciendo."
+        }
+      }
     }
   },
   "contact": {
-    "title": "¿Te imaginas tu grupo viviendo una experiencia así?",
-    "subtitle": "Escríbenos y diseñamos algo único para vosotros",
+    "title": "No improvises: dejá tu equipo en manos expertas.",
+    "subtitle": "En Colmena no improvisamos ni reciclamos dinámicas. Cada equipo es distinto y por ello la experiencia también debería serlo. Hacemos un diagnóstico, entendemos el contexto y diseñamos una experiencia con criterio que tenga sentido para ese grupo de personas. Nos tomamos tu responsabilidad tan en serio como tú.",
     "form": {
       "title": "Pide tu propuesta sin compromiso",
       "name": "Nombre completo",
@@ -202,10 +228,10 @@
     }
   },
   "whyUs": {
-    "title": "Más que juegos.",
-    "titleHighlight": "Momentos que dejan huella",
+    "title": "Cuando una experiencia está bien diseñada,",
+    "titleHighlight": "se nota",
     "ctaTitle": "¿Listo para transformar tu próximo evento?",
-    "subtitle": "Cada experiencia que creamos es única. Hablemos de cómo podemos hacer que tu grupo viva algo extraordinario.",
+    "subtitle": "Algunos ejemplos de equipos que ya han confiado en Colmena Experience para diseñar experiencias transformadoras.",
     "cta": "Conversemos sobre tu proyecto",
     "benefits": {
       "readyToUse": {
@@ -225,7 +251,7 @@
         "description": "Cada experiencia está cuidadosamente diseñada para ser memorable, efectiva y transformadora."
       },
       "groupSize": {
-        "title": "Juegos para grupos de 5 a 150 personas",
+        "title": "Juegos para grupos de 10 a 250 personas",
         "description": "Desde equipos pequeños hasta grandes convenciones, escalamos nuestras dinámicas sin perder intensidad."
       },
       "adaptation": {
@@ -298,12 +324,6 @@
         "role": "CEO",
         "company": "StartUp Innovation Lab",
         "testimonial": "Como startup, necesitábamos que nuestro equipo remoto se sintiera realmente conectado. La experiencia online que crearon superó todas nuestras expectativas. Ahora tenemos un equipo más unido y motivado. La inversión valió completamente la pena."
-      },
-      "elena": {
-        "name": "Elena Fernández",
-        "role": "Organizadora",
-        "company": "Reunión Familiar Anual",
-        "testimonial": "Cada año organizamos una gran reunión familiar y este año quisimos algo especial. El Cluedo en vivo que prepararon con personajes basados en nuestra propia familia fue genial. Tres generaciones riéndose juntas - eso no tiene precio."
       }
     }
   }

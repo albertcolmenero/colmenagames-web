@@ -107,6 +107,31 @@
       "title": "Per a cada moment especial",
       "description": "Dissenyem l'experiència perfecta per al teu grup, sense importar la mida o el context.",
       "cta": "Dissenyem la teva experiència"
+    },
+    "methodology": {
+      "title": "La Nostra Metodologia",
+      "steps": {
+        "0": {
+          "title": "Contacte Inicial",
+          "description": "Parlem per entendre les teves necessitats, objectius i el perfil del teu equip."
+        },
+        "1": {
+          "title": "Disseny a Mida",
+          "description": "Creem una proposta única adaptada a la teva cultura i expectatives."
+        },
+        "2": {
+          "title": "Planificació",
+          "description": "Coordinem logística, materials i facilitadors perquè tot surti perfecte."
+        },
+        "3": {
+          "title": "Experiència",
+          "description": "Portem a terme l'activitat amb facilitació professional i màxima energia."
+        },
+        "4": {
+          "title": "Feedback",
+          "description": "Avaluem junts l'impacte i els aprenentatges per seguir creixent."
+        }
+      }
     }
   },
   "contact": {
@@ -225,7 +250,7 @@
         "description": "Cada experiència està curosament dissenyada per ser memorable, efectiva i transformadora."
       },
       "groupSize": {
-        "title": "Jocs per a grups de 5 a 150 persones",
+        "title": "Jocs per a grups de 10 a 250 persones",
         "description": "Des d'equips petits fins a grans convencions, escalem les nostres dinàmiques sense perdre intensitat."
       },
       "adaptation": {

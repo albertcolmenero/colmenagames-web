@@ -54,23 +54,12 @@ const Testimonials = () => {
       testimonial: t('clients.roberto.testimonial'),
       rating: 5,
       image: "👨‍💻"
-    },
-    {
-      id: 5,
-      name: t('clients.elena.name'),
-      role: t('clients.elena.role'),
-      company: t('clients.elena.company'),
-      type: "particular",
-      icon: Heart,
-      testimonial: t('clients.elena.testimonial'),
-      rating: 5,
-      image: "👵"
     }
   ]
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
       )
     }, 5000)
@@ -79,13 +68,13 @@ const Testimonials = () => {
   }, [testimonials.length])
 
   const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
     )
   }
 
   const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
     )
   }
@@ -106,7 +95,7 @@ const Testimonials = () => {
   return (
     <section className="py-20 lg:py-32 bg-gradient-to-br from-secondary/30 via-white to-primary/5 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <motion.div
           className="text-center mb-16"
@@ -122,9 +111,9 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-{t('title')}
+            {t('title')}
           </motion.h2>
-          
+
           <motion.p
             className="text-xl text-muted-foreground max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
@@ -132,7 +121,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-{t('subtitle')}
+            {t('subtitle')}
           </motion.p>
         </motion.div>
 
@@ -149,7 +138,7 @@ const Testimonials = () => {
               <Card className="bg-white shadow-2xl border-0 overflow-hidden">
                 <CardContent className="p-8 lg:p-12">
                   <div className="grid lg:grid-cols-3 gap-8 items-center">
-                    
+
                     {/* Quote and Content */}
                     <div className="lg:col-span-2">
                       {/* Quote Icon */}
@@ -161,7 +150,7 @@ const Testimonials = () => {
                       >
                         <Quote className="w-16 h-16 text-primary/30" />
                       </motion.div>
-                      
+
                       {/* Testimonial Text */}
                       <motion.p
                         className="text-xl lg:text-2xl text-foreground leading-relaxed mb-6"
@@ -171,7 +160,7 @@ const Testimonials = () => {
                       >
                         &ldquo;{testimonials[currentIndex].testimonial}&rdquo;
                       </motion.p>
-                      
+
                       {/* Rating */}
                       <motion.div
                         className="flex space-x-1 mb-6"
@@ -191,7 +180,7 @@ const Testimonials = () => {
                         ))}
                       </motion.div>
                     </div>
-                    
+
                     {/* Client Info */}
                     <motion.div
                       className="text-center lg:text-left"
@@ -203,7 +192,7 @@ const Testimonials = () => {
                       <div className="w-24 h-24 mx-auto lg:mx-0 mb-4 text-6xl flex items-center justify-center bg-gradient-to-br from-secondary to-primary/20 rounded-full">
                         {testimonials[currentIndex].image}
                       </div>
-                      
+
                       {/* Name and Role */}
                       <h4 className="text-2xl font-bold text-foreground mb-2">
                         {testimonials[currentIndex].name}
@@ -214,7 +203,7 @@ const Testimonials = () => {
                       <p className="text-primary font-semibold mb-4">
                         {testimonials[currentIndex].company}
                       </p>
-                      
+
                       {/* Type Badge */}
                       <motion.div
                         className={`inline-flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${getTypeColor(testimonials[currentIndex].type)} text-white rounded-full text-sm font-semibold`}
@@ -247,11 +236,10 @@ const Testimonials = () => {
                 <motion.button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${
-                    index === currentIndex
-                      ? 'bg-primary scale-125'
-                      : 'bg-primary/30 hover:bg-primary/60'
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${index === currentIndex
+                    ? 'bg-primary scale-125'
+                    : 'bg-primary/30 hover:bg-primary/60'
+                    }`}
                   whileHover={{ scale: 1.2 }}
                 />
               ))}
@@ -268,29 +256,6 @@ const Testimonials = () => {
           </div>
         </div>
 
-        {/* Trust Indicators */}
-        <motion.div
-          className="mt-20 text-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="p-6">
-              <div className="text-4xl font-bold text-primary mb-2">95%</div>
-              <div className="text-muted-foreground font-medium">Clients repeteixen</div>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold text-primary mb-2">100%</div>
-              <div className="text-muted-foreground font-medium">Satisfacció garantida</div>
-            </div>
-            <div className="p-6">
-              <div className="text-4xl font-bold text-primary mb-2">350+</div>
-              <div className="text-muted-foreground font-medium">Experiències creades</div>
-            </div>
-          </div>
-        </motion.div>
 
         {/* Background Decorative Elements */}
         <div className="absolute left-0 top-1/3 -translate-x-1/2">
