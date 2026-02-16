@@ -2,7 +2,6 @@
   "header": {
     "nav": {
       "home": "Inici",
-      "about": "Qui Som",
       "services": "Serveis",
       "whyUs": "Per Què Nosaltres",
       "contact": "Contacte"
@@ -11,14 +10,14 @@
   },
   "hero": {
     "title": {
-      "play": "Juga.",
-      "connect": "Connecta.",
-      "transform": "Transforma el teu equip."
+      "play": "Creem activitats",
+      "connect": "per a equips",
+      "transform": "que no fallen."
     },
-    "subtitle": "Creem experiències gamificades a mida per a qualsevol grup humà: des de claustre i empreses fins a festes i celebracions.",
-    "highlight": "Connecta com mai. Gaudeix com sempre.",
+    "subtitle": "Dissenyem team buildings a mesura per integrar equips, connectar persones i generar aprenentatges reals.",
+    "highlight": "",
     "cta": {
-      "primary": "Vull viure una Colmena Experience",
+      "primary": " Parlem del teu equip",
       "secondary": "Coneix més sobre nosaltres"
     },
     "stats": {
@@ -76,7 +75,7 @@
       "description": "Experiències dissenyades per millorar la comunicació, col·laboració i cohesió en equips corporatius.",
       "examples": {
         "0": "Detective Cases interactius",
-        "1": "Narrativas ramificadas col·laboratives",
+        "1": "Narratives ramificades col·laboratives",
         "2": "Escape Rooms temàtics",
         "3": "Dinàmiques de resolució creativa"
       }
@@ -96,11 +95,12 @@
     "features": {
       "title": "El que ens diferencia",
       "list": {
-        "0": "Activitats llestes per usar o totalment personalitzades",
-        "1": "Experiències presencials i online",
+        "0": "Disseny 100% a mida (no packs)",
+        "1": "Experiències presencials",
         "2": "Adaptació total a l'espai i context",
-        "3": "Grups de 5 a 150 persones",
-        "4": "Facilitació professional inclosa"
+        "3": "Grups de 10 a 250 persones",
+        "4": "Facilitació professional inclosa",
+        "5": "En català, anglès o en castellà"
       }
     },
     "specialMoments": {
@@ -135,8 +135,8 @@
     }
   },
   "contact": {
-    "title": "T'imagines el teu grup vivint una experiència així?",
-    "subtitle": "Escriu-nos i dissenyem alguna cosa única per a vosaltres",
+    "title": "No improvisis: deixa el teu equip en mans expertes.",
+    "subtitle": "A Colmena no improvisem ni reciclem dinàmiques. Cada equip és diferent i per això l'experiència també hauria de ser-ho. Fem un diagnòstic, entenem el context i dissenyem una experiència amb criteri que tingui sentit per a aquest grup de persones. Ens prenem la teva responsabilitat tan de debò com tu.",
     "form": {
       "title": "Demana la teva proposta sense compromís",
       "name": "Nom complet",
@@ -219,6 +219,14 @@
     "quickLinks": "Enllaços ràpids",
     "contact": "Contacte",
     "rights": "Tots els drets reservats.",
+    "services": {
+      "title": "Els nostres serveis",
+      "list": [
+        "Team-building Empresarial",
+        "Experiències Educatives",
+        "Activitats Personalitzades"
+      ]
+    },
     "legal": {
       "legal": "Avís Legal",
       "privacy": "Política de Privacitat",
@@ -227,10 +235,10 @@
     }
   },
   "whyUs": {
-    "title": "Més que jocs.",
-    "titleHighlight": "Moments que deixen empremta",
+    "title": "Quan una experiència està ben dissenyada, ",
+    "titleHighlight": "es nota",
     "ctaTitle": "Llest per transformar el teu proper esdeveniment?",
-    "subtitle": "Cada experiència que creem és única. Parlem de com podem fer que el teu grup visqui alguna cosa extraordinària.",
+    "subtitle": "Alguns exemples d'equips que ja han confiat en Colmena Experience per a dissenyar experiències transformadores.",
     "cta": "Conversem sobre el teu projecte",
     "benefits": {
       "readyToUse": {

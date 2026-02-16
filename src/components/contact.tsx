@@ -122,7 +122,6 @@ ${formData.message || t('email.noAdditionalMessage')}
   const groupTypes = [
     { value: "corporate", label: t('form.groupTypes.corporate') },
     { value: "educational", label: t('form.groupTypes.educational') },
-    { value: "family", label: t('form.groupTypes.family') },
     { value: "association", label: t('form.groupTypes.association') },
     { value: "other", label: t('form.groupTypes.other') }
   ]

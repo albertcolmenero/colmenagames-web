@@ -39,13 +39,11 @@ const Footer = () => {
       { name: tHeader('nav.whyUs'), href: '#why-us' },
       { name: tHeader('nav.contact'), href: '#contact' }
     ],
+    servicios_title: t('services.title'),
     servicios: [
-      'Team-building Empresarial',
-      'Esdeveniments Particulars',
-      'Experiències Educatives',
-      'Celebracions Familiars',
-      'Dinàmiques Online',
-      'Activitats Personalitzades'
+      t('services.list.0'),
+      t('services.list.1'),
+      t('services.list.2')
     ],
     legal: [
       t('legal.legal'),
@@ -85,9 +83,10 @@ const Footer = () => {
               <Image
                 src="/colmena-experience.png"
                 alt="Colmena Experience"
-                width={250}
-                height={80}
-                className="h-14 w-auto brightness-0 invert"
+                width={200}
+                height={60}
+                className="h-10 lg:h-12 w-auto"
+                priority
               />
             </motion.div>
 
@@ -152,7 +151,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h4 className="text-xl font-bold text-white mb-6">Els nostres Serveis</h4>
+            <h4 className="text-xl font-bold text-white mb-6">{footerLinks.servicios_title}</h4>
             <div className="space-y-3">
               {footerLinks.servicios.map((service, index) => (
                 <motion.div

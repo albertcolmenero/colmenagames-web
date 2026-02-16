@@ -2,7 +2,6 @@
   "header": {
     "nav": {
       "home": "Inicio",
-      "about": "Quiénes Somos",
       "services": "Servicios",
       "whyUs": "Por Qué Nosotros",
       "contact": "Contacto"
@@ -136,7 +135,7 @@
     }
   },
   "contact": {
-    "title": "No improvises: dejá tu equipo en manos expertas.",
+    "title": "No improvises: deja tu equipo en manos expertas.",
     "subtitle": "En Colmena no improvisamos ni reciclamos dinámicas. Cada equipo es distinto y por ello la experiencia también debería serlo. Hacemos un diagnóstico, entendemos el contexto y diseñamos una experiencia con criterio que tenga sentido para ese grupo de personas. Nos tomamos tu responsabilidad tan en serio como tú.",
     "form": {
       "title": "Pide tu propuesta sin compromiso",
@@ -220,6 +219,14 @@
     "quickLinks": "Enlaces rápidos",
     "contact": "Contacto",
     "rights": "Todos los derechos reservados.",
+    "services": {
+      "title": "Nuestros servicios",
+      "list": [
+        "Team-building Empresarial",
+        "Experiencias Educativas",
+        "Actividades Personalizadas"
+      ]
+    },
     "legal": {
       "legal": "Aviso Legal",
       "privacy": "Política de Privacidad",
