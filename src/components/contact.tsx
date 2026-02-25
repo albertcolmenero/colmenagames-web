@@ -65,7 +65,7 @@ ${formData.message || t('email.noAdditionalMessage')}
       `.trim()
 
       // Send to Formcarry
-      const response = await fetch("https://formcarry.com/s/emyGEYl2TiY", {
+      const response = await fetch("https://formcarry.com/s/hTf-YiYRND_", {
         method: 'POST',
         headers: {
           "Accept": "application/json",
