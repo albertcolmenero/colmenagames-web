@@ -1,0 +1,264 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   COLMENA EXPERIENCE — SISTEMA DE DISEÑO
+   Paleta extraída del dossier de marca:
+   - Base blanco/crema para legibilidad y aire profesional
+   - Negro cálido (#1c1b19 / #272727) para autoridad y bloques de impacto
+   - Amarillo Colmena (#F6A602) como acento reconocible
+   - Miel suave (#EFD98A) para fondos cálidos puntuales
+   ========================================================================== */
+
+@theme {
+  /* ---- Marca: miel / ámbar ---- */
+  --color-honey-50: #fffaf0;
+  --color-honey-100: #fdf2d6;
+  --color-honey-200: #fbe6a8;
+  --color-honey-300: #f6d873;
+  --color-honey-400: #efd98a; /* miel suave del hero */
+  --color-honey-500: #f6c544;
+  --color-honey-600: #f6a602; /* amarillo Colmena principal */
+  --color-honey-700: #d98a00;
+  --color-honey-800: #a86700;
+  --color-honey-900: #7a4d08;
+
+  --color-amber: #f6a602;
+  --color-amber-bright: #ffb81c;
+  --color-honey-soft: #efd98a;
+  --color-honey-light: #ffd84d;
+
+  /* ---- Tinta / negros cálidos ---- */
+  --color-ink: #1a1917;
+  --color-ink-soft: #272727;
+  --color-ink-700: #3a3833;
+
+  /* ---- Neutros ---- */
+  --color-paper: #fbf8f1; /* blanco cálido base */
+  --color-cream: #f6f1e7;
+  --color-line: #e6e8eb; /* gris claro tarjetas */
+  --color-mist: #eef0f2;
+  --color-stone: #7a7a7a; /* gris medio textos secundarios */
+  --color-stone-light: #9a978f;
+  --color-cocoa: #5a3e2b; /* marrón cálido de apoyo */
+
+  /* ---- Acento secundario: azul del dossier (highlight de valor) ---- */
+  --color-electric: #2f7fd6;
+  --color-electric-soft: #378add;
+
+  /* ---- Tipografía ---- */
+  --font-display: var(--font-archivo), "Arial Black", system-ui, sans-serif;
+  --font-sans: var(--font-hanken), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SFMono-Regular", monospace;
+
+  /* ---- Sombras cálidas ---- */
+  --shadow-honey: 0 18px 40px -12px rgba(246, 166, 2, 0.35);
+  --shadow-soft: 0 24px 60px -20px rgba(26, 25, 23, 0.18);
+  --shadow-card: 0 2px 8px -2px rgba(26, 25, 23, 0.06), 0 12px 28px -16px rgba(26, 25, 23, 0.12);
+
+  /* ---- Easing de marca ---- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ---- Animaciones registradas en el tema ---- */
+  --animate-marquee: marquee 40s linear infinite;
+}
+
+/* ----------------------------------------------------------------------------
+   BASE
+   -------------------------------------------------------------------------- */
+@layer base {
+  :root {
+    --background: var(--color-paper);
+    --foreground: var(--color-ink);
+    scroll-behavior: smooth;
+  }
+
+  * {
+    border-color: var(--color-line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01", "kern";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-amber);
+    color: var(--color-ink);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400; /* Archivo Black ya es de peso máximo */
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Foco accesible y de marca */
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Respeto a usuarios que prefieren menos movimiento */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   UTILIDADES DE MARCA
+   -------------------------------------------------------------------------- */
+@layer utilities {
+  /* Eyebrow / etiqueta de sección */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
+  /* Patrón de panal sutil (fondo) */
+  .bg-honeycomb {
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='100' viewBox='0 0 56 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 0L56 16.18V49.55L28 65.73L0 49.55V16.18L28 0Z' fill='none' stroke='%231a1917' stroke-opacity='0.04' stroke-width='1.2'/%3E%3Cpath d='M28 34.27L56 50.45V83.82L28 100L0 83.82V50.45L28 34.27Z' fill='none' stroke='%231a1917' stroke-opacity='0.04' stroke-width='1.2'/%3E%3C/svg%3E");
+    background-size: 56px 100px;
+  }
+
+  .bg-honeycomb-gold {
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='100' viewBox='0 0 56 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 0L56 16.18V49.55L28 65.73L0 49.55V16.18L28 0Z' fill='none' stroke='%23f6a602' stroke-opacity='0.18' stroke-width='1.2'/%3E%3Cpath d='M28 34.27L56 50.45V83.82L28 100L0 83.82V50.45L28 34.27Z' fill='none' stroke='%23f6a602' stroke-opacity='0.18' stroke-width='1.2'/%3E%3C/svg%3E");
+    background-size: 56px 100px;
+  }
+
+  .bg-honeycomb-dark {
+    background-image: url("data:image/svg+xml,%3Csvg width='56' height='100' viewBox='0 0 56 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 0L56 16.18V49.55L28 65.73L0 49.55V16.18L28 0Z' fill='none' stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1.2'/%3E%3Cpath d='M28 34.27L56 50.45V83.82L28 100L0 83.82V50.45L28 34.27Z' fill='none' stroke='%23ffffff' stroke-opacity='0.06' stroke-width='1.2'/%3E%3C/svg%3E");
+    background-size: 56px 100px;
+  }
+
+  /* Grano sutil para dar textura premium a los bloques oscuros */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+
+  /* Subrayado tipo marcador (highlight de acción = ámbar) */
+  .mark-highlight {
+    background-image: linear-gradient(transparent 62%, rgba(246, 166, 2, 0.45) 62%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 0 0.06em;
+  }
+
+  /* Highlight de valor = azul del dossier */
+  .mark-blue {
+    background-image: linear-gradient(transparent 62%, rgba(55, 138, 221, 0.32) 62%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 0 0.06em;
+  }
+
+  .font-mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+  }
+
+  .text-gradient-honey {
+    background: linear-gradient(105deg, #f6a602 0%, #ffb81c 50%, #f6a602 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Encuadre tipo corchete del dossier */
+  .bracket-frame {
+    position: relative;
+  }
+
+  .container-edge {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-edge {
+      padding-inline: 2.5rem;
+    }
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   KEYFRAMES
+   -------------------------------------------------------------------------- */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+@keyframes bee-path {
+  0% {
+    transform: translate(0, 0) rotate(8deg);
+  }
+  25% {
+    transform: translate(14px, -10px) rotate(-6deg);
+  }
+  50% {
+    transform: translate(28px, 4px) rotate(10deg);
+  }
+  75% {
+    transform: translate(12px, 12px) rotate(-4deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(8deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-bee {
+  animation: bee-path 9s ease-in-out infinite;
+}

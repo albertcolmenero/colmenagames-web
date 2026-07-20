@@ -1,0 +1,124 @@
+"use client";
+
+import {
+  CalendarCheck2,
+  PartyPopper,
+  SlidersHorizontal,
+  Sparkles,
+  ShieldCheck,
+  Wallet,
+} from "lucide-react";
+import type { ComponentType } from "react";
+import { Container, Eyebrow, Reveal } from "./primitives";
+
+const CARDS: {
+  number: string;
+  icon: ComponentType<{ className?: string }>;
+  title: string;
+  desc: string;
+}[] = [
+  {
+    number: "01",
+    icon: CalendarCheck2,
+    title: "POCAS COMPLICACIONES",
+    desc: "Un proceso ágil y claro. Tú nos cuentas la fecha y el objetivo; nosotros nos ocupamos del resto.",
+  },
+  {
+    number: "02",
+    icon: PartyPopper,
+    title: "DIVERSIÓN CON PROPÓSITO",
+    desc: "Se trata de pasarlo bien juntos y que, además, algo se mueva en el equipo.",
+  },
+  {
+    number: "03",
+    icon: SlidersHorizontal,
+    title: "ADAPTADO A TU EQUIPO",
+    desc: "Ajustamos ritmo, dinámicas y energía según el grupo, no al revés.",
+  },
+  {
+    number: "04",
+    icon: Sparkles,
+    title: "PARTICIPACIÓN REAL",
+    desc: "Dinámicas que enganchan a todos los perfiles, incluso a los que dicen que no van a participar.",
+  },
+  {
+    number: "05",
+    icon: ShieldCheck,
+    title: "CERO RIESGO DE QUE SALGA MAL",
+    desc: "Criterio, ensayo y ejecución cuidada. Sabemos llevar grupos y leer el momento.",
+  },
+  {
+    number: "06",
+    icon: Wallet,
+    title: "PRESUPUESTO BIEN INVERTIDO",
+    desc: "Equipos más conectados, recuerdos compartidos y la sensación de haber acertado.",
+  },
+];
+
+export function WhyColmena() {
+  return (
+    <section id="por-que-colmena" className="bg-fog py-24 sm:py-28 lg:py-36">
+      <Container>
+        <div className="gap-12 lg:grid lg:grid-cols-12">
+          {/* Left — sticky intro */}
+          <div className="self-start lg:sticky lg:top-28 lg:col-span-5">
+            <Reveal>
+              <Eyebrow>02 / Por qué Colmena</Eyebrow>
+              <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+                Te lo ponemos fácil para que el evento funcione.
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-ink/75 sm:text-lg">
+                Quien contrata no compra solo una dinámica. Compra tranquilidad.
+                Por eso os acompañamos antes, durante y después para que todo
+                salga bien.
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <div className="relative mt-10 overflow-hidden rounded-2xl bg-white p-8 shadow-sm ring-1 ring-ink/5">
+                <span
+                  className="absolute inset-y-0 left-0 w-1.5 bg-honey"
+                  aria-hidden="true"
+                />
+                <p className="font-display text-xl font-black uppercase leading-snug tracking-tight sm:text-2xl">
+                  «Prometemos dos cosas: pocas complicaciones y muchas
+                  sonrisas.»
+                </p>
+                <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.25em] text-graphite">
+                  Nuestra promesa
+                </p>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right — six reason cards */}
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:col-span-7 lg:mt-0">
+            {CARDS.map((card, i) => (
+              <Reveal key={card.number} delay={i * 0.06}>
+                <article className="relative h-full overflow-hidden rounded-2xl bg-white p-7 shadow-sm ring-1 ring-ink/5 transition-all hover:-translate-y-1 hover:shadow-lg">
+                  <span
+                    className="absolute right-4 top-2 select-none font-display text-[80px] font-black leading-none text-ink/[0.05]"
+                    aria-hidden="true"
+                  >
+                    {card.number}
+                  </span>
+                  <div className="relative">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cream">
+                      <card.icon className="h-6 w-6 text-cocoa" />
+                    </div>
+                    <h3 className="mt-5 font-display text-base font-black uppercase tracking-tight sm:text-lg">
+                      {card.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-relaxed text-graphite sm:text-[15px]">
+                      {card.desc}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
