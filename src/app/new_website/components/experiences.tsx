@@ -24,7 +24,8 @@ import {
 type ExperienceCard = {
   number: string;
   icon: ComponentType<{ className?: string }>;
-  gradient: string;
+  image: string;
+  name: string;
   title: string;
   description: string;
   chips: string[];
@@ -34,7 +35,8 @@ const CARDS: ExperienceCard[] = [
   {
     number: "01",
     icon: Search,
-    gradient: "from-[#151412] to-[#4a453c]",
+    image: "/new_website/experiencias/misterio.jpg",
+    name: "Royal Velvet Casino",
     title: "MISTERIO E INVESTIGACIÓN",
     description:
       "Retos colaborativos donde los equipos descubren pistas, resuelven enigmas y avanzan juntos hacia una solución.",
@@ -43,7 +45,8 @@ const CARDS: ExperienceCard[] = [
   {
     number: "02",
     icon: Trophy,
-    gradient: "from-[#71520D] to-[#FBD801]",
+    image: "/new_website/experiencias/competicion.jpg",
+    name: "TV Show Experience",
     title: "COMPETICIÓN POR EQUIPOS",
     description:
       "Formatos dinámicos donde distintos equipos compiten en pruebas diseñadas para fomentar participación, energía y celebración.",
@@ -52,7 +55,8 @@ const CARDS: ExperienceCard[] = [
   {
     number: "03",
     icon: Blocks,
-    gradient: "from-[#EB8801] to-[#FFE17C]",
+    image: "/new_website/experiencias/creativas.jpg",
+    name: "Creation Lab",
     title: "CREATIVAS Y DE CONSTRUCCIÓN COLECTIVA",
     description:
       "Actividades donde el grupo crea algo en conjunto, potenciando creatividad, colaboración y sentimiento de pertenencia.",
@@ -61,7 +65,8 @@ const CARDS: ExperienceCard[] = [
   {
     number: "04",
     icon: Puzzle,
-    gradient: "from-[#151412] to-[#EB8801]",
+    image: "/new_website/experiencias/retos.jpg",
+    name: "Misión Secreta",
     title: "RETOS Y RESOLUCIÓN COLECTIVA",
     description:
       "Dinámicas donde colaboración, comunicación y toma de decisiones son clave para superar desafíos contrarreloj.",
@@ -70,7 +75,8 @@ const CARDS: ExperienceCard[] = [
   {
     number: "05",
     icon: HeartHandshake,
-    gradient: "from-[#A9832F] to-[#FFE17C]",
+    image: "/new_website/experiencias/conectar.jpg",
+    name: "Unlock the Team",
     title: "CONECTAR PERSONAS",
     description:
       "Diseñadas para romper el hielo, generar conversaciones y fortalecer relaciones entre personas que apenas se conocen.",
@@ -79,7 +85,8 @@ const CARDS: ExperienceCard[] = [
   {
     number: "06",
     icon: Drama,
-    gradient: "from-[#71520D] to-[#EB8801]",
+    image: "/new_website/experiencias/inmersivas.jpg",
+    name: "Inside Out: Historia Interactiva",
     title: "INMERSIVAS CON STORYTELLING",
     description:
       "Historias, personajes y narrativas que convierten a los participantes en protagonistas de una experiencia compartida.",
@@ -101,7 +108,7 @@ export function Experiences() {
         {/* Header */}
         <Reveal>
           <Eyebrow>04 / Nuestras experiencias</Eyebrow>
-          <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[0.95] tracking-tight text-cocoa sm:text-5xl lg:text-6xl">
+          <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight text-cocoa sm:text-5xl lg:text-6xl">
             AQUÍ PASAN COSAS
           </h2>
           <h3 className="mt-4 max-w-3xl font-display text-xl font-black uppercase tracking-tight text-ink sm:text-2xl">
@@ -119,19 +126,30 @@ export function Experiences() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {CARDS.map((card, i) => (
             <Reveal key={card.number} delay={i * 0.06} className="h-full">
-              <article className="flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-ink/5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-ink/10">
-                <div
-                  className={`relative flex h-40 items-center justify-center bg-gradient-to-br ${card.gradient}`}
-                >
-                  <div aria-hidden="true" className="hex-texture absolute inset-0" />
-                  <span className="absolute left-5 top-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white/60">
+              <article className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-ink/5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-ink/10">
+                <div className="relative flex h-52 items-center justify-center overflow-hidden bg-ink">
+                  <Image
+                    src={card.image}
+                    alt={card.name}
+                    fill
+                    sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
+                    className="object-cover brightness-[0.55] saturate-[0.85] transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-gradient-to-b from-ink/45 via-ink/5 to-ink/60"
+                  />
+                  <span className="absolute left-5 top-4 font-mono text-[11px] uppercase tracking-[0.2em] text-white/70">
                     {card.number}
                   </span>
                   <HexIcon
                     icon={card.icon}
                     variant="outline"
-                    className="relative h-[76px] w-[68px] text-white"
+                    className="relative h-[76px] w-[68px] text-white drop-shadow-[0_6px_18px_rgba(0,0,0,0.75)]"
                   />
+                  <span className="absolute inset-x-0 bottom-0 bg-ink/60 px-5 py-2.5 font-mono text-[10px] uppercase tracking-[0.22em] text-white backdrop-blur-sm">
+                    {card.name}
+                  </span>
                 </div>
                 <div className="flex grow flex-col gap-3 p-6">
                   <h4 className="font-display text-lg font-black uppercase leading-tight tracking-tight text-ink">
@@ -209,7 +227,9 @@ export function Experiences() {
           <div className="relative flex flex-col items-start justify-between gap-8 overflow-hidden rounded-3xl bg-cream p-8 sm:p-12 lg:flex-row lg:items-center">
             <Hexagon className="absolute -bottom-14 -right-10 h-48 w-auto rotate-12 text-ember/15" />
             <p className="relative max-w-xl font-display text-2xl font-black uppercase tracking-tight text-ink sm:text-3xl">
-              ¿TIENES ALGO DISTINTO EN MENTE? TE ESCUCHAMOS.
+              ¿TIENES ALGO DISTINTO EN MENTE?
+              <br />
+              TE ESCUCHAMOS.
             </p>
             <CTAButton
               href="#hablemos"

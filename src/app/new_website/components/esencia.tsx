@@ -1,6 +1,8 @@
 "use client";
 
-import { Container, Eyebrow, Hexagon, Reveal } from "./primitives";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { Container, CTAButton, Eyebrow, Hexagon, Reveal } from "./primitives";
 
 const DIFERENCIADORES = [
   {
@@ -42,13 +44,16 @@ const DIFERENCIADORES = [
 
 export function Esencia() {
   return (
-    <section id="esencia" className="bg-white py-24 sm:py-28 lg:py-36">
+    <section
+      id="esencia"
+      className="relative bg-white pb-36 pt-24 sm:pt-28 lg:pb-44 lg:pt-36"
+    >
       <Container>
         {/* Header */}
         <Reveal>
           <Eyebrow>01 / Nuestra esencia</Eyebrow>
-          <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="text-ink">CADA EQUIPO ES DISTINTO.</span>
+          <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
+            <span className="text-ink">CADA EQUIPO ES DISTINTO</span>
             <br />
             <span className="text-graphite">
               LA EXPERIENCIA TAMBIÉN DEBERÍA SERLO.
@@ -78,6 +83,12 @@ export function Esencia() {
           </Reveal>
         </div>
 
+        <Reveal delay={0.18} className="mt-10">
+          <CTAButton href="#hablemos" icon={ArrowRight} variant="gold">
+            ¿Quieres Vivir la Experiencia?
+          </CTAButton>
+        </Reveal>
+
         {/* Narrative panel */}
         <Reveal delay={0.1}>
           <div className="hex-texture relative mt-16 overflow-hidden rounded-3xl bg-ink p-8 text-white sm:p-12 lg:p-16">
@@ -93,7 +104,7 @@ export function Esencia() {
               <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-ember sm:text-xs">
                 La narrativa Colmena
               </p>
-              <h3 className="mt-4 font-display text-3xl font-black uppercase leading-[0.95] tracking-tight sm:text-4xl lg:text-5xl">
+              <h3 className="mt-4 font-display text-3xl font-black uppercase leading-[1.15] tracking-tight sm:text-4xl lg:text-5xl">
                 DISTINTOS TALENTOS.
                 <br />
                 <span className="text-honey">UN RESULTADO COMÚN.</span>
@@ -107,12 +118,14 @@ export function Esencia() {
           </div>
         </Reveal>
 
-        {/* Differentiators */}
-        <Reveal className="mt-20">
-          <h3 className="font-display text-2xl font-black uppercase tracking-tight sm:text-3xl">
-            LO QUE NOS DIFERENCIA
-          </h3>
-        </Reveal>
+        {/* Differentiators — menu anchor: Por qué Colmena */}
+        <div id="por-que-colmena" className="mt-20">
+          <Reveal>
+            <h3 className="font-display text-2xl font-black uppercase leading-[1.15] tracking-tight sm:text-3xl">
+              LO QUE NOS DIFERENCIA
+            </h3>
+          </Reveal>
+        </div>
         <div className="mt-10 overflow-hidden rounded-2xl bg-bone">
           <div className="grid border-l border-t border-ink/10 sm:grid-cols-2 lg:grid-cols-3">
             {DIFERENCIADORES.map((item, i) => (
@@ -139,6 +152,21 @@ export function Esencia() {
           </div>
         </div>
       </Container>
+
+      {/* Bee flight-path divider, straddling the white → gray boundary */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center"
+      >
+        <Image
+          src="/new_website/que-oferim.png"
+          alt=""
+          width={1078}
+          height={596}
+          sizes="400px"
+          className="h-32 w-auto translate-y-1/2 sm:h-40"
+        />
+      </div>
     </section>
   );
 }

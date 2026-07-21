@@ -8,8 +8,6 @@ const NAV_COLUMNS = [
   {
     title: "EXPERIENCIA",
     links: [
-      { label: "Empieza aquí", href: "#empieza-aqui" },
-      { label: "Nuestra esencia", href: "#esencia" },
       { label: "Por qué Colmena", href: "#por-que-colmena" },
       { label: "Cómo trabajamos", href: "#como-trabajamos" },
       { label: "Experiencias", href: "#experiencias" },

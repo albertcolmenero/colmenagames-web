@@ -69,7 +69,7 @@ export function Process() {
             <Eyebrow light className="justify-center">
               03 / Cómo trabajamos
             </Eyebrow>
-            <h2 className="mt-4 font-display text-4xl font-black uppercase leading-[0.95] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h2 className="mt-4 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl">
               UN PROCESO SIMPLE Y SENCILLO
             </h2>
             <p className="mt-5 text-lg font-light italic text-mist/80 sm:text-xl">
@@ -125,7 +125,7 @@ export function Process() {
         {/* Closing statement */}
         <div className="mx-auto mt-24 max-w-4xl text-center">
           <Reveal>
-            <p className="font-display text-2xl font-black uppercase leading-[1.02] tracking-tight sm:text-4xl lg:text-[44px]">
+            <p className="font-display text-2xl font-black uppercase leading-[1.15] tracking-tight sm:text-4xl lg:text-[44px]">
               <span className="block text-white">
                 TÚ TE OCUPAS DE LA FECHA.
               </span>

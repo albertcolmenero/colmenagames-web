@@ -10,13 +10,12 @@ const TESTIMONIALS = [
     initials: "CG",
     name: "C. García",
     role: "Director de Tienda · Decathlon",
-  },
+  },  
   {
-    quote:
-      "Un acierto total. Sabíamos la temática que buscábamos y la llevaron al siguiente nivel: vídeos, actuaciones durante toda la noche, decoración, juegos… Una experiencia muy inmersiva y divertida. Sin duda, un 10.",
-    initials: "PM",
-    name: "P. Martí",
-    role: "People & Culture · Checkpoint Systems",
+    quote: "Una dinámica personalizada que nos ha enganchado desde el minuto uno.",
+    initials: "GA",
+    name: "G. Arienzo",
+    role: "Store Manager · Zegna",
   },
   {
     quote:
@@ -26,10 +25,11 @@ const TESTIMONIALS = [
     role: "HR Manager · Gameloft",
   },
   {
-    quote: "Una dinámica personalizada que nos ha enganchado desde el minuto uno.",
-    initials: "GA",
-    name: "G. Arienzo",
-    role: "Store Manager · Zegna",
+    quote:
+      "Un acierto total. Sabíamos la temática que buscábamos y la llevaron al siguiente nivel: vídeos, actuaciones durante toda la noche, decoración, juegos… Una experiencia muy inmersiva y divertida. Sin duda, un 10.",
+    initials: "PM",
+    name: "P. Martí",
+    role: "People & Culture · Checkpoint Systems",
   },
   {
     quote:
@@ -53,7 +53,7 @@ export function Stories() {
       <Container>
         <Reveal>
           <Eyebrow>05 / Historias reales</Eyebrow>
-          <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+          <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
             Equipos que ya han confiado en nosotros
           </h2>
           <p className="mt-5 max-w-2xl text-lg text-ink/70">

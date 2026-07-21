@@ -32,11 +32,11 @@ const MEMBERS: {
     bio: "Marta aporta la visión estratégica que da dirección y coherencia a Colmena Experience. Cree que un gran proyecto necesita mucho más que una buena idea: necesita comprender a las personas, responder a una necesidad real y construirse sobre una base sólida. Con más de 15 años de experiencia en estrategia, finanzas, liderazgo y coaching, aporta una mirada que combina visión empresarial y desarrollo humano. Como Coach acreditada por la International Coaching Federation (ICF), acompaña a Colmena para mantener el equilibrio entre los objetivos del cliente, la experiencia de las personas y la esencia de cada proyecto.",
   },
   {
-    photo: "/new_website/team/albert.png",
-    name: "Albert Colmenero",
-    role: "Business Strategy & Digital Growth",
-    chips: ["Estrategia", "Innovación", "Crecimiento"],
-    bio: "Albert impulsa la visión estratégica de Colmena Experience para que cada paso tenga una dirección clara. Aporta su experiencia en estrategia empresarial, crecimiento digital y desarrollo de proyectos para ayudar a convertir las ideas en iniciativas sostenibles y preparadas para crecer. Con más de 20 años creando y escalando empresas tecnológicas, acompaña al equipo en la toma de decisiones estratégicas y en la evolución de la presencia digital de Colmena Experience, asegurando que la innovación y el propósito avancen siempre de la mano.",
+    photo: "/new_website/team/laia.png",
+    name: "Laia Ferrandis",
+    role: "Creative Experience Designer",
+    chips: ["Creatividad", "Innovación", "Dinamización"],
+    bio: "Laia aporta una mirada fresca y creativa a cada experiencia. Forma parte del equipo creativo junto a María y Mireia, colaborando en el diseño de propuestas capaces de sorprender, emocionar y conectar con las personas. Además, con más de 10 años de experiencia dinamizando grupos, sabe cómo conseguir que las personas se impliquen desde el primer momento. Su capacidad para leer al grupo, adaptar el ritmo de cada dinámica y contagiar su entusiasmo hace que cada experiencia fluya de forma natural y se viva con intensidad.",
   },
   {
     photo: "/new_website/team/alberto.png",
@@ -59,13 +59,8 @@ const MEMBERS: {
     chips: ["Atención al cliente", "Dinamización", "Comunicación"],
     bio: "Judith cree que las mejores experiencias empiezan cuando las personas se sienten cómodas. Por eso acompaña cada dinámica con naturalidad, cercanía y una energía contagiosa, creando un ambiente donde participar resulta fácil y conectar con los demás surge de forma espontánea. Su pasión por las personas y su capacidad para crear conexiones y hacer que todos se sientan parte del grupo convierten cada experiencia en un recuerdo auténtico y compartido.",
   },
-  {
-    photo: "/new_website/team/laia.png",
-    name: "Laia Ferrandis",
-    role: "Creative Experience Designer",
-    chips: ["Creatividad", "Innovación", "Dinamización"],
-    bio: "Laia aporta una mirada fresca y creativa a cada experiencia. Forma parte del equipo creativo junto a María y Mireia, colaborando en el diseño de propuestas capaces de sorprender, emocionar y conectar con las personas. Además, con más de 10 años de experiencia dinamizando grupos, sabe cómo conseguir que las personas se impliquen desde el primer momento. Su capacidad para leer al grupo, adaptar el ritmo de cada dinámica y contagiar su entusiasmo hace que cada experiencia fluya de forma natural y se viva con intensidad.",
-  },
+  
+
 ];
 
 export function Team() {
@@ -88,7 +83,7 @@ export function Team() {
         {/* Part 1 — Nuestra historia */}
         <Reveal>
           <Eyebrow>06 / Conócenos</Eyebrow>
-          <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
+          <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
             Nuestra historia
           </h2>
         </Reveal>

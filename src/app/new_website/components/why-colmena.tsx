@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ArrowRight,
   CalendarCheck2,
   PartyPopper,
   SlidersHorizontal,
@@ -9,7 +10,7 @@ import {
   Wallet,
 } from "lucide-react";
 import type { ComponentType } from "react";
-import { Container, Eyebrow, Reveal } from "./primitives";
+import { Container, CTAButton, Eyebrow, Reveal } from "./primitives";
 
 const CARDS: {
   number: string;
@@ -57,15 +58,18 @@ const CARDS: {
 
 export function WhyColmena() {
   return (
-    <section id="por-que-colmena" className="bg-fog py-24 sm:py-28 lg:py-36">
+    <section
+      id="te-lo-ponemos-facil"
+      className="bg-fog pb-24 pt-32 sm:pb-28 sm:pt-36 lg:pb-36 lg:pt-44"
+    >
       <Container>
         <div className="gap-12 lg:grid lg:grid-cols-12">
           {/* Left — sticky intro */}
           <div className="self-start lg:sticky lg:top-28 lg:col-span-5">
             <Reveal>
               <Eyebrow>02 / Por qué Colmena</Eyebrow>
-              <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
-                Te lo ponemos fácil para que el evento funcione.
+              <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
+                Te lo ponemos fácil para que el evento funcione
               </h2>
               <p className="mt-6 text-base leading-relaxed text-ink/75 sm:text-lg">
                 Quien contrata no compra solo una dinámica. Compra tranquilidad.
@@ -116,6 +120,14 @@ export function WhyColmena() {
                 </article>
               </Reveal>
             ))}
+
+            <Reveal delay={0.4} className="sm:col-span-2">
+              <div className="mt-4 flex justify-center">
+                <CTAButton href="#hablemos" icon={ArrowRight} variant="dark">
+                  ¿Quieres saber más?
+                </CTAButton>
+              </div>
+            </Reveal>
           </div>
         </div>
       </Container>

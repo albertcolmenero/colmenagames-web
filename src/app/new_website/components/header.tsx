@@ -8,9 +8,9 @@ import { cn } from "@/lib/utils";
 import { CTAButton } from "./primitives";
 
 const NAV_ITEMS = [
-  { label: "Empieza aquí", href: "#empieza-aqui" },
-  { label: "Experiencias", href: "#experiencias" },
+  { label: "Por qué Colmena", href: "#por-que-colmena" },
   { label: "Cómo trabajamos", href: "#como-trabajamos" },
+  { label: "Experiencias", href: "#experiencias" },
   { label: "Historias reales", href: "#historias-reales" },
   { label: "Conócenos", href: "#conocenos" },
 ];

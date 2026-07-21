@@ -80,7 +80,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 font-display text-[13vw] font-black uppercase leading-[0.92] tracking-tight text-ink sm:text-6xl lg:text-7xl"
+            className="mt-5 font-display text-[13vw] font-black uppercase leading-[1.12] tracking-tight text-ink sm:text-6xl lg:text-7xl"
           >
             Diversión
             <br />
@@ -118,12 +118,7 @@ export function Hero() {
             <CTAButton href="#hablemos" icon={CalendarDays} variant="gold" size="lg">
               ¿Hablamos 30 min?
             </CTAButton>
-            <CTAButton
-              href="mailto:hola@colmena-experience.com?subject=Quiero%20la%20Gu%C3%ADa%20de%20Experiencias"
-              icon={FileText}
-              variant="outline"
-              size="lg"
-            >
+            <CTAButton href="#hablemos" icon={FileText} variant="outline" size="lg">
               Guía de Experiencias
             </CTAButton>
           </motion.div>
