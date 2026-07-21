@@ -55,7 +55,7 @@ const CARDS: ExperienceCard[] = [
   {
     number: "03",
     icon: Blocks,
-    image: "/new_website/experiencias/creativas.jpg",
+    image: "/new_website/experiencias/creation-lab.jpg",
     name: "Creation Lab",
     title: "CREATIVAS Y DE CONSTRUCCIÓN COLECTIVA",
     description:

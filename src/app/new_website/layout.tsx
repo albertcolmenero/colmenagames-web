@@ -33,6 +33,12 @@ export default function NewWebsiteLayout({
     <div
       className={`${archivo.variable} ${figtree.variable} ${spaceMono.variable} nw-root font-body text-ink antialiased`}
     >
+      <script
+        // Deterministic rendering for visual-QA captures (?noanim)
+        dangerouslySetInnerHTML={{
+          __html: `if(location.search.indexOf('noanim')>-1)document.documentElement.classList.add('nw-noanim');`,
+        }}
+      />
       {children}
     </div>
   );

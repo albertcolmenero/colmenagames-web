@@ -1,7 +1,7 @@
 "use client";
 
-import { Quote } from "lucide-react";
-import { Container, Eyebrow, Reveal } from "./primitives";
+import { ArrowRight, Quote } from "lucide-react";
+import { Container, CTAButton, Eyebrow, Reveal } from "./primitives";
 
 const TESTIMONIALS = [
   {
@@ -87,6 +87,14 @@ export function Stories() {
             </Reveal>
           ))}
         </div>
+
+        <Reveal delay={0.2}>
+          <div className="mt-12 flex justify-center">
+            <CTAButton href="#hablemos" icon={ArrowRight} variant="dark" size="lg">
+              ¿Queréis ser los siguientes?
+            </CTAButton>
+          </div>
+        </Reveal>
       </Container>
     </section>
   );
