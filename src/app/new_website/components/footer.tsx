@@ -3,27 +3,30 @@
 import Image from "next/image";
 import { Instagram, Linkedin } from "lucide-react";
 import { Container, Reveal } from "./primitives";
-
-const NAV_COLUMNS = [
-  {
-    title: "EXPERIENCIA",
-    links: [
-      { label: "Por qué Colmena", href: "#por-que-colmena" },
-      { label: "Cómo trabajamos", href: "#como-trabajamos" },
-      { label: "Experiencias", href: "#experiencias" },
-    ],
-  },
-  {
-    title: "EMPRESA",
-    links: [
-      { label: "Historias reales", href: "#historias-reales" },
-      { label: "Conócenos", href: "#conocenos" },
-      { label: "Hablemos", href: "#hablemos" },
-    ],
-  },
-];
+import { useCopy } from "../i18n/context";
 
 export function Footer() {
+  const { copy } = useCopy();
+
+  const navColumns = [
+    {
+      title: copy.footer.colExperiencia,
+      links: [
+        { label: copy.footer.linkPorQue, href: "#por-que-colmena" },
+        { label: copy.footer.linkComo, href: "#como-trabajamos" },
+        { label: copy.footer.linkExperiencias, href: "#experiencias" },
+      ],
+    },
+    {
+      title: copy.footer.colEmpresa,
+      links: [
+        { label: copy.footer.linkHistorias, href: "#historias-reales" },
+        { label: copy.footer.linkConocenos, href: "#conocenos" },
+        { label: copy.footer.linkHablemos, href: "#hablemos" },
+      ],
+    },
+  ];
+
   return (
     <footer
       id="contacto"
@@ -52,19 +55,17 @@ export function Footer() {
               </div>
             </div>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/55">
-              Team buildings flexibles y adaptados para empresas que quieren
-              fortalecer equipos, fomentar la participación y disfrutar
-              compartiendo experiencias.
+              {copy.footer.tagline}
             </p>
             <p className="mt-5 font-display text-xl font-black uppercase tracking-tight text-honey">
-              DIVERSIÓN CON PROPÓSITO.
+              {copy.footer.claim}
             </p>
           </Reveal>
 
           {/* Navigation */}
           <Reveal delay={0.1} className="lg:col-span-7">
             <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
-              {NAV_COLUMNS.map((column) => (
+              {navColumns.map((column) => (
                 <div key={column.title}>
                   <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
                     {column.title}
@@ -85,7 +86,7 @@ export function Footer() {
 
               <div>
                 <p className="mb-5 font-mono text-[10px] uppercase tracking-[0.3em] text-white/40">
-                  CONTACTO
+                  {copy.footer.colContacto}
                 </p>
                 <a
                   href="mailto:hola@colmena-experience.com"
@@ -126,8 +127,8 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 font-mono text-[10px] uppercase tracking-[0.18em] text-white/35 sm:flex-row">
-          <p>© 2026 Colmena Experience. Todos los derechos reservados.</p>
-          <p>Diseñado para equipos que quieren repetir.</p>
+          <p>{copy.footer.copyright}</p>
+          <p>{copy.footer.designedFor}</p>
         </div>
       </Container>
     </footer>

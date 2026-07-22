@@ -1,27 +1,19 @@
-import { Header } from "./components/header";
-import { Hero } from "./components/hero";
-import { Esencia } from "./components/esencia";
-import { WhyColmena } from "./components/why-colmena";
-import { Process } from "./components/process";
-import { Experiences } from "./components/experiences";
-import { Stories } from "./components/stories";
-import { Team } from "./components/team";
-import { Contact } from "./components/contact";
-import { Footer } from "./components/footer";
+import type { Metadata } from "next";
+import es from "./i18n/es";
+import { Site } from "./components/site";
+
+export const metadata: Metadata = {
+  title: es.meta.title,
+  description: es.meta.description,
+  alternates: {
+    languages: {
+      es: "/new_website",
+      ca: "/new_website/ca",
+      en: "/new_website/en",
+    },
+  },
+};
 
 export default function NewWebsitePage() {
-  return (
-    <main>
-      <Header />
-      <Hero />
-      <Esencia />
-      <WhyColmena />
-      <Process />
-      <Experiences />
-      <Stories />
-      <Team />
-      <Contact />
-      <Footer />
-    </main>
-  );
+  return <Site copy={es} locale="es" />;
 }

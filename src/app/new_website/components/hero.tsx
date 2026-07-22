@@ -4,14 +4,11 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { CalendarDays, FileText } from "lucide-react";
 import { Container, CTAButton, HexBullet } from "./primitives";
-
-const STATS = [
-  "+50 experiencias facilitadas",
-  "Equipos de 15 a 300 personas",
-  "Catalán · Castellano · Inglés",
-];
+import { RichText, useCopy } from "../i18n/context";
 
 export function Hero() {
+  const { copy } = useCopy();
+
   return (
     <section
       id="empieza-aqui"
@@ -72,7 +69,7 @@ export function Hero() {
             className="mt-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-cocoa sm:text-xs"
           >
             <HexBullet className="h-2.5 w-2.5 text-ember" />
-            Team building para empresas
+            {copy.hero.eyebrow}
             <HexBullet className="h-2.5 w-2.5 text-ember" />
           </motion.p>
 
@@ -82,10 +79,10 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
             className="mt-5 font-display text-[13vw] font-black uppercase leading-[1.12] tracking-tight text-ink sm:text-6xl lg:text-7xl"
           >
-            Diversión
+            {copy.hero.h1line1}
             <br />
             <span className="relative inline-block">
-              con propósito
+              {copy.hero.h1line2}
               <motion.span
                 aria-hidden="true"
                 initial={{ scaleX: 0 }}
@@ -102,11 +99,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="mt-7 max-w-2xl text-lg leading-relaxed text-ink/75 sm:text-xl"
           >
-            Team buildings <strong className="font-bold text-ink">flexibles</strong> y
-            adaptables para empresas que quieren fortalecer{" "}
-            <strong className="font-bold text-ink">equipos</strong>, fomentar la
-            participación y disfrutar{" "}
-            <strong className="font-bold text-ink">compartiendo experiencias</strong>.
+            <RichText text={copy.hero.subtitle} strongClassName="text-ink" />
           </motion.p>
 
           <motion.div
@@ -116,10 +109,10 @@ export function Hero() {
             className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
           >
             <CTAButton href="#hablemos" icon={CalendarDays} variant="gold" size="lg">
-              ¿Hablamos 30 min?
+              {copy.hero.ctaPrimary}
             </CTAButton>
             <CTAButton href="#hablemos" icon={FileText} variant="outline" size="lg">
-              Guía de Experiencias
+              {copy.hero.ctaSecondary}
             </CTAButton>
           </motion.div>
 
@@ -129,7 +122,7 @@ export function Hero() {
             transition={{ duration: 1, delay: 0.85 }}
             className="mt-14 flex flex-col items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-cocoa sm:flex-row sm:gap-0 sm:text-xs"
           >
-            {STATS.map((stat, i) => (
+            {copy.hero.stats.map((stat, i) => (
               <li key={stat} className="flex items-center">
                 {i > 0 && (
                   <span

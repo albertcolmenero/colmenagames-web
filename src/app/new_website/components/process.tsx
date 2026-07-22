@@ -9,54 +9,31 @@ import {
 } from "lucide-react";
 import type { ComponentType } from "react";
 
+import { useCopy } from "../i18n/context";
 import { Container, Eyebrow, HexIcon, Reveal } from "./primitives";
 
-type Step = {
+type StepVisual = {
   number: string;
   icon: ComponentType<{ className?: string }>;
-  title: string;
-  description: string;
 };
 
-const STEPS: Step[] = [
-  {
-    number: "01",
-    icon: Ear,
-    title: "ESCUCHAMOS",
-    description:
-      "Conocemos el perfil del equipo, el momento que está viviendo la organización y qué se quiere conseguir con la experiencia.",
-  },
-  {
-    number: "02",
-    icon: PencilRuler,
-    title: "DISEÑAMOS",
-    description:
-      "Creamos la propuesta adecuada. Seleccionamos y adaptamos las dinámicas, formatos y actividades que mejor encajan con el grupo.",
-  },
-  {
-    number: "03",
-    icon: ListChecks,
-    title: "COORDINAMOS",
-    description:
-      "Nos ocupamos de todos los detalles: materiales, timings, logística y coordinación con el venue o la empresa.",
-  },
-  {
-    number: "04",
-    icon: Mic,
-    title: "FACILITAMOS",
-    description:
-      "Damos vida a la experiencia. Guiamos la actividad con dinamización profesional, cuidando el ritmo y la participación.",
-  },
-  {
-    number: "05",
-    icon: MessageSquareQuote,
-    title: "FEEDBACK Y APRENDIZAJES",
-    description:
-      "Analizamos la experiencia e identificamos los principales aprendizajes y conclusiones cuando el formato lo requiere.",
-  },
+const STEP_VISUALS: StepVisual[] = [
+  { number: "01", icon: Ear },
+  { number: "02", icon: PencilRuler },
+  { number: "03", icon: ListChecks },
+  { number: "04", icon: Mic },
+  { number: "05", icon: MessageSquareQuote },
 ];
 
 export function Process() {
+  const { copy } = useCopy();
+
+  const steps = STEP_VISUALS.map((visual, i) => ({
+    ...visual,
+    title: copy.process.steps[i]?.title ?? "",
+    description: copy.process.steps[i]?.desc ?? "",
+  }));
+
   return (
     <section
       id="como-trabajamos"
@@ -67,14 +44,13 @@ export function Process() {
         <div className="mx-auto max-w-3xl text-center">
           <Reveal>
             <Eyebrow light className="justify-center">
-              03 / Cómo trabajamos
+              {copy.process.eyebrow}
             </Eyebrow>
             <h2 className="mt-4 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight text-white sm:text-5xl lg:text-6xl">
-              UN PROCESO SIMPLE Y SENCILLO
+              {copy.process.h2}
             </h2>
             <p className="mt-5 text-lg font-light italic text-mist/80 sm:text-xl">
-              Porque una buena experiencia debería ser fácil de organizar y
-              difícil de olvidar.
+              {copy.process.subtitle}
             </p>
           </Reveal>
         </div>
@@ -88,11 +64,11 @@ export function Process() {
           />
 
           <div className="flex flex-col gap-10 lg:grid lg:grid-cols-5 lg:gap-6">
-            {STEPS.map((step, i) => (
+            {steps.map((step, i) => (
               <Reveal key={step.number} delay={i * 0.1}>
                 <div className="relative flex items-start gap-5 lg:flex-col lg:items-center lg:gap-0 lg:text-center">
                   {/* Vertical dashed connector (mobile/tablet) */}
-                  {i < STEPS.length - 1 && (
+                  {i < steps.length - 1 && (
                     <span
                       aria-hidden="true"
                       className="absolute -bottom-10 left-[32px] top-[72px] border-l border-dashed border-honey/30 lg:hidden"
@@ -126,12 +102,8 @@ export function Process() {
         <div className="mx-auto mt-24 max-w-4xl text-center">
           <Reveal>
             <p className="font-display text-2xl font-black uppercase leading-[1.15] tracking-tight sm:text-4xl lg:text-[44px]">
-              <span className="block text-white">
-                TÚ TE OCUPAS DE LA FECHA.
-              </span>
-              <span className="block text-honey">
-                NOSOTROS DE QUE TODO EL MUNDO QUIERA REPETIR.
-              </span>
+              <span className="block text-white">{copy.process.closing1}</span>
+              <span className="block text-honey">{copy.process.closing2}</span>
             </p>
           </Reveal>
         </div>

@@ -10,53 +10,28 @@ import {
   Wallet,
 } from "lucide-react";
 import type { ComponentType } from "react";
+import { useCopy } from "../i18n/context";
 import { Container, CTAButton, Eyebrow, Reveal } from "./primitives";
 
-const CARDS: {
+const CARD_ICONS: {
   number: string;
   icon: ComponentType<{ className?: string }>;
-  title: string;
-  desc: string;
 }[] = [
-  {
-    number: "01",
-    icon: CalendarCheck2,
-    title: "POCAS COMPLICACIONES",
-    desc: "Un proceso ágil y claro. Tú nos cuentas la fecha y el objetivo; nosotros nos ocupamos del resto.",
-  },
-  {
-    number: "02",
-    icon: PartyPopper,
-    title: "DIVERSIÓN CON PROPÓSITO",
-    desc: "Se trata de pasarlo bien juntos y que, además, algo se mueva en el equipo.",
-  },
-  {
-    number: "03",
-    icon: SlidersHorizontal,
-    title: "ADAPTADO A TU EQUIPO",
-    desc: "Ajustamos ritmo, dinámicas y energía según el grupo, no al revés.",
-  },
-  {
-    number: "04",
-    icon: Sparkles,
-    title: "PARTICIPACIÓN REAL",
-    desc: "Dinámicas que enganchan a todos los perfiles, incluso a los que dicen que no van a participar.",
-  },
-  {
-    number: "05",
-    icon: ShieldCheck,
-    title: "CERO RIESGO DE QUE SALGA MAL",
-    desc: "Criterio, ensayo y ejecución cuidada. Sabemos llevar grupos y leer el momento.",
-  },
-  {
-    number: "06",
-    icon: Wallet,
-    title: "PRESUPUESTO BIEN INVERTIDO",
-    desc: "Equipos más conectados, recuerdos compartidos y la sensación de haber acertado.",
-  },
+  { number: "01", icon: CalendarCheck2 },
+  { number: "02", icon: PartyPopper },
+  { number: "03", icon: SlidersHorizontal },
+  { number: "04", icon: Sparkles },
+  { number: "05", icon: ShieldCheck },
+  { number: "06", icon: Wallet },
 ];
 
 export function WhyColmena() {
+  const { copy } = useCopy();
+  const cards = CARD_ICONS.map((item, i) => ({
+    ...item,
+    ...copy.why.cards[i],
+  }));
+
   return (
     <section
       id="te-lo-ponemos-facil"
@@ -67,14 +42,12 @@ export function WhyColmena() {
           {/* Left — sticky intro */}
           <div className="self-start lg:sticky lg:top-28 lg:col-span-5">
             <Reveal>
-              <Eyebrow>02 / Por qué Colmena</Eyebrow>
+              <Eyebrow>{copy.why.eyebrow}</Eyebrow>
               <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
-                Te lo ponemos fácil para que el evento funcione
+                {copy.why.h2}
               </h2>
               <p className="mt-6 text-base leading-relaxed text-ink/75 sm:text-lg">
-                Quien contrata no compra solo una dinámica. Compra tranquilidad.
-                Por eso os acompañamos antes, durante y después para que todo
-                salga bien.
+                {copy.why.intro}
               </p>
             </Reveal>
 
@@ -85,11 +58,10 @@ export function WhyColmena() {
                   aria-hidden="true"
                 />
                 <p className="font-display text-xl font-black uppercase leading-snug tracking-tight sm:text-2xl">
-                  «Prometemos dos cosas: pocas complicaciones y muchas
-                  sonrisas.»
+                  {copy.why.promiseQuote}
                 </p>
                 <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.25em] text-graphite">
-                  Nuestra promesa
+                  {copy.why.promiseLabel}
                 </p>
               </div>
             </Reveal>
@@ -97,7 +69,7 @@ export function WhyColmena() {
 
           {/* Right — six reason cards */}
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:col-span-7 lg:mt-0">
-            {CARDS.map((card, i) => (
+            {cards.map((card, i) => (
               <Reveal key={card.number} delay={i * 0.06}>
                 <article className="relative h-full overflow-hidden rounded-2xl bg-white p-7 shadow-sm ring-1 ring-ink/5 transition-all hover:-translate-y-1 hover:shadow-lg">
                   <span
@@ -124,7 +96,7 @@ export function WhyColmena() {
             <Reveal delay={0.4} className="sm:col-span-2">
               <div className="mt-4 flex justify-center">
                 <CTAButton href="#hablemos" icon={ArrowRight} variant="dark">
-                  ¿Quieres saber más?
+                  {copy.why.cta}
                 </CTAButton>
               </div>
             </Reveal>

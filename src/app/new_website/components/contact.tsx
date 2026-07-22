@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import type { ComponentType, FormEvent } from "react";
 import { Container, CTAButton, Eyebrow, Reveal } from "./primitives";
+import { useCopy } from "../i18n/context";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -25,46 +26,38 @@ type Status = "idle" | "sending" | "success" | "error";
 
 const CONTACT_CHANNELS: {
   icon: ComponentType<{ className?: string }>;
-  label: string;
+  key: "email" | "whatsapp" | "linkedin" | "instagram";
   value: string;
   href: string;
   external?: boolean;
 }[] = [
   {
     icon: Mail,
-    label: "Email",
+    key: "email",
     value: "hola@colmena-experience.com",
     href: "mailto:hola@colmena-experience.com",
   },
   {
     icon: WhatsAppIcon,
-    label: "WhatsApp",
+    key: "whatsapp",
     value: "+34 623 286 976",
     href: "https://wa.me/34623286976",
     external: true,
   },
   {
     icon: Linkedin,
-    label: "LinkedIn",
+    key: "linkedin",
     value: "Colmena Experience",
     href: "https://www.linkedin.com/company/colmena-experience",
     external: true,
   },
   {
     icon: Instagram,
-    label: "Instagram",
+    key: "instagram",
     value: "@colmena_experience",
     href: "https://www.instagram.com/colmena_experience/",
     external: true,
   },
-];
-
-const PARTICIPANT_OPTIONS = [
-  "10 – 25 personas",
-  "26 – 50 personas",
-  "51 – 100 personas",
-  "+100 personas",
-  "Aún no lo sé",
 ];
 
 const labelStyles =
@@ -74,6 +67,7 @@ const inputStyles =
   "w-full rounded-xl border border-ink/10 bg-bone px-4 py-3 text-sm outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-honey placeholder:text-ink/30";
 
 export function Contact() {
+  const { copy } = useCopy();
   const [status, setStatus] = useState<Status>("idle");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -111,9 +105,9 @@ export function Contact() {
     >
       <Container>
         <Reveal>
-          <Eyebrow>07 / Hablemos</Eyebrow>
+          <Eyebrow>{copy.contact.eyebrow}</Eyebrow>
           <h2 className="mt-5 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
-            Todo empieza aquí
+            {copy.contact.h2}
           </h2>
         </Reveal>
 
@@ -122,27 +116,23 @@ export function Contact() {
           <div>
             <Reveal delay={0.12}>
               <p className="mt-6 text-lg leading-relaxed text-ink/80">
-                Cuéntanos qué tienes en mente y pensamos juntos la mejor forma
-                de convertirlo en una experiencia que realmente funcione para tu
-                equipo.
+                {copy.contact.p1}
               </p>
               <p className="mt-4 leading-relaxed text-ink/70">
-                Agenda una llamada de 30 minutos sin compromiso. Nos servirá
-                para entender vuestro contexto, resolver dudas y proponeros
-                ideas adaptadas a vuestro equipo.
+                {copy.contact.p2}
               </p>
             </Reveal>
 
             <Reveal delay={0.18}>
               <h3 className="mt-10 font-mono text-xs uppercase tracking-[0.25em] text-cocoa">
-                O escríbenos directamente
+                {copy.contact.directTitle}
               </h3>
 
               <div className="mt-5 grid gap-3 sm:grid-cols-2">
                 {CONTACT_CHANNELS.map(
-                  ({ icon: Icon, label, value, href, external }) => (
+                  ({ icon: Icon, key, value, href, external }) => (
                     <a
-                      key={label}
+                      key={key}
                       href={href}
                       {...(external
                         ? { target: "_blank", rel: "noopener" }
@@ -154,7 +144,7 @@ export function Contact() {
                       </span>
                       <span className="flex flex-col">
                         <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-graphite">
-                          {label}
+                          {copy.contact.channels[key]}
                         </span>
                         <span className="text-sm font-semibold text-ink">
                           {value}
@@ -193,10 +183,10 @@ export function Contact() {
                   >
                     <CheckCircle2 className="mx-auto h-10 w-10 text-ember" />
                     <p className="mt-4 font-display text-xl font-black uppercase tracking-tight text-ink">
-                      ¡Mensaje enviado!
+                      {copy.contact.form.successTitle}
                     </p>
                     <p className="mt-2 text-sm text-ink/70">
-                      Te responderemos en menos de 24 h laborables.
+                      {copy.contact.form.successText}
                     </p>
                   </motion.div>
                 ) : (
@@ -211,14 +201,14 @@ export function Contact() {
                     <div className="grid gap-4 sm:grid-cols-2">
                       <div>
                         <label htmlFor="contact-name" className={labelStyles}>
-                          Nombre
+                          {copy.contact.form.name}
                         </label>
                         <input
                           id="contact-name"
                           name="name"
                           type="text"
                           required
-                          placeholder="Tu nombre"
+                          placeholder={copy.contact.form.namePh}
                           className={inputStyles}
                         />
                       </div>
@@ -227,13 +217,13 @@ export function Contact() {
                           htmlFor="contact-company"
                           className={labelStyles}
                         >
-                          Empresa
+                          {copy.contact.form.company}
                         </label>
                         <input
                           id="contact-company"
                           name="company"
                           type="text"
-                          placeholder="Nombre de tu empresa"
+                          placeholder={copy.contact.form.companyPh}
                           className={inputStyles}
                         />
                       </div>
@@ -242,26 +232,26 @@ export function Contact() {
                     <div className="mt-4 grid gap-4 sm:grid-cols-2">
                       <div>
                         <label htmlFor="contact-email" className={labelStyles}>
-                          Email
+                          {copy.contact.form.email}
                         </label>
                         <input
                           id="contact-email"
                           name="email"
                           type="email"
                           required
-                          placeholder="tu@empresa.com"
+                          placeholder={copy.contact.form.emailPh}
                           className={inputStyles}
                         />
                       </div>
                       <div>
                         <label htmlFor="contact-phone" className={labelStyles}>
-                          Teléfono
+                          {copy.contact.form.phone}
                         </label>
                         <input
                           id="contact-phone"
                           name="phone"
                           type="tel"
-                          placeholder="Opcional"
+                          placeholder={copy.contact.form.phonePh}
                           className={inputStyles}
                         />
                       </div>
@@ -272,7 +262,7 @@ export function Contact() {
                         htmlFor="contact-participants"
                         className={labelStyles}
                       >
-                        Nº de participantes
+                        {copy.contact.form.participants}
                       </label>
                       <select
                         id="contact-participants"
@@ -281,9 +271,9 @@ export function Contact() {
                         className={inputStyles}
                       >
                         <option value="" disabled>
-                          Selecciona un rango
+                          {copy.contact.form.participantsPh}
                         </option>
-                        {PARTICIPANT_OPTIONS.map((option) => (
+                        {copy.contact.form.participantOptions.map((option) => (
                           <option key={option} value={option}>
                             {option}
                           </option>
@@ -293,14 +283,14 @@ export function Contact() {
 
                     <div className="mt-4">
                       <label htmlFor="contact-message" className={labelStyles}>
-                        Cuéntanos qué tienes en mente
+                        {copy.contact.form.message}
                       </label>
                       <textarea
                         id="contact-message"
                         name="message"
                         rows={4}
                         required
-                        placeholder="Tipo de evento, fecha aproximada, objetivo del equipo…"
+                        placeholder={copy.contact.form.messagePh}
                         className={inputStyles}
                       />
                     </div>
@@ -314,20 +304,20 @@ export function Contact() {
                         className="w-full"
                         disabled={status === "sending"}
                       >
-                        {status === "sending" ? "Enviando…" : "Enviar"}
+                        {status === "sending"
+                          ? copy.contact.form.sending
+                          : copy.contact.form.submit}
                       </CTAButton>
                     </div>
 
                     {status === "error" && (
                       <p className="mt-3 text-sm text-red-600">
-                        Algo ha fallado al enviar. Escríbenos a
-                        hola@colmena-experience.com y te respondemos enseguida.
+                        {copy.contact.form.errorText}
                       </p>
                     )}
 
                     <p className="mt-4 text-center text-xs font-light italic text-graphite">
-                      Te responderemos en menos de 24 h laborables. Sin
-                      compromiso y sin spam.
+                      {copy.contact.form.note}
                     </p>
                   </motion.form>
                 )}

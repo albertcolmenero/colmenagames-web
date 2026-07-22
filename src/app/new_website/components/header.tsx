@@ -5,17 +5,18 @@ import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { CalendarDays, Globe, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useCopy } from "../i18n/context";
+import type { Locale } from "../i18n/types";
 import { CTAButton } from "./primitives";
 
-const NAV_ITEMS = [
-  { label: "Por qué Colmena", href: "#por-que-colmena" },
-  { label: "Cómo trabajamos", href: "#como-trabajamos" },
-  { label: "Experiencias", href: "#experiencias" },
-  { label: "Historias reales", href: "#historias-reales" },
-  { label: "Conócenos", href: "#conocenos" },
+const LOCALES: { code: string; locale: Locale; href: string; title: string }[] = [
+  { code: "CAT", locale: "ca", href: "/new_website/ca", title: "Català" },
+  { code: "ESP", locale: "es", href: "/new_website", title: "Español" },
+  { code: "ENG", locale: "en", href: "/new_website/en", title: "English" },
 ];
 
 function Languages({ className }: { className?: string }) {
+  const { locale } = useCopy();
   return (
     <div
       className={cn(
@@ -23,23 +24,43 @@ function Languages({ className }: { className?: string }) {
         className
       )}
     >
-      <Globe className="h-3.5 w-3.5 opacity-60" aria-hidden="true" />
-      <span className="cursor-default opacity-40" title="Properament">
-        CAT
-      </span>
-      <span className="font-bold underline decoration-ember decoration-2 underline-offset-4">
-        ESP
-      </span>
-      <span className="cursor-default opacity-40" title="Coming soon">
-        ENG
-      </span>
+      <Globe className="h-3.5 w-3.5 shrink-0 opacity-60" aria-hidden="true" />
+      {LOCALES.map((l) =>
+        l.locale === locale ? (
+          <span
+            key={l.code}
+            aria-current="true"
+            className="font-bold underline decoration-ember decoration-2 underline-offset-4"
+          >
+            {l.code}
+          </span>
+        ) : (
+          <a
+            key={l.code}
+            href={l.href}
+            title={l.title}
+            className="opacity-50 transition-opacity hover:opacity-100"
+          >
+            {l.code}
+          </a>
+        )
+      )}
     </div>
   );
 }
 
 export function Header() {
+  const { copy } = useCopy();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const navItems = [
+    { label: copy.header.nav.porQue, href: "#por-que-colmena" },
+    { label: copy.header.nav.comoTrabajamos, href: "#como-trabajamos" },
+    { label: copy.header.nav.experiencias, href: "#experiencias" },
+    { label: copy.header.nav.historias, href: "#historias-reales" },
+    { label: copy.header.nav.conocenos, href: "#conocenos" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -57,7 +78,7 @@ export function Header() {
           : "bg-cream"
       )}
     >
-      <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between gap-6 px-5 sm:px-8">
+      <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
         {/* Logo */}
         <a href="#empieza-aqui" className="flex shrink-0 items-center gap-3">
           <Image
@@ -80,8 +101,8 @@ export function Header() {
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 lg:flex">
-          {NAV_ITEMS.map((item) => (
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
+          {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
@@ -92,10 +113,10 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-6 md:flex">
-          <Languages className="hidden xl:flex" />
+        <div className="hidden items-center gap-5 md:flex xl:gap-6">
+          <Languages />
           <CTAButton href="#hablemos" icon={CalendarDays} variant="dark" size="sm">
-            ¿Hablamos?
+            {copy.header.cta}
           </CTAButton>
         </div>
 
@@ -104,7 +125,7 @@ export function Header() {
           type="button"
           aria-label={open ? "Cerrar menú" : "Abrir menú"}
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5 md:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5 lg:hidden"
         >
           {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
@@ -118,10 +139,10 @@ export function Header() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-x-0 top-full overflow-hidden border-t border-ink/10 bg-white shadow-xl shadow-ink/10 md:hidden"
+            className="absolute inset-x-0 top-full overflow-hidden border-t border-ink/10 bg-white shadow-xl shadow-ink/10 lg:hidden"
           >
             <nav className="flex flex-col gap-1 px-5 py-6">
-              {NAV_ITEMS.map((item, i) => (
+              {navItems.map((item, i) => (
                 <motion.a
                   key={item.href}
                   href={item.href}
@@ -134,7 +155,7 @@ export function Header() {
                   {item.label}
                 </motion.a>
               ))}
-              <div className="mt-4 flex items-center justify-between px-4">
+              <div className="mt-4 flex flex-col gap-5 px-4 sm:flex-row sm:items-center sm:justify-between">
                 <Languages />
                 <CTAButton
                   href="#hablemos"
@@ -143,7 +164,7 @@ export function Header() {
                   size="sm"
                   onClick={() => setOpen(false)}
                 >
-                  ¿Hablamos?
+                  {copy.header.cta}
                 </CTAButton>
               </div>
             </nav>
