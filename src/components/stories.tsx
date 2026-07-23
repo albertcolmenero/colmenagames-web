@@ -2,7 +2,7 @@
 
 import { ArrowRight, Quote } from "lucide-react";
 import { Container, CTAButton, Eyebrow, Reveal } from "./primitives";
-import { useCopy } from "../i18n/context";
+import { useCopy } from "@/i18n/context";
 
 export function Stories() {
   const { copy } = useCopy();

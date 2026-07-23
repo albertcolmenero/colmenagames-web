@@ -1,251 +1,141 @@
-"use client"
+"use client";
 
-import React from 'react'
-import { Button } from '@/components/ui/button'
-import { motion } from 'framer-motion'
-import { Play, Users, Sparkles, ArrowRight } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { CalendarDays, FileText } from "lucide-react";
+import { Container, CTAButton, HexBullet } from "./primitives";
+import { RichText, useCopy } from "@/i18n/context";
 
-const Hero = () => {
-  const t = useTranslations('hero')
-
-  const scrollToSection = (href: string) => {
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  const floatingElements = [
-    { icon: Sparkles, delay: 0, x: 100, y: 50 },
-    { icon: Users, delay: 0.5, x: -80, y: 80 },
-    { icon: Play, delay: 1, x: 150, y: -60 },
-  ]
+export function Hero() {
+  const { copy } = useCopy();
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary">
-        <div className="absolute inset-0 bg-black/20" />
-
-        {/* Animated Geometric Shapes */}
-        <motion.div
-          className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.6, 0.3],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+    <section
+      id="empieza-aqui"
+      className="relative overflow-hidden bg-cream pb-20 pt-36 sm:pb-24 sm:pt-40 lg:pt-44"
+    >
+      {/* Dice pattern halves hugging the edges, per brand brief */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-[240px] top-1/2 hidden -translate-y-1/2 opacity-[0.16] mix-blend-multiply sm:block lg:-left-[200px]"
+      >
+        <Image
+          src="/pattern-dice.png"
+          alt=""
+          width={2000}
+          height={2000}
+          sizes="640px"
+          className="h-[520px] w-[520px] lg:h-[640px] lg:w-[640px]"
+          priority
         />
-        <motion.div
-          className="absolute bottom-20 right-10 w-48 h-48 bg-white/5 rounded-full blur-2xl"
-          animate={{
-            scale: [1.2, 1, 1.2],
-            opacity: [0.2, 0.4, 0.2],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+      </div>
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-[240px] top-1/2 hidden -translate-y-1/2 opacity-[0.16] mix-blend-multiply sm:block lg:-right-[200px]"
+      >
+        <Image
+          src="/pattern-dice.png"
+          alt=""
+          width={2000}
+          height={2000}
+          sizes="640px"
+          className="h-[520px] w-[520px] scale-x-[-1] lg:h-[640px] lg:w-[640px]"
+          priority
         />
-
-        {/* Floating Dice Pattern */}
-        <div className="absolute inset-0">
-          {[
-            { left: 5.2, top: 14.4, duration: 6, delay: 0.2 },
-            { left: 87.2, top: 28.3, duration: 7, delay: 1.5 },
-            { left: 9.6, top: 89.2, duration: 5.5, delay: 0.8 },
-            { left: 43.3, top: 89.8, duration: 8, delay: 1.2 },
-            { left: 77.3, top: 3.7, duration: 6.5, delay: 0.5 },
-            { left: 58.7, top: 67.1, duration: 7.5, delay: 1.8 },
-            { left: 5.0, top: 67.1, duration: 5, delay: 0.3 },
-            { left: 79.9, top: 14.2, duration: 6.8, delay: 1.0 },
-            { left: 66.1, top: 41.5, duration: 7.2, delay: 1.6 },
-            { left: 37.5, top: 44.6, duration: 5.8, delay: 0.7 },
-            { left: 93.6, top: 9.1, duration: 6.2, delay: 1.3 },
-            { left: 76.2, top: 53.0, duration: 7.8, delay: 0.9 },
-            { left: 71.2, top: 66.0, duration: 5.3, delay: 1.7 },
-            { left: 48.3, top: 28.8, duration: 6.7, delay: 0.4 },
-            { left: 35.6, top: 60.8, duration: 7.1, delay: 1.4 },
-            { left: 48.3, top: 9.5, duration: 5.9, delay: 0.6 },
-            { left: 85.2, top: 95.8, duration: 6.4, delay: 1.1 },
-            { left: 31.3, top: 37.7, duration: 7.6, delay: 1.9 },
-            { left: 49.5, top: 82.2, duration: 5.7, delay: 0.1 },
-            { left: 52.0, top: 46.9, duration: 6.9, delay: 1.5 }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-4 h-4 bg-white/10 rounded-sm"
-              style={{
-                left: `${item.left}%`,
-                top: `${item.top}%`,
-              }}
-              animate={{
-                y: [-20, 20, -20],
-                rotate: [0, 180, 360],
-                opacity: [0.2, 0.6, 0.2],
-              }}
-              transition={{
-                duration: item.duration,
-                repeat: Infinity,
-                delay: item.delay,
-                ease: "easeInOut"
-              }}
-            />
-          ))}
-        </div>
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Main Heading */}
-          <motion.h1
-            className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+      <Container className="relative">
+        <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.85 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <motion.span
-              className="block"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              style={{
-                background: 'linear-gradient(90deg, #3b2813, #f6a602)', backgroundSize: '200% 100%',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-              }}
-            >
-              {t('title.play')}<br></br>
-              {t('title.connect')}<br></br>
-              {t('title.transform')}
-            </motion.span>
+            <Image
+              src="/logo-trim.png"
+              alt="Colmena Experience — dados y abejas"
+              width={979}
+              height={971}
+              sizes="160px"
+              className="h-24 w-auto sm:h-28"
+              priority
+            />
+          </motion.div>
 
-          </motion.h1>
-
-          {/* Subtitle */}
           <motion.p
-            className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1 }}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.3em] text-cocoa sm:text-xs"
           >
-            {t('subtitle')}{' '}
-            <span className="font-semibold text-yellow-300">{t('highlight')}</span>
+            <HexBullet className="h-2.5 w-2.5 text-ember" />
+            {copy.hero.eyebrow}
+            <HexBullet className="h-2.5 w-2.5 text-ember" />
           </motion.p>
 
-          {/* CTA Buttons */}
-          <motion.div
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
-            initial={{ opacity: 0, y: 20 }}
+          <motion.h1
+            initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-5 font-display text-[13vw] font-black uppercase leading-[1.12] tracking-tight text-ink sm:text-6xl lg:text-7xl"
           >
-            <Button
-              onClick={() => scrollToSection('#contact')}
-              className="bg-black text-white hover:bg-white/90 font-bold text-lg px-8 py-4 rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group cursor-pointer"
-              size="lg"
-            >
-              <span className="mr-2">👉</span>
-              {t('cta.primary')}
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            {copy.hero.h1line1}
+            <br />
+            <span className="relative inline-block">
+              {copy.hero.h1line2}
+              <motion.span
+                aria-hidden="true"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 0.9, delay: 1, ease: [0.22, 1, 0.36, 1] }}
+                className="absolute -bottom-1.5 left-0 h-[0.09em] w-full origin-left bg-ember sm:-bottom-2"
+              />
+            </span>
+          </motion.h1>
 
-
-          </motion.div>
-
-          {/* Stats */}
-          <motion.div
-            className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.7 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-7 max-w-2xl text-lg leading-relaxed text-ink/75 sm:text-xl"
           >
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">10-250</div>
-              <div className="text-white/80 font-medium">{t('stats.people')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">100%</div>
-              <div className="text-white/80 font-medium">{t('stats.customizable')}</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl lg:text-4xl font-bold text-white mb-2">∞</div>
-              <div className="text-white/80 font-medium">{t('stats.possibilities')}</div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+            <RichText text={copy.hero.subtitle} strongClassName="text-ink" />
+          </motion.p>
 
-      {/* Floating Interactive Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {floatingElements.map((element, index) => (
           <motion.div
-            key={index}
-            className="absolute"
-            style={{
-              right: `${element.x}px`,
-              top: `50%`,
-              transform: `translateY(${element.y}px)`,
-            }}
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{
-              opacity: [0, 0.6, 0],
-              scale: [0, 1, 0],
-              rotate: [0, 180, 360],
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              delay: element.delay,
-              ease: "easeInOut"
-            }}
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-10 flex flex-col items-center gap-4 sm:flex-row"
           >
-            {React.createElement(element.icon, { className: "w-8 h-8 text-white/40" })}
+            <CTAButton href="#hablemos" icon={CalendarDays} variant="gold" size="lg">
+              {copy.hero.ctaPrimary}
+            </CTAButton>
+            <CTAButton href="#hablemos" icon={FileText} variant="outline" size="lg">
+              {copy.hero.ctaSecondary}
+            </CTAButton>
           </motion.div>
-        ))}
-      </div>
 
-      {/* 
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{
-          y: [0, 10, 0],
-        }}
-        transition={{
-          duration: 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      >
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full p-1">
-          <motion.div
-            className="w-1 h-3 bg-white/70 rounded-full mx-auto"
-            animate={{
-              y: [0, 12, 0],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          />
+          <motion.ul
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.85 }}
+            className="mt-14 flex flex-col items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-cocoa sm:flex-row sm:gap-0 sm:text-xs"
+          >
+            {copy.hero.stats.map((stat, i) => (
+              <li key={stat} className="flex items-center">
+                {i > 0 && (
+                  <span
+                    aria-hidden="true"
+                    className="mx-5 hidden h-4 w-px bg-cocoa/30 sm:block"
+                  />
+                )}
+                {stat}
+              </li>
+            ))}
+          </motion.ul>
         </div>
-      </motion.div>Scroll Indicator */}
+      </Container>
     </section>
-  )
+  );
 }
-
-export default Hero

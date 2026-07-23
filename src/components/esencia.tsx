@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Container, CTAButton, Eyebrow, Hexagon, Reveal } from "./primitives";
-import { useCopy } from "../i18n/context";
+import { useCopy } from "@/i18n/context";
 
 export function Esencia() {
   const { copy } = useCopy();
@@ -117,7 +117,7 @@ export function Esencia() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-10 flex justify-center"
       >
         <Image
-          src="/new_website/que-oferim.png"
+          src="/que-oferim.png"
           alt=""
           width={1078}
           height={596}

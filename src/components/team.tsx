@@ -2,15 +2,15 @@
 
 import Image from "next/image";
 import { Chip, Container, Eyebrow, Reveal } from "./primitives";
-import { useCopy } from "../i18n/context";
+import { useCopy } from "@/i18n/context";
 
 const PHOTOS = [
-  "/new_website/team/maria.png",
-  "/new_website/team/marta.png",
-  "/new_website/team/mireia.png",
-  "/new_website/team/alberto.png",
-  "/new_website/team/laia.png",
-  "/new_website/team/judith.png",
+  "/team/maria.png",
+  "/team/marta.png",
+  "/team/mireia.png",
+  "/team/alberto.png",
+  "/team/laia.png",
+  "/team/judith.png",
 ];
 
 export function Team() {
@@ -22,7 +22,7 @@ export function Team() {
       className="relative overflow-hidden bg-white py-24 sm:py-28 lg:py-36"
     >
       <Image
-        src="/new_website/pattern-dice.png"
+        src="/pattern-dice.png"
         alt=""
         width={2000}
         height={2000}

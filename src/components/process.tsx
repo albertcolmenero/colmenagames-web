@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import type { ComponentType } from "react";
 
-import { useCopy } from "../i18n/context";
+import { useCopy } from "@/i18n/context";
 import { Container, Eyebrow, HexIcon, Reveal } from "./primitives";
 
 type StepVisual = {

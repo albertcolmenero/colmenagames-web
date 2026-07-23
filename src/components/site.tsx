@@ -1,5 +1,5 @@
-import { LocaleProvider } from "../i18n/context";
-import type { Copy, Locale } from "../i18n/types";
+import { LocaleProvider } from "@/i18n/context";
+import type { Copy, Locale } from "@/i18n/types";
 import { Header } from "./header";
 import { Hero } from "./hero";
 import { Esencia } from "./esencia";

@@ -10,7 +10,7 @@ import {
   Wallet,
 } from "lucide-react";
 import type { ComponentType } from "react";
-import { useCopy } from "../i18n/context";
+import { useCopy } from "@/i18n/context";
 import { Container, CTAButton, Eyebrow, Reveal } from "./primitives";
 
 const CARD_ICONS: {

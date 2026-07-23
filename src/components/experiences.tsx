@@ -20,7 +20,7 @@ import {
   HexIcon,
   Reveal,
 } from "./primitives";
-import { useCopy } from "../i18n/context";
+import { useCopy } from "@/i18n/context";
 
 type CardMedia = {
   number: string;
@@ -32,32 +32,32 @@ const CARD_MEDIA: CardMedia[] = [
   {
     number: "01",
     icon: Search,
-    image: "/new_website/experiencias/misterio.jpg",
+    image: "/experiencias/misterio.jpg",
   },
   {
     number: "02",
     icon: Trophy,
-    image: "/new_website/experiencias/competicion.jpg",
+    image: "/experiencias/competicion.jpg",
   },
   {
     number: "03",
     icon: Blocks,
-    image: "/new_website/experiencias/creation-lab.jpg",
+    image: "/experiencias/creation-lab.jpg",
   },
   {
     number: "04",
     icon: Puzzle,
-    image: "/new_website/experiencias/retos.jpg",
+    image: "/experiencias/retos.jpg",
   },
   {
     number: "05",
     icon: HeartHandshake,
-    image: "/new_website/experiencias/conectar.jpg",
+    image: "/experiencias/conectar.jpg",
   },
   {
     number: "06",
     icon: Drama,
-    image: "/new_website/experiencias/inmersivas.jpg",
+    image: "/experiencias/inmersivas.jpg",
   },
 ];
 
@@ -137,7 +137,7 @@ export function Experiences() {
           <div className="grid overflow-hidden rounded-3xl bg-ink ring-1 ring-ink/10 lg:grid-cols-2">
             <div className="relative min-h-[320px] lg:min-h-[460px]">
               <Image
-                src="/new_website/casino.png"
+                src="/casino.png"
                 alt="Mesa de casino con escena del crimen iluminada con luz ultravioleta"
                 fill
                 className="object-cover"

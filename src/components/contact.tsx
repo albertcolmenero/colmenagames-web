@@ -1,446 +1,331 @@
-"use client"
+"use client";
 
-import React, { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { useState } from "react";
+import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  Send,
+  ArrowRight,
+  CheckCircle2,
+  Instagram,
+  Linkedin,
   Mail,
-  Phone,
-  MapPin,
-  Sparkles,
-  CheckCircle,
-  Clock
-} from 'lucide-react'
-import { useTranslations } from 'next-intl'
+} from "lucide-react";
+import type { ComponentType, FormEvent } from "react";
+import { Container, CTAButton, Eyebrow, Reveal } from "./primitives";
+import { useCopy } from "@/i18n/context";
 
-const Contact = () => {
-  const t = useTranslations('contact')
-
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    groupType: '',
-    participants: '',
-    date: '',
-    message: ''
-  })
-
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [error, setError] = useState('')
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target
-    setFormData(prev => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setIsSubmitting(true)
-    setError('')
-
-    try {
-      // Format message with all form data
-      const formattedMessage = `
-${t('email.subject')}
-
-${t('email.contactData')}
-• ${t('email.name')} ${formData.name}
-• ${t('email.email')} ${formData.email}
-• ${t('email.phone')} ${formData.phone || t('email.notProvided')}
-
-${t('email.groupInfo')}
-• ${t('email.groupType')} ${formData.groupType || t('email.notSpecified')}
-• ${t('email.participants')} ${formData.participants || t('email.notSpecified')}
-• ${t('email.date')} ${formData.date || t('email.notSpecified')}
-
-${t('email.additionalMessage')}
-${formData.message || t('email.noAdditionalMessage')}
-      `.trim()
-
-      // Send to Formcarry
-      const response = await fetch("https://formcarry.com/s/hTf-YiYRND_", {
-        method: 'POST',
-        headers: {
-          "Accept": "application/json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          message: formattedMessage,
-          phone: formData.phone,
-          groupType: formData.groupType,
-          participants: formData.participants,
-          date: formData.date
-        })
-      })
-
-      const result = await response.json()
-
-      if (result.code === 200) {
-        setIsSubmitting(false)
-        setIsSubmitted(true)
-
-        // Reset form after 5 seconds
-        setTimeout(() => {
-          setIsSubmitted(false)
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            groupType: '',
-            participants: '',
-            date: '',
-            message: ''
-          })
-        }, 5000)
-      } else if (result.code === 422) {
-        // Field validation failed
-        setError(result.message)
-        setIsSubmitting(false)
-      } else {
-        // Other error from formcarry
-        setError(result.message)
-        setIsSubmitting(false)
-      }
-
-    } catch (error) {
-      // Request related error
-      console.error('Error sending form:', error)
-      setError(error instanceof Error ? error.message : t('email.errorSending'))
-      setIsSubmitting(false)
-    }
-  }
-
-  const groupTypes = [
-    { value: "corporate", label: t('form.groupTypes.corporate') },
-    { value: "educational", label: t('form.groupTypes.educational') },
-    { value: "association", label: t('form.groupTypes.association') },
-    { value: "other", label: t('form.groupTypes.other') }
-  ]
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: t('info.email'),
-      value: "hola@colmena-experience.com",
-      description: t('info.responseValue')
-    },
-    {
-      icon: Phone,
-      title: t('info.phone'),
-      value: "+34 623 286 976",
-      description: t('info.hoursValue')
-    },
-    {
-      icon: MapPin,
-      title: t('info.location'),
-      value: t('info.location'),
-      description: t('info.coverage')
-    }
-  ]
-
+function WhatsAppIcon({ className }: { className?: string }) {
   return (
-    <section id="contact" className="py-20 lg:py-32 bg-gradient-to-br from-white via-secondary/20 to-primary/10 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h2
-            className="text-4xl lg:text-6xl font-bold text-foreground mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            {t('title')}
-          </motion.h2>
-
-          <motion.p
-            className="text-xl text-muted-foreground max-w-6xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            {t('subtitle')}
-          </motion.p>
-        </motion.div>
-
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
-
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
-            <Card className="bg-white shadow-2xl border-0 overflow-hidden">
-              <CardHeader className="bg-gradient-to-r from-primary to-accent p-8">
-                <CardTitle className="text-3xl font-bold text-white flex items-center">
-                  <span className="mr-3">👉</span>
-                  {t('form.title')}
-                </CardTitle>
-              </CardHeader>
-
-              <CardContent className="p-8">
-                {!isSubmitted ? (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Name and Email Row */}
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5 }}
-                      >
-                        <label className="block text-sm font-semibold text-foreground mb-2">
-                          {t('form.name')} *
-                        </label>
-                        <Input
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder={t('form.namePlaceholder')}
-                          required
-                          className="border-2 border-primary/20 focus:border-primary"
-                        />
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.6 }}
-                      >
-                        <label className="block text-sm font-semibold text-foreground mb-2">
-                          {t('form.email')} *
-                        </label>
-                        <Input
-                          type="email"
-                          name="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder={t('form.emailPlaceholder')}
-                          required
-                          className="border-2 border-primary/20 focus:border-primary"
-                        />
-                      </motion.div>
-                    </div>
-
-                    {/* Phone and Group Type Row */}
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.7 }}
-                      >
-                        <label className="block text-sm font-semibold text-foreground mb-2">
-                          {t('form.phone')}
-                        </label>
-                        <Input
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder={t('form.phonePlaceholder')}
-                          className="border-2 border-primary/20 focus:border-primary"
-                        />
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8 }}
-                      >
-                        <label className="block text-sm font-semibold text-foreground mb-2">
-                          {t('form.groupType')}
-                        </label>
-                        <select
-                          name="groupType"
-                          value={formData.groupType}
-                          onChange={handleInputChange}
-                          className="w-full h-10 px-3 py-2 border-2 border-primary/20 rounded-md focus:border-primary focus:outline-none bg-background"
-                        >
-                          <option value="">{t('form.groupTypePlaceholder')}</option>
-                          {groupTypes.map((type, index) => (
-                            <option key={index} value={type.value}>{type.label}</option>
-                          ))}
-                        </select>
-                      </motion.div>
-                    </div>
-
-                    {/* Participants and Date Row */}
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.9 }}
-                      >
-                        <label className="block text-sm font-semibold text-foreground mb-2">
-                          {t('form.participants')}
-                        </label>
-                        <Input
-                          name="participants"
-                          value={formData.participants}
-                          onChange={handleInputChange}
-                          placeholder={t('form.participantsPlaceholder')}
-                          className="border-2 border-primary/20 focus:border-primary"
-                        />
-                      </motion.div>
-
-                      <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 1.0 }}
-                      >
-                        <label className="block text-sm font-semibold text-foreground mb-2">
-                          {t('form.date')}
-                        </label>
-                        <Input
-                          type="date"
-                          name="date"
-                          value={formData.date}
-                          onChange={handleInputChange}
-                          className="border-2 border-primary/20 focus:border-primary"
-                        />
-                      </motion.div>
-                    </div>
-
-                    {/* Message */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.1 }}
-                    >
-                      <label className="block text-sm font-semibold text-foreground mb-2">
-                        {t('form.message')}
-                      </label>
-                      <Textarea
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder={t('form.messagePlaceholder')}
-                        rows={4}
-                        className="border-2 border-primary/20 focus:border-primary resize-none"
-                      />
-                    </motion.div>
-
-                    {/* Submit Button */}
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 1.2 }}
-                    >
-                      <Button
-                        type="submit"
-                        disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold py-4 text-lg rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
-                      >
-                        {isSubmitting ? (
-                          <div className="flex items-center justify-center">
-                            <motion.div
-                              className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full mr-2"
-                              animate={{ rotate: 360 }}
-                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                            />
-                            {t('form.submitting')}
-                          </div>
-                        ) : (
-                          <div className="flex items-center justify-center">
-                            <Send className="mr-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                            {t('form.submit')}
-                          </div>
-                        )}
-                      </Button>
-                    </motion.div>
-
-                    {error && (
-                      <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg mt-4">
-                        <p className="text-sm">{error}</p>
-                      </div>
-                    )}
-                    <p className="text-sm text-muted-foreground text-center mt-4">
-                      * {t('form.responseMessage')}
-                    </p>
-                  </form>
-                ) : (
-                  <motion.div
-                    className="text-center py-12"
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}
-                  >
-                    <motion.div
-                      className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6"
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-                    >
-                      <CheckCircle className="w-10 h-10 text-white" />
-                    </motion.div>
-
-                    <h3 className="text-2xl font-bold text-foreground mb-4">
-                      {t('form.success')}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      {t('form.successMessage')}
-                    </p>
-                  </motion.div>
-                )}
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* Contact Info & Additional Content */}
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-
-            {/* Contact Information */}
-            <div className="space-y-6">
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={index}
-                  className="flex items-start space-x-4 p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-primary/10 hover:border-primary/30"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: 0.2 * index }}
-                  whileHover={{ y: -2 }}
-                >
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center flex-shrink-0">
-                    {React.createElement(info.icon, { className: "w-6 h-6 text-white" })}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-foreground mb-1">{info.title}</h4>
-                    <p className="text-lg font-semibold text-primary mb-1">{info.value}</p>
-                    <p className="text-sm text-muted-foreground">{info.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  )
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  );
 }
 
-export default Contact
+type Status = "idle" | "sending" | "success" | "error";
+
+const CONTACT_CHANNELS: {
+  icon: ComponentType<{ className?: string }>;
+  key: "email" | "whatsapp" | "linkedin" | "instagram";
+  value: string;
+  href: string;
+  external?: boolean;
+}[] = [
+  {
+    icon: Mail,
+    key: "email",
+    value: "hola@colmena-experience.com",
+    href: "mailto:hola@colmena-experience.com",
+  },
+  {
+    icon: WhatsAppIcon,
+    key: "whatsapp",
+    value: "+34 623 286 976",
+    href: "https://wa.me/34623286976",
+    external: true,
+  },
+  {
+    icon: Linkedin,
+    key: "linkedin",
+    value: "Colmena Experience",
+    href: "https://www.linkedin.com/company/colmena-experience",
+    external: true,
+  },
+  {
+    icon: Instagram,
+    key: "instagram",
+    value: "@colmena_experience",
+    href: "https://www.instagram.com/colmena_experience/",
+    external: true,
+  },
+];
+
+const labelStyles =
+  "mb-1.5 block font-mono text-[10px] uppercase tracking-[0.2em] text-graphite";
+
+const inputStyles =
+  "w-full rounded-xl border border-ink/10 bg-bone px-4 py-3 text-sm outline-none transition-all focus:border-transparent focus:ring-2 focus:ring-honey placeholder:text-ink/30";
+
+export function Contact() {
+  const { copy } = useCopy();
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    setStatus("sending");
+
+    const payload = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const res = await fetch("https://formcarry.com/s/hTf-YiYRND_", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        form.reset();
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  return (
+    <section
+      id="hablemos"
+      className="relative overflow-hidden bg-cream py-24 sm:py-28 lg:py-36"
+    >
+      <Container>
+        <Reveal>
+          <Eyebrow>{copy.contact.eyebrow}</Eyebrow>
+          <h2 className="mt-5 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
+            {copy.contact.h2}
+          </h2>
+        </Reveal>
+
+        <div className="mt-8 lg:grid lg:grid-cols-2 lg:items-start lg:gap-14">
+          {/* Left column */}
+          <div>
+            <Reveal delay={0.12}>
+              <p className="mt-6 text-lg leading-relaxed text-ink/80">
+                {copy.contact.p1}
+              </p>
+              <p className="mt-4 leading-relaxed text-ink/70">
+                {copy.contact.p2}
+              </p>
+            </Reveal>
+
+            <Reveal delay={0.18}>
+              <h3 className="mt-10 font-mono text-xs uppercase tracking-[0.25em] text-cocoa">
+                {copy.contact.directTitle}
+              </h3>
+
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                {CONTACT_CHANNELS.map(
+                  ({ icon: Icon, key, value, href, external }) => (
+                    <a
+                      key={key}
+                      href={href}
+                      {...(external
+                        ? { target: "_blank", rel: "noopener" }
+                        : {})}
+                      className="flex items-center gap-3.5 rounded-xl bg-white/70 px-4 py-3.5 ring-1 ring-ink/5 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white hover:shadow-md"
+                    >
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-cream">
+                        <Icon className="h-[18px] w-[18px] text-cocoa" />
+                      </span>
+                      <span className="flex flex-col">
+                        <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-graphite">
+                          {copy.contact.channels[key]}
+                        </span>
+                        <span className="text-sm font-semibold text-ink">
+                          {value}
+                        </span>
+                      </span>
+                    </a>
+                  )
+                )}
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.24} className="hidden lg:block">
+              <Image
+                src="/bees-office.png"
+                alt="Abejas trabajando en una oficina con forma de dado"
+                width={1920}
+                height={1080}
+                sizes="400px"
+                className="mt-10 h-auto w-full max-w-md"
+              />
+            </Reveal>
+          </div>
+
+          {/* Right column — form card */}
+          <Reveal delay={0.1} className="mt-14 lg:mt-0">
+            <div className="mt-7 rounded-3xl bg-white p-7 shadow-xl shadow-ink/10 ring-1 ring-ink/5 sm:p-10">
+              <AnimatePresence mode="wait" initial={false}>
+                {status === "success" ? (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.96 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="rounded-2xl bg-butter p-6 text-center"
+                  >
+                    <CheckCircle2 className="mx-auto h-10 w-10 text-ember" />
+                    <p className="mt-4 font-display text-xl font-black uppercase tracking-tight text-ink">
+                      {copy.contact.form.successTitle}
+                    </p>
+                    <p className="mt-2 text-sm text-ink/70">
+                      {copy.contact.form.successText}
+                    </p>
+                  </motion.div>
+                ) : (
+                  <motion.form
+                    key="form"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    onSubmit={handleSubmit}
+                  >
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label htmlFor="contact-name" className={labelStyles}>
+                          {copy.contact.form.name}
+                        </label>
+                        <input
+                          id="contact-name"
+                          name="name"
+                          type="text"
+                          required
+                          placeholder={copy.contact.form.namePh}
+                          className={inputStyles}
+                        />
+                      </div>
+                      <div>
+                        <label
+                          htmlFor="contact-company"
+                          className={labelStyles}
+                        >
+                          {copy.contact.form.company}
+                        </label>
+                        <input
+                          id="contact-company"
+                          name="company"
+                          type="text"
+                          placeholder={copy.contact.form.companyPh}
+                          className={inputStyles}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label htmlFor="contact-email" className={labelStyles}>
+                          {copy.contact.form.email}
+                        </label>
+                        <input
+                          id="contact-email"
+                          name="email"
+                          type="email"
+                          required
+                          placeholder={copy.contact.form.emailPh}
+                          className={inputStyles}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="contact-phone" className={labelStyles}>
+                          {copy.contact.form.phone}
+                        </label>
+                        <input
+                          id="contact-phone"
+                          name="phone"
+                          type="tel"
+                          placeholder={copy.contact.form.phonePh}
+                          className={inputStyles}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="mt-4">
+                      <label
+                        htmlFor="contact-participants"
+                        className={labelStyles}
+                      >
+                        {copy.contact.form.participants}
+                      </label>
+                      <select
+                        id="contact-participants"
+                        name="participants"
+                        defaultValue=""
+                        className={inputStyles}
+                      >
+                        <option value="" disabled>
+                          {copy.contact.form.participantsPh}
+                        </option>
+                        {copy.contact.form.participantOptions.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="mt-4">
+                      <label htmlFor="contact-message" className={labelStyles}>
+                        {copy.contact.form.message}
+                      </label>
+                      <textarea
+                        id="contact-message"
+                        name="message"
+                        rows={4}
+                        required
+                        placeholder={copy.contact.form.messagePh}
+                        className={inputStyles}
+                      />
+                    </div>
+
+                    <div className="mt-6">
+                      <CTAButton
+                        type="submit"
+                        variant="dark"
+                        size="lg"
+                        icon={ArrowRight}
+                        className="w-full"
+                        disabled={status === "sending"}
+                      >
+                        {status === "sending"
+                          ? copy.contact.form.sending
+                          : copy.contact.form.submit}
+                      </CTAButton>
+                    </div>
+
+                    {status === "error" && (
+                      <p className="mt-3 text-sm text-red-600">
+                        {copy.contact.form.errorText}
+                      </p>
+                    )}
+
+                    <p className="mt-4 text-center text-xs font-light italic text-graphite">
+                      {copy.contact.form.note}
+                    </p>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </div>
+          </Reveal>
+        </div>
+      </Container>
+    </section>
+  );
+}

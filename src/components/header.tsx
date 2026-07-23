@@ -1,170 +1,176 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from 'react'
-import Image from 'next/image'
-import { Button } from '@/components/ui/button'
-import { Menu, X } from 'lucide-react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useTranslations } from 'next-intl'
-import LanguageSelector from './language-selector'
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { AnimatePresence, motion } from "framer-motion";
+import { CalendarDays, Globe, Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useCopy } from "@/i18n/context";
+import type { Locale } from "@/i18n/types";
+import { CTAButton } from "./primitives";
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const t = useTranslations('header')
+const LOCALES: { code: string; locale: Locale; href: string; title: string }[] = [
+  { code: "CAT", locale: "ca", href: "/ca", title: "Català" },
+  { code: "ESP", locale: "es", href: "/", title: "Español" },
+  { code: "ENG", locale: "en", href: "/en", title: "English" },
+];
+
+function Languages({ className }: { className?: string }) {
+  const { locale } = useCopy();
+  return (
+    <div
+      className={cn(
+        "flex items-center gap-2.5 font-mono text-[11px] tracking-[0.12em]",
+        className
+      )}
+    >
+      <Globe className="h-3.5 w-3.5 shrink-0 opacity-60" aria-hidden="true" />
+      {LOCALES.map((l) =>
+        l.locale === locale ? (
+          <span
+            key={l.code}
+            aria-current="true"
+            className="font-bold underline decoration-ember decoration-2 underline-offset-4"
+          >
+            {l.code}
+          </span>
+        ) : (
+          <a
+            key={l.code}
+            href={l.href}
+            title={l.title}
+            className="opacity-50 transition-opacity hover:opacity-100"
+          >
+            {l.code}
+          </a>
+        )
+      )}
+    </div>
+  );
+}
+
+export function Header() {
+  const { copy } = useCopy();
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const navItems = [
+    { label: copy.header.nav.porQue, href: "#por-que-colmena" },
+    { label: copy.header.nav.comoTrabajamos, href: "#como-trabajamos" },
+    { label: copy.header.nav.experiencias, href: "#experiencias" },
+    { label: copy.header.nav.historias, href: "#historias-reales" },
+    { label: copy.header.nav.conocenos, href: "#conocenos" },
+  ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const menuItems = [
-    { name: t('nav.home'), href: '#hero' },
-    { name: t('nav.services'), href: '#services' },
-    { name: t('nav.whyUs'), href: '#why-us' },
-    { name: t('nav.contact'), href: '#contact' },
-  ]
-
-  const scrollToSection = (href: string) => {
-    setIsMenuOpen(false)
-    const element = document.querySelector(href)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <motion.header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? 'bg-white backdrop-blur-md shadow-lg'
-        : 'bg-transparent'
-        }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: 'easeOut' }}
+    <header
+      className={cn(
+        "fixed inset-x-0 top-0 z-50 transition-all duration-500",
+        scrolled
+          ? "bg-white/90 shadow-[0_1px_0_rgba(18,17,16,0.07)] backdrop-blur-md"
+          : "bg-cream"
+      )}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <motion.div
-            className={`flex-shrink-0 rounded-lg transition-all duration-300 ${!isScrolled ? 'bg-white backdrop-blur-sm shadow-lg px-3 py-2' : ''
-              }`}
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
-          >
-            <Image
-              src="/colmena-experience.png"
-              alt="Colmena Experience"
-              width={200}
-              height={60}
-              className="h-10 lg:h-12 w-auto"
-              priority
-            />
-          </motion.div>
+      <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
+        {/* Logo */}
+        <a href="#empieza-aqui" className="flex shrink-0 items-center gap-3">
+          <Image
+            src="/logo-trim.png"
+            alt="Colmena Experience"
+            width={979}
+            height={971}
+            sizes="72px"
+            className="h-11 w-auto"
+            priority
+          />
+          <span className="hidden flex-col leading-none sm:flex">
+            <span className="font-display text-base font-black tracking-[0.08em]">
+              COLMENA
+            </span>
+            <span className="font-mono text-[9px] tracking-[0.42em] text-ember">
+              EXPERIENCE
+            </span>
+          </span>
+        </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-6">
-            {menuItems.map((item, index) => (
-              <motion.button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className={`text-sm lg:text-base font-medium transition-colors hover:text-primary cursor-pointer ${isScrolled ? 'text-foreground' : 'text-white'
-                  }`}
-                whileHover={{ y: -2 }}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 + 0.3 }}
-              >
-                {item.name}
-              </motion.button>
-            ))}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8 }}
+        {/* Desktop nav */}
+        <nav className="hidden items-center gap-5 lg:flex xl:gap-7">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink/70 transition-colors hover:text-ember"
             >
-              <LanguageSelector isScrolled={isScrolled} />
-            </motion.div>
-          </nav>
+              {item.label}
+            </a>
+          ))}
+        </nav>
 
-          {/* CTA Button (Desktop) */}
-          <motion.div
-            className="hidden md:block"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-          >
-            <Button
-              onClick={() => scrollToSection('#contact')}
-              className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold px-6 py-2 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
-            >
-              {t('cta')}
-            </Button>
-          </motion.div>
-
-          {/* Mobile menu button */}
-          <motion.button
-            className="md:hidden p-2 cursor-pointer"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            whileTap={{ scale: 0.95 }}
-          >
-            {isMenuOpen ? (
-              <X className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-            ) : (
-              <Menu className={`w-6 h-6 ${isScrolled ? 'text-foreground' : 'text-white'}`} />
-            )}
-          </motion.button>
+        <div className="hidden items-center gap-5 md:flex xl:gap-6">
+          <Languages />
+          <CTAButton href="#hablemos" icon={CalendarDays} variant="dark" size="sm">
+            {copy.header.cta}
+          </CTAButton>
         </div>
+
+        {/* Mobile toggle */}
+        <button
+          type="button"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          onClick={() => setOpen((v) => !v)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-full text-ink transition-colors hover:bg-ink/5 lg:hidden"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile menu */}
       <AnimatePresence>
-        {isMenuOpen && (
+        {open && (
           <motion.div
-            className="md:hidden bg-white/95 backdrop-blur-md border-t"
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-x-0 top-full overflow-hidden border-t border-ink/10 bg-white shadow-xl shadow-ink/10 lg:hidden"
           >
-            <div className="px-4 py-6 space-y-4">
-              {menuItems.map((item, index) => (
-                <motion.button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="block w-full text-left text-foreground font-medium py-2 px-4 rounded-lg hover:bg-secondary transition-colors cursor-pointer"
-                  initial={{ opacity: 0, x: -20 }}
+            <nav className="flex flex-col gap-1 px-5 py-6">
+              {navItems.map((item, i) => (
+                <motion.a
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: 0.05 + i * 0.05 }}
+                  className="rounded-xl px-4 py-3.5 font-display text-xl font-bold uppercase tracking-tight transition-colors hover:bg-butter"
                 >
-                  {item.name}
-                </motion.button>
+                  {item.label}
+                </motion.a>
               ))}
-              <motion.div
-                className="pt-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
-              >
-                <Button
-                  onClick={() => scrollToSection('#contact')}
-                  className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-semibold py-3 rounded-full shadow-lg cursor-pointer"
+              <div className="mt-4 flex flex-col gap-5 px-4 sm:flex-row sm:items-center sm:justify-between">
+                <Languages />
+                <CTAButton
+                  href="#hablemos"
+                  icon={CalendarDays}
+                  variant="dark"
+                  size="sm"
+                  onClick={() => setOpen(false)}
                 >
-                  {t('cta')}
-                </Button>
-                <div className="pt-2 flex justify-center">
-                  <LanguageSelector isScrolled={true} />
-                </div>
-              </motion.div>
-            </div>
+                  {copy.header.cta}
+                </CTAButton>
+              </div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
-  )
+    </header>
+  );
 }
-
-export default Header

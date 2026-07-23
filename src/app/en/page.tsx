@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import en from "../i18n/en";
-import { Site } from "../components/site";
+import en from "@/i18n/en";
+import { Site } from "@/components/site";
 
 export const metadata: Metadata = {
   title: en.meta.title,
   description: en.meta.description,
   alternates: {
     languages: {
-      es: "/new_website",
-      ca: "/new_website/ca",
-      en: "/new_website/en",
+      es: "/",
+      ca: "/ca",
+      en: "/en",
     },
   },
 };
 
-export default function NewWebsiteEnglishPage() {
+export default function EnglishPage() {
   return <Site copy={en} locale="en" />;
 }
