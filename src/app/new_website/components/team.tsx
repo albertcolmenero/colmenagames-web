@@ -32,7 +32,7 @@ export function Team() {
       />
 
       <Container className="relative">
-        {/* Part 1 — Nuestra historia */}
+        {/* Part 1 — Nuestra historia  */}
         <Reveal>
           <Eyebrow>{copy.team.eyebrow}</Eyebrow>
           <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
