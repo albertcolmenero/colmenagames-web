@@ -34,7 +34,7 @@ const es: Copy = {
   esencia: {
     eyebrow: "01 / Nuestra esencia",
     h2line1: "CADA EQUIPO ES DISTINTO",
-    h2line2: "LA EXPERIENCIA TAMBIÉN DEBERÍA SERLO.",
+    h2line2: "LA EXPERIENCIA TAMBIÉN DEBERÍA SERLO",
     p1: "Seleccionamos y adaptamos nuestras experiencias para que encajen con las personas, el momento y los objetivos de cada empresa. De forma sencilla, ágil y sin generar más trabajo para tu equipo.",
     p2: "No vendemos juegos sueltos ni packs rígidos. Partimos de formatos y mecánicas que sabemos que funcionan, los combinamos y los adaptamos al perfil real del grupo, al contexto de la organización y al mood del día. El resultado: una experiencia fácil de organizar, fluida de vivir y difícil de olvidar.",
     cta: "¿Quieres Vivir la Experiencia?",
@@ -283,11 +283,12 @@ const es: Copy = {
         chips: ["Estrategia", "Liderazgo", "Coaching"],
         bio: "Marta aporta la visión estratégica que da dirección y coherencia a Colmena Experience. Cree que un gran proyecto necesita mucho más que una buena idea: necesita comprender a las personas, responder a una necesidad real y construirse sobre una base sólida. Con más de 15 años de experiencia en estrategia, finanzas, liderazgo y coaching, aporta una mirada que combina visión empresarial y desarrollo humano. Como Coach acreditada por la International Coaching Federation (ICF), acompaña a Colmena para mantener el equilibrio entre los objetivos del cliente, la experiencia de las personas y la esencia de cada proyecto.",
       },
+      
       {
-        name: "Laia Ferrandis",
-        role: "Creative Experience Designer",
-        chips: ["Creatividad", "Innovación", "Dinamización"],
-        bio: "Laia aporta una mirada fresca y creativa a cada experiencia. Forma parte del equipo creativo junto a María y Mireia, colaborando en el diseño de propuestas capaces de sorprender, emocionar y conectar con las personas. Además, con más de 10 años de experiencia dinamizando grupos, sabe cómo conseguir que las personas se impliquen desde el primer momento. Su capacidad para leer al grupo, adaptar el ritmo de cada dinámica y contagiar su entusiasmo hace que cada experiencia fluya de forma natural y se viva con intensidad.",
+        name: "Mireia Nagel",
+        role: "Event Manager",
+        chips: ["Creatividad", "Storytelling", "Diseño de experiencias"],
+        bio: "Mireia convierte las ideas en experiencias con intención. Trabaja mano a mano con María para transformar cada concepto en una propuesta única, adaptándola a las necesidades, los objetivos y la personalidad de cada equipo. Diseña las historias que dan sentido a cada experiencia, desarrolla dinámicas con propósito y coordina cada detalle para que el evento fluya de principio a fin. Graduada en Educación, aporta una mirada que combina creatividad, narrativa y aprendizaje para crear experiencias que conectan con las personas y dejan huella.",
       },
       {
         name: "Alberto Ruiz",
@@ -296,10 +297,10 @@ const es: Copy = {
         bio: "Beto transforma las ideas en una identidad visual que da personalidad a cada experiencia. Como creador de la imagen de la marca, es quien consigue que cada experiencia mantenga la personalidad y el cuidado por el detalle que nos caracteriza. Además, coordina la producción de los eventos para que todo funcione exactamente como fue diseñado. Su experiencia en el diseño gráfico y la producción de experiencias le permite convertir cada idea en un espacio, una imagen y una puesta en escena que refuerzan el propósito de cada evento.",
       },
       {
-        name: "Mireia Nagel",
-        role: "Event Manager",
-        chips: ["Creatividad", "Storytelling", "Diseño de experiencias"],
-        bio: "Mireia convierte las ideas en experiencias con intención. Trabaja mano a mano con María para transformar cada concepto en una propuesta única, adaptándola a las necesidades, los objetivos y la personalidad de cada equipo. Diseña las historias que dan sentido a cada experiencia, desarrolla dinámicas con propósito y coordina cada detalle para que el evento fluya de principio a fin. Graduada en Educación, aporta una mirada que combina creatividad, narrativa y aprendizaje para crear experiencias que conectan con las personas y dejan huella.",
+        name: "Laia Ferrandis",
+        role: "Creative Experience Designer",
+        chips: ["Creatividad", "Innovación", "Dinamización"],
+        bio: "Laia aporta una mirada fresca y creativa a cada experiencia. Forma parte del equipo creativo junto a María y Mireia, colaborando en el diseño de propuestas capaces de sorprender, emocionar y conectar con las personas. Además, con más de 10 años de experiencia dinamizando grupos, sabe cómo conseguir que las personas se impliquen desde el primer momento. Su capacidad para leer al grupo, adaptar el ritmo de cada dinámica y contagiar su entusiasmo hace que cada experiencia fluya de forma natural y se viva con intensidad.",
       },
       {
         name: "Judith Aluja",

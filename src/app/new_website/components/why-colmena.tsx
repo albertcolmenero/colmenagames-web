@@ -40,7 +40,7 @@ export function WhyColmena() {
       <Container>
         <div className="gap-12 lg:grid lg:grid-cols-12">
           {/* Left — sticky intro */}
-          <div className="self-start lg:sticky lg:top-28 lg:col-span-5">
+          <div className="min-w-0 self-start lg:sticky lg:top-28 lg:col-span-5">
             <Reveal>
               <Eyebrow>{copy.why.eyebrow}</Eyebrow>
               <h2 className="mt-6 font-display text-4xl font-black uppercase leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">

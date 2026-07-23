@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Figtree, Space_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./new-website.css";
 
 const archivo = Archivo({
@@ -40,6 +41,7 @@ export default function NewWebsiteLayout({
         }}
       />
       {children}
+      <Analytics />
     </div>
   );
 }

@@ -34,7 +34,7 @@ const ca: Copy = {
   esencia: {
     eyebrow: "01 / La nostra essència",
     h2line1: "CADA EQUIP ÉS DIFERENT",
-    h2line2: "L'EXPERIÈNCIA TAMBÉ HAURIA DE SER-HO.",
+    h2line2: "L'EXPERIÈNCIA TAMBÉ HAURIA DE SER-HO",
     p1: "Seleccionem i adaptem les nostres experiències perquè encaixin amb les persones, el moment i els objectius de cada empresa. De manera senzilla, àgil i sense generar més feina per al teu equip.",
     p2: "No venem jocs solts ni packs rígids. Partim de formats i mecàniques que sabem que funcionen, els combinem i els adaptem al perfil real del grup, al context de l'organització i al mood del dia. El resultat: una experiència fàcil d'organitzar, fluida de viure i difícil d'oblidar.",
     cta: "Vols Viure l'Experiència?",
@@ -73,7 +73,7 @@ const ca: Copy = {
   },
   why: {
     eyebrow: "02 / Per què Colmena",
-    h2: "T'ho posem fàcil perquè l'esdeveniment funcioni",
+    h2: "T'ho posem fàcil perquè l'es\u00ADde\u00ADve\u00ADni\u00ADment funcioni",
     intro:
       "Qui contracta no compra només una dinàmica. Compra tranquil·litat. Per això us acompanyem abans, durant i després perquè tot surti bé.",
     promiseQuote:
@@ -262,7 +262,7 @@ const ca: Copy = {
     h2: "La nostra història",
     lead: "Colmena Experience va néixer molt abans d'organitzar el seu primer esdeveniment.",
     paragraphs: [
-      "Va néixer amb la María, una persona que sempre trobava una excusa per reunir la gent. Era qui preparava les festes d'aniversari dels seus amics, qui dissenyava els jocs per als sopars de Nadal i qui gaudia veient com persones molt diferents acabaven rient, col·laborant i creant records juntes.",
+      "Va néixer amb la Maria, una persona que sempre trobava una excusa per reunir la gent. Era qui preparava les festes d'aniversari dels seus amics, qui dissenyava els jocs per als sopars de Nadal i qui gaudia veient com persones molt diferents acabaven rient, col·laborant i creant records juntes.",
       "Amb el temps va comprendre que allò no era només una afició, sinó la manera com volia aportar valor als altres. Després de donar-hi moltes voltes, va decidir convertir la seva passió en la seva professió i va demanar ajuda a les persones que més confiaven en aquell somni.",
       "Així va néixer Colmena Experience: un projecte construït per emprenedors, docents, especialistes en gestió de projectes, màrqueting i finances units per una mateixa idea: crear experiències amb propòsit, capaces de connectar persones d'una manera autèntica.",
       "Avui continuem creixent amb la mateixa il·lusió amb què vam començar. Adaptem cada experiència a les persones, al moment i als objectius de cada equip. Perquè creiem que quan una experiència està pensada amb intenció, no només es gaudeix: es recorda, es comparteix i deixa empremta.",
@@ -275,7 +275,7 @@ const ca: Copy = {
         name: "Maria Colmenero",
         role: "CEO & Founder",
         chips: ["Lideratge", "Desenvolupament", "Propòsit"],
-        bio: "La María troba el propòsit darrere de cada experiència. Creu que una gran experiència comença molt abans del dia de l'esdeveniment: comença escoltant. La seva experiència de més d'una dècada liderant equips li permet comprendre la realitat del teu equip, detectar-ne les necessitats i trobar el propòsit que donarà sentit a l'experiència. A partir d'aquí, lidera el disseny de cada proposta i coordina amb la resta de l'equip creatiu tot el procés perquè només hàgiu de fer una cosa: gaudir d'una experiència creada especialment per a vosaltres.",
+        bio: "La Maria troba el propòsit darrere de cada experiència. Creu que una gran experiència comença molt abans del dia de l'esdeveniment: comença escoltant. La seva experiència de més d'una dècada liderant equips li permet comprendre la realitat del teu equip, detectar-ne les necessitats i trobar el propòsit que donarà sentit a l'experiència. A partir d'aquí, lidera el disseny de cada proposta i coordina amb la resta de l'equip creatiu tot el procés perquè només hàgiu de fer una cosa: gaudir d'una experiència creada especialment per a vosaltres.",
       },
       {
         name: "Marta Forés",
@@ -284,10 +284,10 @@ const ca: Copy = {
         bio: "La Marta aporta la visió estratègica que dona direcció i coherència a Colmena Experience. Creu que un gran projecte necessita molt més que una bona idea: necessita comprendre les persones, respondre a una necessitat real i construir-se sobre una base sòlida. Amb més de 15 anys d'experiència en estratègia, finances, lideratge i coaching, aporta una mirada que combina visió empresarial i desenvolupament humà. Com a Coach acreditada per la International Coaching Federation (ICF), acompanya Colmena per mantenir l'equilibri entre els objectius del client, l'experiència de les persones i l'essència de cada projecte.",
       },
       {
-        name: "Laia Ferrandis",
-        role: "Creative Experience Designer",
-        chips: ["Creativitat", "Innovació", "Dinamització"],
-        bio: "La Laia aporta una mirada fresca i creativa a cada experiència. Forma part de l'equip creatiu juntament amb la María i la Mireia, col·laborant en el disseny de propostes capaces de sorprendre, emocionar i connectar amb les persones. A més, amb més de 10 anys d'experiència dinamitzant grups, sap com aconseguir que les persones s'impliquin des del primer moment. La seva capacitat per llegir el grup, adaptar el ritme de cada dinàmica i contagiar el seu entusiasme fa que cada experiència flueixi de manera natural i es visqui amb intensitat.",
+        name: "Mireia Nagel",
+        role: "Event Manager",
+        chips: ["Creativitat", "Storytelling", "Disseny d'experiències"],
+        bio: "La Mireia converteix les idees en experiències amb intenció. Treballa colze a colze amb la Maria per transformar cada concepte en una proposta única, adaptant-la a les necessitats, els objectius i la personalitat de cada equip. Dissenya les històries que donen sentit a cada experiència, desenvolupa dinàmiques amb propòsit i coordina cada detall perquè l'esdeveniment flueixi de principi a fi. Graduada en Educació, aporta una mirada que combina creativitat, narrativa i aprenentatge per crear experiències que connecten amb les persones i deixen empremta.",
       },
       {
         name: "Alberto Ruiz",
@@ -296,11 +296,13 @@ const ca: Copy = {
         bio: "En Beto transforma les idees en una identitat visual que dona personalitat a cada experiència. Com a creador de la imatge de la marca, és qui aconsegueix que cada experiència mantingui la personalitat i la cura pel detall que ens caracteritza. A més, coordina la producció dels esdeveniments perquè tot funcioni exactament com es va dissenyar. La seva experiència en el disseny gràfic i la producció d'experiències li permet convertir cada idea en un espai, una imatge i una posada en escena que reforcen el propòsit de cada esdeveniment.",
       },
       {
-        name: "Mireia Nagel",
-        role: "Event Manager",
-        chips: ["Creativitat", "Storytelling", "Disseny d'experiències"],
-        bio: "La Mireia converteix les idees en experiències amb intenció. Treballa colze a colze amb la María per transformar cada concepte en una proposta única, adaptant-la a les necessitats, els objectius i la personalitat de cada equip. Dissenya les històries que donen sentit a cada experiència, desenvolupa dinàmiques amb propòsit i coordina cada detall perquè l'esdeveniment flueixi de principi a fi. Graduada en Educació, aporta una mirada que combina creativitat, narrativa i aprenentatge per crear experiències que connecten amb les persones i deixen empremta.",
+        name: "Laia Ferrandis",
+        role: "Creative Experience Designer",
+        chips: ["Creativitat", "Innovació", "Dinamització"],
+        bio: "La Laia aporta una mirada fresca i creativa a cada experiència. Forma part de l'equip creatiu juntament amb la Maria i la Mireia, col·laborant en el disseny de propostes capaces de sorprendre, emocionar i connectar amb les persones. A més, amb més de 10 anys d'experiència dinamitzant grups, sap com aconseguir que les persones s'impliquin des del primer moment. La seva capacitat per llegir el grup, adaptar el ritme de cada dinàmica i contagiar el seu entusiasme fa que cada experiència flueixi de manera natural i es visqui amb intensitat.",
       },
+      
+      
       {
         name: "Judith Aluja",
         role: "Head de Comunicació",

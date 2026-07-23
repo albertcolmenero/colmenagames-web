@@ -263,8 +263,8 @@ const en: Copy = {
     lead: "Colmena Experience was born long before it organised its first event.",
     paragraphs: [
       "It began with María, someone who could always find an excuse to bring people together. She was the one who organised her friends' birthday parties, designed the games for Christmas dinners and loved watching very different people end up laughing, collaborating and making memories together.",
-      "Over time she realised this wasn't just a hobby — it was how she wanted to bring value to others. After much thought, she decided to turn her passion into her profession and asked for help from the people who believed most in that dream.",
-      "That's how Colmena Experience was born: a project built by entrepreneurs, teachers and specialists in project management, marketing and finance, united by a single idea — creating experiences with purpose, capable of connecting people in an authentic way.",
+      "Over time she realised this wasn't just a hobby; it was how she wanted to bring value to others. After much thought, she decided to turn her passion into her profession and asked for help from the people who believed most in that dream.",
+      "That's how Colmena Experience was born: a project built by entrepreneurs, teachers and specialists in project management, marketing and finance, united by a single idea: creating experiences with purpose, capable of connecting people in an authentic way.",
       "Today we keep growing with the same enthusiasm we started with. We adapt every experience to each team's people, moment and goals. Because we believe that when an experience is designed with intention, it isn't just enjoyed: it's remembered, it's shared and it leaves a mark.",
     ],
     equipoTitle: "Meet the team behind every experience",
@@ -283,23 +283,24 @@ const en: Copy = {
         chips: ["Strategy", "Leadership", "Coaching"],
         bio: "Marta brings the strategic vision that gives Colmena Experience direction and coherence. She believes a great project needs far more than a good idea: it needs to understand people, answer a real need and be built on solid foundations. With more than 15 years of experience in strategy, finance, leadership and coaching, she brings a perspective that combines business vision with human development. As a Coach accredited by the International Coaching Federation (ICF), she helps Colmena keep the balance between the client's goals, people's experience and the essence of each project.",
       },
-      {
-        name: "Laia Ferrandis",
-        role: "Creative Experience Designer",
-        chips: ["Creativity", "Innovation", "Facilitation"],
-        bio: "Laia brings a fresh, creative eye to every experience. She is part of the creative team alongside María and Mireia, collaborating on the design of proposals that surprise, move and connect with people. And with more than 10 years of experience facilitating groups, she knows how to get people involved from the very first moment. Her ability to read the group, adjust the pace of each dynamic and spread her enthusiasm makes every experience flow naturally and be lived to the full.",
-      },
-      {
-        name: "Alberto Ruiz",
-        role: "Visual Identity & Event Production",
-        chips: ["Brand design", "Graphic design", "Set design"],
-        bio: "Beto turns ideas into a visual identity that gives each experience its personality. As the creator of the brand's image, he is the one who makes sure every experience keeps the personality and attention to detail we're known for. He also coordinates event production so that everything works exactly as it was designed. His background in graphic design and experience production allows him to turn every idea into a space, an image and a staging that reinforce the purpose of each event.",
-      },
+      
       {
         name: "Mireia Nagel",
         role: "Event Manager",
         chips: ["Creativity", "Storytelling", "Experience design"],
         bio: "Mireia turns ideas into experiences with intention. She works hand in hand with María to transform each concept into a unique proposal, adapting it to the needs, goals and personality of every team. She designs the stories that give each experience its meaning, develops purposeful dynamics and coordinates every detail so the event flows from start to finish. A graduate in Education, she brings a perspective that combines creativity, narrative and learning to create experiences that connect with people and leave a mark.",
+      },
+      {
+        name: "Alberto Ruiz",
+        role: "Visual Identity & Event Production",
+        chips: ["Brand design", "Graphic design", "Set design"],
+        bio: "Beto turns ideas into a visual identity that gives each experience its personality. As the creator of the brand's image, he is the one who makes sure every experience keeps the personality and attention to detail we're known for. He also coordinates event production so that everything works exactly as it was designed. His background in graphic design and experience in production allows him to turn every idea into a space, an image and a staging that reinforce the purpose of each event.",
+      },
+      {
+        name: "Laia Ferrandis",
+        role: "Creative Experience Designer",
+        chips: ["Creativity", "Innovation", "Facilitation"],
+        bio: "Laia brings a fresh, creative eye to every experience. She is part of the creative team alongside María and Mireia, collaborating on the design of proposals that surprise, move and connect with people. And with more than 10 years of experience facilitating groups, she knows how to get people involved from the very first moment. Her ability to read the group, adjust the pace of each dynamic and spread her enthusiasm makes every experience flow naturally and be lived to the full.",
       },
       {
         name: "Judith Aluja",

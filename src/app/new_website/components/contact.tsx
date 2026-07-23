@@ -162,8 +162,8 @@ export function Contact() {
                 alt="Abejas trabajando en una oficina con forma de dado"
                 width={1920}
                 height={1080}
-                sizes="576px"
-                className="mt-2 h-auto w-full max-w-xl"
+                sizes="400px"
+                className="mt-10 h-auto w-full max-w-md"
               />
             </Reveal>
           </div>
