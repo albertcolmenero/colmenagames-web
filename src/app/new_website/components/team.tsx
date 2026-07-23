@@ -7,9 +7,9 @@ import { useCopy } from "../i18n/context";
 const PHOTOS = [
   "/new_website/team/maria.png",
   "/new_website/team/marta.png",
-  "/new_website/team/laia.png",
-  "/new_website/team/alberto.png",
   "/new_website/team/mireia.png",
+  "/new_website/team/alberto.png",
+  "/new_website/team/laia.png",
   "/new_website/team/judith.png",
 ];
 
