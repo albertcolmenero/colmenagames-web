@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { CalendarDays, Globe, Menu, X } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn, sectionHref } from "@/lib/utils";
 import { useCopy } from "@/i18n/context";
 import type { Locale } from "@/i18n/types";
 import { CTAButton } from "./primitives";
@@ -49,8 +49,15 @@ function Languages({ className }: { className?: string }) {
   );
 }
 
-export function Header() {
+export function Header({
+  linkPrefix = "",
+  onPageContact = false,
+}: {
+  linkPrefix?: string;
+  onPageContact?: boolean;
+}) {
   const { copy } = useCopy();
+  const hrefFor = (href: string) => sectionHref(href, linkPrefix, onPageContact);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -80,7 +87,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-[72px] w-full max-w-7xl items-center justify-between gap-4 px-5 sm:px-8">
         {/* Logo */}
-        <a href="#empieza-aqui" className="flex shrink-0 items-center gap-3">
+        <a href={hrefFor("#empieza-aqui")} className="flex shrink-0 items-center gap-3">
           <Image
             src="/logo-trim.png"
             alt="Colmena Experience"
@@ -105,7 +112,7 @@ export function Header() {
           {navItems.map((item) => (
             <a
               key={item.href}
-              href={item.href}
+              href={hrefFor(item.href)}
               className="font-mono text-[11px] uppercase tracking-[0.14em] text-ink/70 transition-colors hover:text-ember"
             >
               {item.label}
@@ -115,7 +122,7 @@ export function Header() {
 
         <div className="hidden items-center gap-5 md:flex xl:gap-6">
           <Languages />
-          <CTAButton href="#hablemos" icon={CalendarDays} variant="dark" size="sm">
+          <CTAButton href={hrefFor("#hablemos")} icon={CalendarDays} variant="dark" size="sm">
             {copy.header.cta}
           </CTAButton>
         </div>
@@ -145,7 +152,7 @@ export function Header() {
               {navItems.map((item, i) => (
                 <motion.a
                   key={item.href}
-                  href={item.href}
+                  href={hrefFor(item.href)}
                   onClick={() => setOpen(false)}
                   initial={{ opacity: 0, x: -12 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -158,7 +165,7 @@ export function Header() {
               <div className="mt-4 flex flex-col gap-5 px-4 sm:flex-row sm:items-center sm:justify-between">
                 <Languages />
                 <CTAButton
-                  href="#hablemos"
+                  href={hrefFor("#hablemos")}
                   icon={CalendarDays}
                   variant="dark"
                   size="sm"

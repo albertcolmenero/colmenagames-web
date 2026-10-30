@@ -4,8 +4,15 @@ import Image from "next/image";
 import { Instagram, Linkedin } from "lucide-react";
 import { Container, Reveal } from "./primitives";
 import { useCopy } from "@/i18n/context";
+import { sectionHref } from "@/lib/utils";
 
-export function Footer() {
+export function Footer({
+  linkPrefix = "",
+  onPageContact = false,
+}: {
+  linkPrefix?: string;
+  onPageContact?: boolean;
+}) {
   const { copy } = useCopy();
 
   const navColumns = [
@@ -74,7 +81,7 @@ export function Footer() {
                     {column.links.map((link) => (
                       <a
                         key={link.href}
-                        href={link.href}
+                        href={sectionHref(link.href, linkPrefix, onPageContact)}
                         className="block py-1.5 text-sm text-white/75 transition-colors hover:text-honey"
                       >
                         {link.label}

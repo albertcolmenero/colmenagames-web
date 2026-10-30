@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Archivo, Figtree, Space_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
+import { SITE_ORIGIN } from "@/lib/blog.mjs";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -21,6 +22,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_ORIGIN),
   title: "Team building para empresas en Barcelona y alrededores | Colmena Experience",
   description:
     "Diseñamos experiencias de team building para empresas en Barcelona, Madrid y alrededores. Actividades flexibles, divertidas y fáciles de organizar, siempre con propósito.",
