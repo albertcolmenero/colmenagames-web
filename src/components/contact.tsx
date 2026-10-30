@@ -78,7 +78,10 @@ export function Contact() {
     const payload = Object.fromEntries(new FormData(form).entries());
 
     try {
-      const res = await fetch("https://formcarry.com/s/hTf-YiYRND_", {
+      // Previous endpoint: https://formcarry.com/s/hTf-YiYRND_
+      // Forwarded by /api/contact to the PlayGTM inbound webhook. A browser
+      // call to that URL is blocked because the webhook sends no CORS header.
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
