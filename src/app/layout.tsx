@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, Figtree, Space_Mono } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -43,6 +44,7 @@ export default function RootLayout({
         />
         {children}
         <Analytics />
+        <GoogleAnalytics gaId="G-JY174GZ57Y" />
       </body>
     </html>
   );
