@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: es.meta.title,
   description: es.meta.description,
   alternates: {
+    canonical: "/",
     languages: {
       es: "/",
       ca: "/ca",

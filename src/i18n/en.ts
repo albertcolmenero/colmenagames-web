@@ -2,8 +2,7 @@ import type { Copy } from "./types";
 
 const en: Copy = {
   meta: {
-    title:
-      "Team building for companies in Barcelona and beyond | Colmena Experience",
+    title: "Team building in Barcelona | Colmena Experience",
     description:
       "We design team building experiences for companies in Barcelona, Madrid and beyond. Flexible, fun activities that are easy to organise — always with purpose.",
   },

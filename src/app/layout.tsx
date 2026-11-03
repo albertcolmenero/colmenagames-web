@@ -3,6 +3,7 @@ import { Archivo, Figtree, Space_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SITE_ORIGIN } from "@/lib/blog.mjs";
+import es from "@/i18n/es";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -23,9 +24,8 @@ const spaceMono = Space_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_ORIGIN),
-  title: "Team building para empresas en Barcelona y alrededores | Colmena Experience",
-  description:
-    "Diseñamos experiencias de team building para empresas en Barcelona, Madrid y alrededores. Actividades flexibles, divertidas y fáciles de organizar, siempre con propósito.",
+  title: es.meta.title,
+  description: es.meta.description,
 };
 
 export default function RootLayout({

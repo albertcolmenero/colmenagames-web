@@ -2,10 +2,9 @@ import type { Copy } from "./types";
 
 const ca: Copy = {
   meta: {
-    title:
-      "Team building per a empreses a Barcelona i rodalies | Colmena Experience",
+    title: "Team building a Barcelona | Colmena Experience",
     description:
-      "Dissenyem experiències de team building per a empreses a Barcelona, Madrid i rodalies. Activitats flexibles, divertides i fàcils d'organitzar, sempre amb propòsit.",
+      "Dissenyem experiències de team building per a empreses a Barcelona, Madrid i rodalies. Activitats flexibles i fàcils d'organitzar, sempre amb propòsit.",
   },
   header: {
     nav: {
